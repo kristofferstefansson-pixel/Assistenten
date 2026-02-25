@@ -1837,6 +1837,26 @@ function tryLoadBygg() {
   iframe.onerror = () => { iframe.style.display = 'none'; placeholder.style.display = 'flex'; };
 }
 
+
+// ═══ BYGGKALKYL NAVIGATION ═══
+function byggShowPage(id) {
+  ['kalkyl','offert','sparade','materialdb','installningar'].forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) el.classList.remove('active');
+  });
+  const byggPanel = document.getElementById('panel-bygg');
+  if (byggPanel) byggPanel.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  const pageEl = document.getElementById('page-' + id);
+  if (pageEl) pageEl.classList.add('active');
+  const idx = ['kalkyl','offert','sparade','materialdb','installningar'].indexOf(id);
+  if (byggPanel) {
+    const tabs = byggPanel.querySelectorAll('.nav-tab');
+    if (tabs[idx]) tabs[idx].classList.add('active');
+  }
+  if (id === 'materialdb') { if (typeof renderDB === 'function') renderDB(); }
+  if (id === 'sparade') { if (typeof laddaSparadeOfferter === 'function') laddaSparadeOfferter(); }
+}
+
 function quickSend(t) { document.getElementById('userInput').value = t; sendMessage(); }
 function clearChat() {
   chatHistory = [];
