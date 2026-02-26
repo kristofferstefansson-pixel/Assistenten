@@ -37,7 +37,7 @@
   .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
   .panel { display: none; flex: 1; flex-direction: column; overflow: hidden; height: calc(100vh - 148px); }
-  .panel.active { display: flex; }
+  .panel.active { display: flex; flex-direction: column; }
 
   /* CHAT */
   .chat-layout { display: flex; flex: 1; overflow: hidden; }
@@ -75,7 +75,7 @@
 
   /* BTC PANEL */
   .btc-scroll { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 15px; }
-  .section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 9px; }
+  .section-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 9px; opacity: 0.9; }
 
   .ticker { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
   .ticker-item label { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 3px; font-family: 'Syne', sans-serif; }
@@ -142,274 +142,83 @@
   }
 
   /* ═══ BYGGKALKYL STYLES ═══ */
-  #panel-bygg { overflow: hidden; display: flex; flex-direction: column; } #panel-bygg > div { display: flex; flex-direction: column; flex: 1; overflow: hidden; } #panel-bygg nav { flex-shrink: 0; position: relative !important; } #panel-bygg .page { flex: 1; overflow-y: auto; }
-
-#panel-bygg :root{
-    --bg: #0f0f0e; --surface: #1a1a18; --surface2: #242422; --border: #2e2e2b;
-    --accent: #d4a853; --accent2: #b8893a; --text: #e8e6e0; --muted: #7a7870;
-    --rot: #4a9ebb;
+  /* All panel behavior handled by .panel/.panel.active */
+  .bygg-nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 12px; flex-shrink: 0; display: flex; align-items: center; width: 100%; }
+  .bygg-nav-tabs { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .bygg-nav-tabs::-webkit-scrollbar { display: none; }
+  .bygg-tab { background: transparent; border: none; border-bottom: 2px solid transparent; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; padding: 13px 10px; cursor: pointer; white-space: nowrap; transition: all 0.2s; letter-spacing: 0.02em; }
+  .bygg-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .bygg-page { display: none; flex: 1; overflow: hidden; flex-direction: column; }
+  .bygg-page.active { display: flex; }
+  .bygg-scroll { flex: 1; overflow-y: auto; padding: 16px; padding-bottom: 100px; }
+  .bygg-scroll::-webkit-scrollbar { width: 3px; }
+  .bygg-scroll::-webkit-scrollbar-thumb { background: var(--border); }
+  .bygg-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+  .bygg-card-title { font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; letter-spacing: 0.03em; }
+  .bygg-card-title::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--accent); border-radius: 2px; flex-shrink: 0; }
+  .bygg-label { display: block; font-size: 0.62rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; margin-top: 12px; font-family: 'Inter', sans-serif; }
+  .bygg-label:first-child { margin-top: 0; }
+  .bygg-input { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.84rem; padding: 9px 12px; transition: border-color 0.2s; outline: none; -webkit-appearance: none; box-sizing: border-box; }
+  .bygg-input:focus { border-color: var(--accent); }
+  .bygg-input[type=number] { -moz-appearance: textfield; }
+  .bygg-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bygg-btn-primary { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 16px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; cursor: pointer; border: none; background: var(--accent); color: #000; transition: all 0.2s; width: 100%; }
+  .bygg-btn-primary:hover { background: var(--accent2); }
+  .bygg-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 14px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 600; cursor: pointer; background: transparent; border: 1px solid var(--border); color: var(--text); transition: all 0.2s; }
+  .bygg-btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .bygg-btn-danger { display: inline-flex; align-items: center; justify-content: center; padding: 7px 10px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.74rem; cursor: pointer; background: transparent; border: 1px solid #3a1e1e; color: #e07070; transition: all 0.2s; }
+  .bygg-btn-danger:hover { background: #2a1010; }
+  .bygg-btn-dashed { display: flex; align-items: center; justify-content: center; width: 100%; padding: 9px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 600; cursor: pointer; background: transparent; border: 1.5px dashed var(--border); color: var(--muted); transition: all 0.2s; margin-top: 8px; }
+  .bygg-btn-dashed:hover { border-color: var(--accent); color: var(--accent); }
+  .bygg-steg-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .bygg-steg-row:last-child { border-bottom: none; }
+  .bygg-steg-num { width: 22px; height: 22px; background: var(--surface2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--muted); flex-shrink: 0; font-family: 'DM Mono', monospace; }
+  .bygg-mat-row { display: flex; align-items: center; gap: 6px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .bygg-mat-row:last-child { border-bottom: none; }
+  .bygg-db-row { display: flex; align-items: center; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .bygg-db-row:last-child { border-bottom: none; }
+  .bygg-summary { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-top: 14px; }
+  .bygg-sum-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-size: 0.78rem; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .bygg-sum-row:last-child { border-bottom: none; }
+  .bygg-sum-big { color: var(--text); font-weight: 600; font-size: 0.85rem; padding-top: 9px; }
+  .bygg-sum-rot { color: #4a9ebb; }
+  .bygg-sum-final { color: var(--accent); font-weight: 700; font-size: 1rem; padding-top: 10px; }
+  .bygg-sum-val { font-family: 'DM Mono', monospace; font-size: 0.78rem; }
+  .bygg-sum-big .bygg-sum-val { font-size: 0.85rem; }
+  .bygg-sum-final .bygg-sum-val { font-size: 1rem; }
+  .bygg-toggle { position: relative; width: 42px; height: 23px; flex-shrink: 0; }
+  .bygg-toggle input { opacity: 0; width: 0; height: 0; }
+  .bygg-toggle-slider { position: absolute; inset: 0; background: var(--border); border-radius: 23px; cursor: pointer; transition: 0.2s; }
+  .bygg-toggle-slider::before { content: ''; position: absolute; width: 17px; height: 17px; left: 3px; top: 3px; background: white; border-radius: 50%; transition: 0.2s; }
+  .bygg-toggle input:checked + .bygg-toggle-slider { background: var(--accent); }
+  .bygg-toggle input:checked + .bygg-toggle-slider::before { transform: translateX(19px); }
+  .bygg-setting-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); gap: 12px; }
+  .bygg-setting-row:last-child { border-bottom: none; }
+  .bygg-logo-area { border: 2px dashed var(--border); border-radius: 10px; padding: 18px; text-align: center; cursor: pointer; transition: border-color 0.2s; }
+  .bygg-logo-area:hover { border-color: var(--accent); }
+  .bygg-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: var(--surface); border: 1px solid var(--accent); border-radius: 8px; z-index: 200; max-height: 200px; overflow-y: auto; margin-top: 2px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .bygg-dropdown-item { padding: 9px 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; border-bottom: 1px solid var(--border); }
+  .bygg-dropdown-item:last-child { border-bottom: none; }
+  .bygg-dropdown-item:hover { background: var(--surface2); }
+  .bygg-offert-list-row { display: flex; align-items: center; gap: 8px; padding: 11px 0; border-bottom: 1px solid var(--border); }
+  .bygg-offert-list-row:last-child { border-bottom: none; }
+  .bygg-cat-head { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); padding: 10px 0 5px; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { background: white !important; margin: 0; padding: 0; }
+    body > * { display: none !important; }
+    #panel-bygg { display: block !important; background: white !important; }
+    .bygg-nav { display: none !important; }
+    .bygg-page { display: block !important; background: white !important; }
+    .bygg-scroll { overflow: visible !important; padding: 0 !important; background: white !important; }
+    .bygg-card { display: none !important; }
+    #bygg-offert { display: block !important; }
+    #bygg-offert .bygg-scroll { padding: 0 !important; }
+    #bygg-offert > .bygg-scroll > div:first-child { display: none !important; }
+    #b-offert-preview { background: white !important; border-radius: 0 !important; box-shadow: none !important; }
+    .bygg-card { display: none !important; }
+    #bygg-offert .bygg-card { display: block !important; background: white !important; border: none !important; padding: 0 !important; }
   }
-
-#panel-bygg *{ box-sizing: border-box; margin: 0; padding: 0; }
-
-#panel-bygg body{ background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; font-weight: 400; min-height: 100vh; font-size: 15px; }
-
-#panel-bygg /* AUTH SCREEN */
-  #auth-screen{ display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 32px 20px; }
-
-#panel-bygg .auth-logo{ font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--accent); margin-bottom: 8px; }
-
-#panel-bygg .auth-sub{ font-size: 14px; color: var(--muted); margin-bottom: 40px; }
-
-#panel-bygg .auth-card{ background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; width: 100%; max-width: 380px; }
-
-#panel-bygg .auth-tabs{ display: flex; gap: 0; margin-bottom: 24px; background: var(--surface2); border-radius: 8px; padding: 3px; }
-
-#panel-bygg .auth-tab{ flex: 1; text-align: center; padding: 8px; font-size: 14px; font-weight: 500; color: var(--muted); cursor: pointer; border-radius: 6px; transition: all 0.2s; }
-
-#panel-bygg .auth-tab.active{ background: var(--accent); color: #0f0f0e; }
-
-#panel-bygg .auth-error{ background: #2a1010; border: 1px solid #5a2020; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #e07070; margin-top: 12px; display: none; }
-
-#panel-bygg .auth-info{ background: #1a2a1a; border: 1px solid #2a4a2a; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #70c070; margin-top: 12px; display: none; }
-
-#panel-bygg /* APP */
-  #app-screen{ display: none; }
-
-#panel-bygg nav{ background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 12px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
-
-#panel-bygg .nav-logo{ font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--accent); padding: 14px 0; flex: 1; }
-
-#panel-bygg .nav-tabs{ display: flex; }
-
-#panel-bygg .nav-tab{ padding: 14px 10px; font-size: 12px; font-weight: 500; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; }
-
-#panel-bygg .nav-tab.active{ color: var(--accent); border-bottom-color: var(--accent); }
-
-#panel-bygg .nav-user{ font-size: 11px; color: var(--muted); cursor: pointer; padding: 6px 8px; border-radius: 6px; }
-
-#panel-bygg .nav-user:hover{ color: #e07070; }
-
-#panel-bygg .page{ display: none; padding: 20px 16px 100px; max-width: 600px; margin: 0 auto; }
-
-#panel-bygg .page.active{ display: block; }
-
-#panel-bygg .card{ background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
-
-#panel-bygg .card-title{ font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-
-#panel-bygg .card-title::before{ content: ''; display: inline-block; width: 3px; height: 18px; background: var(--accent); border-radius: 2px; }
-
-#panel-bygg label{ display: block; font-size: 12px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; margin-top: 14px; }
-
-#panel-bygg label:first-child{ margin-top: 0; }
-
-#panel-bygg input, #panel-bygg textarea, #panel-bygg select{ width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'Outfit', sans-serif; font-size: 15px; padding: 10px 14px; transition: border-color 0.2s; outline: none; -webkit-appearance: none; }
-
-#panel-bygg input:focus, #panel-bygg textarea:focus, #panel-bygg select:focus{ border-color: var(--accent); }
-
-#panel-bygg textarea{ resize: vertical; min-height: 90px; }
-
-#panel-bygg .row2{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-#panel-bygg .btn{ display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 18px; border-radius: 8px; font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
-
-#panel-bygg .btn-primary{ background: var(--accent); color: #0f0f0e; width: 100%; padding: 14px; font-size: 15px; margin-top: 4px; }
-
-#panel-bygg .btn-primary:hover{ background: var(--accent2); }
-
-#panel-bygg .btn-ghost{ background: transparent; border: 1px solid var(--border); color: var(--text); font-size: 13px; padding: 8px 14px; }
-
-#panel-bygg .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
-
-#panel-bygg .btn-danger{ background: transparent; border: 1px solid #3a1e1e; color: #e07070; font-size: 13px; padding: 8px 10px; }
-
-#panel-bygg .btn-danger:hover{ background: #2a1010; }
-
-#panel-bygg .btn-add{ background: transparent; border: 1px dashed var(--border); color: var(--muted); width: 100%; padding: 10px; font-size: 13px; margin-top: 8px; }
-
-#panel-bygg .btn-add:hover{ border-color: var(--accent); color: var(--accent); }
-
-#panel-bygg .btn-sm{ padding: 6px 12px; font-size: 12px; }
-
-#panel-bygg .btn:disabled{ opacity: 0.5; cursor: not-allowed; }
-
-#panel-bygg .arbetsteg-row{ display: flex; align-items: flex-start; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); }
-
-#panel-bygg .arbetsteg-row:last-child{ border-bottom: none; }
-
-#panel-bygg .step-num{ width: 24px; height: 24px; background: var(--surface2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--muted); flex-shrink: 0; margin-top: 10px; font-family: 'DM Mono', monospace; }
-
-#panel-bygg .arbetsteg-row input{ flex: 1; }
-
-#panel-bygg .mat-row{ display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); }
-
-#panel-bygg .mat-row:last-child{ border-bottom: none; }
-
-#panel-bygg .mat-row .mat-name{ flex: 1; min-width: 0; }
-
-#panel-bygg .mat-row .mat-qty{ width: 65px; flex: none; }
-
-#panel-bygg .mat-row .mat-unit{ width: 40px; flex: none; font-size: 12px; color: var(--muted); padding: 0; background: transparent; border: none; text-align: center; }
-
-#panel-bygg .mat-row .mat-price{ width: 80px; flex: none; font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); padding: 0; background: transparent; border: none; text-align: right; }
-
-#panel-bygg .db-row{ display: flex; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--border); }
-
-#panel-bygg .db-row:last-child{ border-bottom: none; }
-
-#panel-bygg .summary-box{ background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-top: 16px; }
-
-#panel-bygg .sum-row{ display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 14px; color: var(--muted); border-bottom: 1px solid var(--border); }
-
-#panel-bygg .sum-row:last-child{ border-bottom: none; }
-
-#panel-bygg .sum-row.big{ color: var(--text); font-weight: 600; font-size: 16px; padding-top: 10px; margin-top: 4px; }
-
-#panel-bygg .sum-row.rot-row{ color: var(--rot); }
-
-#panel-bygg .sum-row.final-row{ color: var(--accent); font-family: 'DM Serif Display', serif; font-size: 20px; padding-top: 12px; }
-
-#panel-bygg .sum-val{ font-family: 'DM Mono', monospace; font-size: 14px; }
-
-#panel-bygg .sum-row.big .sum-val{ font-size: 16px; }
-
-#panel-bygg .sum-row.final-row .sum-val{ font-size: 20px; }
-
-#panel-bygg .toggle{ position: relative; width: 44px; height: 24px; flex-shrink: 0; }
-
-#panel-bygg .toggle input{ opacity: 0; width: 0; height: 0; }
-
-#panel-bygg .toggle-slider{ position: absolute; inset: 0; background: var(--border); border-radius: 24px; cursor: pointer; transition: 0.2s; }
-
-#panel-bygg .toggle-slider::before{ content: ''; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; background: white; border-radius: 50%; transition: 0.2s; }
-
-#panel-bygg .toggle input:checked + .toggle-slider{ background: var(--accent); }
-
-#panel-bygg .toggle input:checked + .toggle-slider::before{ transform: translateX(20px); }
-
-#panel-bygg .setting-row{ display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); gap: 12px; }
-
-#panel-bygg .setting-row:last-child{ border-bottom: none; }
-
-#panel-bygg .setting-row input{ width: 130px; text-align: right; flex-shrink: 0; }
-
-#panel-bygg .setting-label{ font-size: 14px; }
-
-#panel-bygg .setting-sub{ font-size: 12px; color: var(--muted); }
-
-#panel-bygg .badge{ display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-
-#panel-bygg .badge-rot{ background: #1a3340; color: var(--rot); }
-
-#panel-bygg .page-header{ margin-bottom: 20px; }
-
-#panel-bygg .page-header h1{ font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--accent); margin-bottom: 4px; }
-
-#panel-bygg .page-header p{ font-size: 13px; color: var(--muted); }
-
-#panel-bygg .search-wrap{ position: relative; }
-
-#panel-bygg .search-dropdown{ position: absolute; top: 100%; left: 0; right: 0; background: var(--surface); border: 1px solid var(--accent); border-radius: 8px; z-index: 200; max-height: 220px; overflow-y: auto; margin-top: 2px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
-
-#panel-bygg .search-item{ padding: 10px 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 14px; border-bottom: 1px solid var(--border); }
-
-#panel-bygg .search-item:last-child{ border-bottom: none; }
-
-#panel-bygg .search-item:hover{ background: var(--surface2); }
-
-#panel-bygg .si-meta{ font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
-
-#panel-bygg .logo-upload-area{ border: 2px dashed var(--border); border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; transition: border-color 0.2s; }
-
-#panel-bygg .logo-upload-area:hover{ border-color: var(--accent); }
-
-#panel-bygg .logo-preview-img{ max-height: 70px; max-width: 200px; margin: 0 auto; display: block; }
-
-#panel-bygg .logo-hint{ font-size: 12px; color: var(--muted); margin-top: 8px; }
-
-#panel-bygg /* OFFERTER LISTA */
-  .offert-list-row{ display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
-
-#panel-bygg .offert-list-row:last-child{ border-bottom: none; }
-
-#panel-bygg .offert-list-row:hover .offert-list-nr{ color: var(--accent); }
-
-#panel-bygg .offert-list-nr{ font-family: 'DM Mono', monospace; font-size: 13px; color: var(--accent); width: 80px; flex-shrink: 0; }
-
-#panel-bygg .offert-list-kund{ flex: 1; font-size: 14px; }
-
-#panel-bygg .offert-list-datum{ font-size: 12px; color: var(--muted); }
-
-#panel-bygg /* OFFER PREVIEW */
-  .offer-preview{ background: #fff; color: #1a1a18; border-radius: 12px; padding: 28px 24px; margin-top: 16px; font-family: 'Outfit', sans-serif; }
-
-#panel-bygg .offer-header{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px solid #d4a853; }
-
-#panel-bygg .offer-company{ font-family: 'DM Serif Display', serif; font-size: 20px; color: #1a1a18; }
-
-#panel-bygg .offer-company-sub{ font-size: 12px; color: #666; margin-top: 2px; }
-
-#panel-bygg .offer-nr{ text-align: right; font-size: 12px; color: #666; }
-
-#panel-bygg .offer-nr strong{ font-size: 16px; color: #1a1a18; display: block; font-family: 'DM Mono', monospace; }
-
-#panel-bygg .offer-section{ margin-bottom: 20px; }
-
-#panel-bygg .offer-section h3{ font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 8px; }
-
-#panel-bygg .offer-steps{ list-style: none; }
-
-#panel-bygg .offer-steps li{ padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-
-#panel-bygg .offer-steps li::before{ content: '–'; color: #d4a853; font-weight: bold; }
-
-#panel-bygg .offer-materials{ font-size: 13px; color: #444; }
-
-#panel-bygg .offer-price-table{ width: 100%; border-collapse: collapse; }
-
-#panel-bygg .offer-price-table td{ padding: 7px 0; font-size: 14px; border-bottom: 1px solid #f0f0f0; }
-
-#panel-bygg .offer-price-table tr:last-child td{ border-bottom: none; }
-
-#panel-bygg .offer-price-table .label{ color: #444; }
-
-#panel-bygg .offer-price-table .val{ text-align: right; font-family: 'DM Mono', monospace; font-weight: 500; }
-
-#panel-bygg .offer-total-row td{ font-weight: 700; font-size: 16px; border-top: 2px solid #d4a853 !important; padding-top: 12px !important; }
-
-#panel-bygg .offer-rot-note{ background: #e8f4fb; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #2980b9; margin-top: 8px; }
-
-#panel-bygg .offer-footer{ border-top: 1px solid #eee; padding-top: 16px; font-size: 12px; color: #888; line-height: 1.7; }
-
-#panel-bygg .offer-conditions{ background: #fafafa; border-radius: 6px; padding: 12px; font-size: 12px; color: #666; line-height: 1.6; }
-
-#panel-bygg .offer-validity{ font-weight: 600; color: #1a1a18; font-size: 13px; margin-top: 10px; }
-
-#panel-bygg .cat-head{ font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); padding: 12px 0 6px; }
-
-#panel-bygg /* TOAST */
-  .toast{ position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 20px; font-size: 14px; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.4); display: none; white-space: nowrap; }
-
-#panel-bygg .toast.success{ border-color: #2a4a2a; color: #70c070; }
-
-#panel-bygg .toast.error{ border-color: #5a2020; color: #e07070; }
-
-#panel-bygg /* SPINNER */
-  .spinner{ display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: currentColor; border-radius: 50%; animation: spin 0.7s linear infinite; }
-
-@keyframes spin{ to { transform: rotate(360deg); } }
-
-#panel-bygg #mat-col-header{ display: none; }
-
-@media print{
-    body { background: white; }
-    nav, .page-header, .card:not(.offer-card), .btn { display: none !important; }
-    .page { padding: 0; }
-    .offer-preview { border-radius: 0; padding: 20px; }
-  }
-
-
 </style>
 </head>
 <body>
@@ -567,772 +376,195 @@
 
 <!-- BYGGKALKYL -->
 <div class="panel" id="panel-bygg">
-  <div style="flex:1;overflow-y:auto;background:#0f0f0e;">
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.26.0/dist/umd/supabase.min.js"></script>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWExYTEwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBhMGEwOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmN2Q3NzQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmNWM4NDIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYzg5NjBhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4zIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4wNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI4IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJibHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIAogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIE91dGVyIHJpbmcgZ2xvdyAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3JpbmcpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4yIi8+CiAgCiAgPCEtLSBTdWJ0bGUgZ3JpZCBsaW5lcyAtLT4KICA8bGluZSB4MT0iODAiIHkxPSIyNTYiIHgyPSI0MzIiIHkyPSIyNTYiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA4Ii8+CiAgPGxpbmUgeDE9IjI1NiIgeTE9IjgwIiB4Mj0iMjU2IiB5Mj0iNDMyIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4wOCIvPgoKICA8IS0tIElubmVyIGNpcmNsZSBiYWNrZ3JvdW5kIC0tPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTc1IiBmaWxsPSIjMTMxMzEwIi8+CiAgPGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIxNzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4xNSIvPgoKICA8IS0tIEJpdGNvaW4gQiBzeW1ib2wgLSBib2xkLCBzaGFycCwgbW9kZXJuIC0tPgogIDwhLS0gTGVmdCB2ZXJ0aWNhbCBiYXIgLS0+CiAgPHJlY3QgeD0iMTc4IiB5PSIxNDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSIyMjIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICAKICA8IS0tIFRvcCBidW1wIC0tPgogIDxyZWN0IHg9IjE3OCIgeT0iMTQ1IiB3aWR0aD0iOTgiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIyNDAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIzMzUiIHdpZHRoPSI5OCIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZ29sZCkiLz4KICAKICA8IS0tIFRvcCBhcmMgLS0+CiAgPHBhdGggZD0iTSAyNzYgMTQ1IFEgMzQwIDE0NSAzNDAgMTk5IFEgMzQwIDI0MCAyNzYgMjQwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBCb3R0b20gYXJjIChzbGlnaHRseSB3aWRlcikgLS0+CiAgPHBhdGggZD0iTSAyODggMjQwIFEgMzU4IDI0MCAzNTggMjk1IFEgMzU4IDM2NyAyODggMzY3IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBUb3Agc2VyaWYgbGluZXMgKGNsYXNzaWMgQml0Y29pbiBzdHlsZSkgLS0+CiAgPHJlY3QgeD0iMjAyIiB5PSIxMjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjEyNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNCIgZmlsbD0idXJsKCNnb2xkKSIvPgogIDwhLS0gQm90dG9tIHNlcmlmIGxpbmVzIC0tPgogIDxyZWN0IHg9IjIwMiIgeT0iMzU5IiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI0IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMjQ4IiB5PSIzNTkiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KCiAgPCEtLSBDb3JuZXIgZG90cyAvIGRlY29yYXRpdmUgLS0+CiAgPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTI4IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgogIDxjaXJjbGUgY3g9IjM4NCIgY3k9IjEyOCIgcj0iNCIgZmlsbD0iI2Y1Yzg0MiIgZmlsbC1vcGFjaXR5PSIwLjMiLz4KICA8Y2lyY2xlIGN4PSIxMjgiIGN5PSIzODQiIHI9IjQiIGZpbGw9IiNmNWM4NDIiIGZpbGwtb3BhY2l0eT0iMC4zIi8+CiAgPGNpcmNsZSBjeD0iMzg0IiBjeT0iMzg0IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4=">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWExYTEwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBhMGEwOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmN2Q3NzQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmNWM4NDIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYzg5NjBhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4zIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4wNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI4IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJibHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIAogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIE91dGVyIHJpbmcgZ2xvdyAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3JpbmcpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4yIi8+CiAgCiAgPCEtLSBTdWJ0bGUgZ3JpZCBsaW5lcyAtLT4KICA8bGluZSB4MT0iODAiIHkxPSIyNTYiIHgyPSI0MzIiIHkyPSIyNTYiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA4Ii8+CiAgPGxpbmUgeDE9IjI1NiIgeTE9IjgwIiB4Mj0iMjU2IiB5Mj0iNDMyIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4wOCIvPgoKICA8IS0tIElubmVyIGNpcmNsZSBiYWNrZ3JvdW5kIC0tPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTc1IiBmaWxsPSIjMTMxMzEwIi8+CiAgPGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIxNzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4xNSIvPgoKICA8IS0tIEJpdGNvaW4gQiBzeW1ib2wgLSBib2xkLCBzaGFycCwgbW9kZXJuIC0tPgogIDwhLS0gTGVmdCB2ZXJ0aWNhbCBiYXIgLS0+CiAgPHJlY3QgeD0iMTc4IiB5PSIxNDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSIyMjIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICAKICA8IS0tIFRvcCBidW1wIC0tPgogIDxyZWN0IHg9IjE3OCIgeT0iMTQ1IiB3aWR0aD0iOTgiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIyNDAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIzMzUiIHdpZHRoPSI5OCIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZ29sZCkiLz4KICAKICA8IS0tIFRvcCBhcmMgLS0+CiAgPHBhdGggZD0iTSAyNzYgMTQ1IFEgMzQwIDE0NSAzNDAgMTk5IFEgMzQwIDI0MCAyNzYgMjQwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBCb3R0b20gYXJjIChzbGlnaHRseSB3aWRlcikgLS0+CiAgPHBhdGggZD0iTSAyODggMjQwIFEgMzU4IDI0MCAzNTggMjk1IFEgMzU4IDM2NyAyODggMzY3IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBUb3Agc2VyaWYgbGluZXMgKGNsYXNzaWMgQml0Y29pbiBzdHlsZSkgLS0+CiAgPHJlY3QgeD0iMjAyIiB5PSIxMjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjEyNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNCIgZmlsbD0idXJsKCNnb2xkKSIvPgogIDwhLS0gQm90dG9tIHNlcmlmIGxpbmVzIC0tPgogIDxyZWN0IHg9IjIwMiIgeT0iMzU5IiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI0IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMjQ4IiB5PSIzNTkiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KCiAgPCEtLSBDb3JuZXIgZG90cyAvIGRlY29yYXRpdmUgLS0+CiAgPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTI4IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgogIDxjaXJjbGUgY3g9IjM4NCIgY3k9IjEyOCIgcj0iNCIgZmlsbD0iI2Y1Yzg0MiIgZmlsbC1vcGFjaXR5PSIwLjMiLz4KICA8Y2lyY2xlIGN4PSIxMjgiIGN5PSIzODQiIHI9IjQiIGZpbGw9IiNmNWM4NDIiIGZpbGwtb3BhY2l0eT0iMC4zIi8+CiAgPGNpcmNsZSBjeD0iMzg0IiBjeT0iMzg0IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4=">
-<meta name="msapplication-TileImage" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWExYTEwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBhMGEwOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmN2Q3NzQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmNWM4NDIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYzg5NjBhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4zIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4wNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI4IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJibHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIAogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIE91dGVyIHJpbmcgZ2xvdyAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3JpbmcpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4yIi8+CiAgCiAgPCEtLSBTdWJ0bGUgZ3JpZCBsaW5lcyAtLT4KICA8bGluZSB4MT0iODAiIHkxPSIyNTYiIHgyPSI0MzIiIHkyPSIyNTYiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA4Ii8+CiAgPGxpbmUgeDE9IjI1NiIgeTE9IjgwIiB4Mj0iMjU2IiB5Mj0iNDMyIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4wOCIvPgoKICA8IS0tIElubmVyIGNpcmNsZSBiYWNrZ3JvdW5kIC0tPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTc1IiBmaWxsPSIjMTMxMzEwIi8+CiAgPGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIxNzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4xNSIvPgoKICA8IS0tIEJpdGNvaW4gQiBzeW1ib2wgLSBib2xkLCBzaGFycCwgbW9kZXJuIC0tPgogIDwhLS0gTGVmdCB2ZXJ0aWNhbCBiYXIgLS0+CiAgPHJlY3QgeD0iMTc4IiB5PSIxNDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSIyMjIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICAKICA8IS0tIFRvcCBidW1wIC0tPgogIDxyZWN0IHg9IjE3OCIgeT0iMTQ1IiB3aWR0aD0iOTgiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIyNDAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIzMzUiIHdpZHRoPSI5OCIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZ29sZCkiLz4KICAKICA8IS0tIFRvcCBhcmMgLS0+CiAgPHBhdGggZD0iTSAyNzYgMTQ1IFEgMzQwIDE0NSAzNDAgMTk5IFEgMzQwIDI0MCAyNzYgMjQwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBCb3R0b20gYXJjIChzbGlnaHRseSB3aWRlcikgLS0+CiAgPHBhdGggZD0iTSAyODggMjQwIFEgMzU4IDI0MCAzNTggMjk1IFEgMzU4IDM2NyAyODggMzY3IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBUb3Agc2VyaWYgbGluZXMgKGNsYXNzaWMgQml0Y29pbiBzdHlsZSkgLS0+CiAgPHJlY3QgeD0iMjAyIiB5PSIxMjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjEyNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNCIgZmlsbD0idXJsKCNnb2xkKSIvPgogIDwhLS0gQm90dG9tIHNlcmlmIGxpbmVzIC0tPgogIDxyZWN0IHg9IjIwMiIgeT0iMzU5IiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI0IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMjQ4IiB5PSIzNTkiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KCiAgPCEtLSBDb3JuZXIgZG90cyAvIGRlY29yYXRpdmUgLS0+CiAgPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTI4IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgogIDxjaXJjbGUgY3g9IjM4NCIgY3k9IjEyOCIgcj0iNCIgZmlsbD0iI2Y1Yzg0MiIgZmlsbC1vcGFjaXR5PSIwLjMiLz4KICA8Y2lyY2xlIGN4PSIxMjgiIGN5PSIzODQiIHI9IjQiIGZpbGw9IiNmNWM4NDIiIGZpbGwtb3BhY2l0eT0iMC4zIi8+CiAgPGNpcmNsZSBjeD0iMzg0IiBjeT0iMzg0IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4=">
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiQUkgQXNzaXN0ZW50Iiwic2hvcnRfbmFtZSI6IkFJIiwic3RhcnRfdXJsIjoiLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwYTBhMDgiLCJ0aGVtZV9jb2xvciI6IiNmNWM4NDIiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQTFNVElnTlRFeUlqNEtJQ0E4WkdWbWN6NEtJQ0FnSUR4c2FXNWxZWEpIY21Ga2FXVnVkQ0JwWkQwaVltY2lJSGd4UFNJd0pTSWdlVEU5SWpBbElpQjRNajBpTVRBd0pTSWdlVEk5SWpFd01DVWlQZ29nSUNBZ0lDQThjM1J2Y0NCdlptWnpaWFE5SWpBbElpQnpkSGxzWlQwaWMzUnZjQzFqYjJ4dmNqb2pNV0V4WVRFd0lpOCtDaUFnSUNBZ0lEeHpkRzl3SUc5bVpuTmxkRDBpTVRBd0pTSWdjM1I1YkdVOUluTjBiM0F0WTI5c2IzSTZJekJoTUdFd09DSXZQZ29nSUNBZ1BDOXNhVzVsWVhKSGNtRmthV1Z1ZEQ0S0lDQWdJRHhzYVc1bFlYSkhjbUZrYVdWdWRDQnBaRDBpWjI5c1pDSWdlREU5SWpBbElpQjVNVDBpTUNVaUlIZ3lQU0l4TURBbElpQjVNajBpTVRBd0pTSStDaUFnSUNBZ0lEeHpkRzl3SUc5bVpuTmxkRDBpTUNVaUlITjBlV3hsUFNKemRHOXdMV052Ykc5eU9pTm1OMlEzTnpRaUx6NEtJQ0FnSUNBZ1BITjBiM0FnYjJabWMyVjBQU0kxTUNVaUlITjBlV3hsUFNKemRHOXdMV052Ykc5eU9pTm1OV000TkRJaUx6NEtJQ0FnSUNBZ1BITjBiM0FnYjJabWMyVjBQU0l4TURBbElpQnpkSGxzWlQwaWMzUnZjQzFqYjJ4dmNqb2pZemc1TmpCaElpOCtDaUFnSUNBOEwyeHBibVZoY2tkeVlXUnBaVzUwUGdvZ0lDQWdQR3hwYm1WaGNrZHlZV1JwWlc1MElHbGtQU0p5YVc1bklpQjRNVDBpTUNVaUlIa3hQU0l3SlNJZ2VESTlJakV3TUNVaUlIa3lQU0l4TURBbElqNEtJQ0FnSUNBZ1BITjBiM0FnYjJabWMyVjBQU0l3SlNJZ2MzUjViR1U5SW5OMGIzQXRZMjlzYjNJNkkyWTFZemcwTWp0emRHOXdMVzl3WVdOcGRIazZNQzR6SWk4K0NpQWdJQ0FnSUR4emRHOXdJRzltWm5ObGREMGlNVEF3SlNJZ2MzUjViR1U5SW5OMGIzQXRZMjlzYjNJNkkyWTFZemcwTWp0emRHOXdMVzl3WVdOcGRIazZNQzR3TlNJdlBnb2dJQ0FnUEM5c2FXNWxZWEpIY21Ga2FXVnVkRDRLSUNBZ0lEeG1hV3gwWlhJZ2FXUTlJbWRzYjNjaVBnb2dJQ0FnSUNBOFptVkhZWFZ6YzJsaGJrSnNkWElnYzNSa1JHVjJhV0YwYVc5dVBTSTRJaUJ5WlhOMWJIUTlJbUpzZFhJaUx6NEtJQ0FnSUNBZ1BHWmxUV1Z5WjJVK1BHWmxUV1Z5WjJWT2IyUmxJR2x1UFNKaWJIVnlJaTgrUEdabFRXVnlaMlZPYjJSbElHbHVQU0pUYjNWeVkyVkhjbUZ3YUdsaklpOCtQQzltWlUxbGNtZGxQZ29nSUNBZ1BDOW1hV3gwWlhJK0NpQWdQQzlrWldaelBnb2dJQW9nSUR3aExTMGdRbUZqYTJkeWIzVnVaQ0F0TFQ0S0lDQThjbVZqZENCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnY25nOUlqRXhNQ0lnWm1sc2JEMGlkWEpzS0NOaVp5a2lMejRLSUNBS0lDQThJUzB0SUU5MWRHVnlJSEpwYm1jZ1oyeHZkeUF0TFQ0S0lDQThZMmx5WTJ4bElHTjRQU0l5TlRZaUlHTjVQU0l5TlRZaUlISTlJakl4TUNJZ1ptbHNiRDBpYm05dVpTSWdjM1J5YjJ0bFBTSjFjbXdvSTNKcGJtY3BJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqRXVOU0l2UGdvZ0lEeGphWEpqYkdVZ1kzZzlJakkxTmlJZ1kzazlJakkxTmlJZ2NqMGlNVGsxSWlCbWFXeHNQU0p1YjI1bElpQnpkSEp2YTJVOUlpTm1OV000TkRJaUlITjBjbTlyWlMxM2FXUjBhRDBpTUM0MUlpQnpkSEp2YTJVdGIzQmhZMmwwZVQwaU1DNHlJaTgrQ2lBZ0NpQWdQQ0V0TFNCVGRXSjBiR1VnWjNKcFpDQnNhVzVsY3lBdExUNEtJQ0E4YkdsdVpTQjRNVDBpT0RBaUlIa3hQU0l5TlRZaUlIZ3lQU0kwTXpJaUlIa3lQU0l5TlRZaUlITjBjbTlyWlQwaUkyWTFZemcwTWlJZ2MzUnliMnRsTFhkcFpIUm9QU0l3TGpVaUlITjBjbTlyWlMxdmNHRmphWFI1UFNJd0xqQTRJaTgrQ2lBZ1BHeHBibVVnZURFOUlqSTFOaUlnZVRFOUlqZ3dJaUI0TWowaU1qVTJJaUI1TWowaU5ETXlJaUJ6ZEhKdmEyVTlJaU5tTldNNE5ESWlJSE4wY205clpTMTNhV1IwYUQwaU1DNDFJaUJ6ZEhKdmEyVXRiM0JoWTJsMGVUMGlNQzR3T0NJdlBnb0tJQ0E4SVMwdElFbHVibVZ5SUdOcGNtTnNaU0JpWVdOclozSnZkVzVrSUMwdFBnb2dJRHhqYVhKamJHVWdZM2c5SWpJMU5pSWdZM2s5SWpJMU5pSWdjajBpTVRjMUlpQm1hV3hzUFNJak1UTXhNekV3SWk4K0NpQWdQR05wY21Oc1pTQmplRDBpTWpVMklpQmplVDBpTWpVMklpQnlQU0l4TnpRaUlHWnBiR3c5SW01dmJtVWlJSE4wY205clpUMGlJMlkxWXpnME1pSWdjM1J5YjJ0bExYZHBaSFJvUFNJeElpQnpkSEp2YTJVdGIzQmhZMmwwZVQwaU1DNHhOU0l2UGdvS0lDQThJUzB0SUVKcGRHTnZhVzRnUWlCemVXMWliMndnTFNCaWIyeGtMQ0J6YUdGeWNDd2diVzlrWlhKdUlDMHRQZ29nSUR3aExTMGdUR1ZtZENCMlpYSjBhV05oYkNCaVlYSWdMUzArQ2lBZ1BISmxZM1FnZUQwaU1UYzRJaUI1UFNJeE5EVWlJSGRwWkhSb1BTSXpNaUlnYUdWcFoyaDBQU0l5TWpJaUlISjRQU0kySWlCbWFXeHNQU0oxY213b0kyZHZiR1FwSWlCbWFXeDBaWEk5SW5WeWJDZ2paMnh2ZHlraUx6NEtJQ0FLSUNBOElTMHRJRlJ2Y0NCaWRXMXdJQzB0UGdvZ0lEeHlaV04wSUhnOUlqRTNPQ0lnZVQwaU1UUTFJaUIzYVdSMGFEMGlPVGdpSUdobGFXZG9kRDBpTXpJaUlISjRQU0kySWlCbWFXeHNQU0oxY213b0kyZHZiR1FwSWk4K0NpQWdQSEpsWTNRZ2VEMGlNVGM0SWlCNVBTSXlOREFpSUhkcFpIUm9QU0l4TVRBaUlHaGxhV2RvZEQwaU16SWlJSEo0UFNJMklpQm1hV3hzUFNKMWNtd29JMmR2YkdRcElpOCtDaUFnUEhKbFkzUWdlRDBpTVRjNElpQjVQU0l6TXpVaUlIZHBaSFJvUFNJNU9DSWdhR1ZwWjJoMFBTSXpNaUlnY25nOUlqWWlJR1pwYkd3OUluVnliQ2dqWjI5c1pDa2lMejRLSUNBS0lDQThJUzB0SUZSdmNDQmhjbU1nTFMwK0NpQWdQSEJoZEdnZ1pEMGlUU0F5TnpZZ01UUTFJRkVnTXpRd0lERTBOU0F6TkRBZ01UazVJRkVnTXpRd0lESTBNQ0F5TnpZZ01qUXdJaUJtYVd4c1BTSnViMjVsSWlCemRISnZhMlU5SW5WeWJDZ2paMjlzWkNraUlITjBjbTlyWlMxM2FXUjBhRDBpTXpJaUlITjBjbTlyWlMxc2FXNWxZMkZ3UFNKeWIzVnVaQ0lnWm1sc2RHVnlQU0oxY213b0kyZHNiM2NwSWk4K0NpQWdDaUFnUENFdExTQkNiM1IwYjIwZ1lYSmpJQ2h6YkdsbmFIUnNlU0IzYVdSbGNpa2dMUzArQ2lBZ1BIQmhkR2dnWkQwaVRTQXlPRGdnTWpRd0lGRWdNelU0SURJME1DQXpOVGdnTWprMUlGRWdNelU0SURNMk55QXlPRGdnTXpZM0lpQm1hV3hzUFNKdWIyNWxJaUJ6ZEhKdmEyVTlJblZ5YkNnaloyOXNaQ2tpSUhOMGNtOXJaUzEzYVdSMGFEMGlNeklpSUhOMGNtOXJaUzFzYVc1bFkyRndQU0p5YjNWdVpDSWdabWxzZEdWeVBTSjFjbXdvSTJkc2IzY3BJaTgrQ2lBZ0NpQWdQQ0V0TFNCVWIzQWdjMlZ5YVdZZ2JHbHVaWE1nS0dOc1lYTnphV01nUW1sMFkyOXBiaUJ6ZEhsc1pTa2dMUzArQ2lBZ1BISmxZM1FnZUQwaU1qQXlJaUI1UFNJeE1qVWlJSGRwWkhSb1BTSXlNQ0lnYUdWcFoyaDBQU0l5T0NJZ2NuZzlJalFpSUdacGJHdzlJblZ5YkNnaloyOXNaQ2tpTHo0S0lDQThjbVZqZENCNFBTSXlORGdpSUhrOUlqRXlOU0lnZDJsa2RHZzlJakl3SWlCb1pXbG5hSFE5SWpJNElpQnllRDBpTkNJZ1ptbHNiRDBpZFhKc0tDTm5iMnhrS1NJdlBnb2dJRHdoTFMwZ1FtOTBkRzl0SUhObGNtbG1JR3hwYm1WeklDMHRQZ29nSUR4eVpXTjBJSGc5SWpJd01pSWdlVDBpTXpVNUlpQjNhV1IwYUQwaU1qQWlJR2hsYVdkb2REMGlNamdpSUhKNFBTSTBJaUJtYVd4c1BTSjFjbXdvSTJkdmJHUXBJaTgrQ2lBZ1BISmxZM1FnZUQwaU1qUTRJaUI1UFNJek5Ua2lJSGRwWkhSb1BTSXlNQ0lnYUdWcFoyaDBQU0l5T0NJZ2NuZzlJalFpSUdacGJHdzlJblZ5YkNnaloyOXNaQ2tpTHo0S0NpQWdQQ0V0TFNCRGIzSnVaWElnWkc5MGN5QXZJR1JsWTI5eVlYUnBkbVVnTFMwK0NpQWdQR05wY21Oc1pTQmplRDBpTVRJNElpQmplVDBpTVRJNElpQnlQU0kwSWlCbWFXeHNQU0lqWmpWak9EUXlJaUJtYVd4c0xXOXdZV05wZEhrOUlqQXVNeUl2UGdvZ0lEeGphWEpqYkdVZ1kzZzlJak00TkNJZ1kzazlJakV5T0NJZ2NqMGlOQ0lnWm1sc2JEMGlJMlkxWXpnME1pSWdabWxzYkMxdmNHRmphWFI1UFNJd0xqTWlMejRLSUNBOFkybHlZMnhsSUdONFBTSXhNamdpSUdONVBTSXpPRFFpSUhJOUlqUWlJR1pwYkd3OUlpTm1OV000TkRJaUlHWnBiR3d0YjNCaFkybDBlVDBpTUM0eklpOCtDaUFnUEdOcGNtTnNaU0JqZUQwaU16ZzBJaUJqZVQwaU16ZzBJaUJ5UFNJMElpQm1hV3hzUFNJalpqVmpPRFF5SWlCbWFXeHNMVzl3WVdOcGRIazlJakF1TXlJdlBnbzhMM04yWno0PSIsInNpemVzIjoiNTEyeDUxMiIsInR5cGUiOiJpbWFnZS9zdmcreG1sIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9XX0=">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
-
-<!-- AUTH -->
-<div id="auth-screen">
-  <div class="auth-logo">Byggkalkyl</div>
-  <div class="auth-sub">Offertverktyg för byggföretag</div>
-  <div class="auth-card">
-    <div class="auth-tabs">
-      <div class="auth-tab active" onclick="authTab('login')">Logga in</div>
-      <div class="auth-tab" onclick="authTab('register')">Skapa konto</div>
+  <!-- BYGGKALKYL NAV -->
+  <div class="bygg-nav">
+    <div class="bygg-nav-tabs">
+      <button class="bygg-tab active" onclick="byggNav('kalkyl')">Kalkyl</button>
+      <button class="bygg-tab" onclick="byggNav('offert')">Offert</button>
+      <button class="bygg-tab" onclick="byggNav('sparade')">Sparade</button>
+      <button class="bygg-tab" onclick="byggNav('material')">Material</button>
+      <button class="bygg-tab" onclick="byggNav('installs')">Inställn.</button>
     </div>
-    <label>E-post</label>
-    <input type="email" id="auth-email" placeholder="din@email.se" autocomplete="email">
-    <label>Lösenord</label>
-    <input type="password" id="auth-password" placeholder="••••••••" autocomplete="current-password">
-    <button class="btn btn-primary" id="auth-btn" onclick="authSubmit()">Logga in</button>
-    <div class="auth-error" id="auth-error"></div>
-    <div class="auth-info" id="auth-info"></div>
   </div>
-</div>
-
-<!-- APP -->
-<div id="app-screen">
-  <nav>
-    <div class="nav-logo">Byggkalkyl</div>
-    <div class="nav-tabs">
-      <div class="nav-tab active" onclick="byggShowPage('kalkyl')">Kalkyl</div>
-      <div class="nav-tab" onclick="byggShowPage('offert')">Offert</div>
-      <div class="nav-tab" onclick="byggShowPage('sparade')">Sparade</div>
-      <div class="nav-tab" onclick="byggShowPage('materialdb')">Material</div>
-      <div class="nav-tab" onclick="byggShowPage('installningar')">Inställn.</div>
-    </div>
-    <div class="nav-user" onclick="loggaUt()" title="Logga ut">⎋</div>
-  </nav>
 
   <!-- KALKYL -->
-  <div class="page active" id="page-kalkyl">
-    <div class="page-header"><h1>Ny kalkyl</h1><p>Fyll i arbete, material och tid</p></div>
-
-    <div class="card">
-      <div class="card-title">Kundinformation</div>
-      <label>Kundens namn</label>
-      <input type="text" id="kund-namn" placeholder="Anna Andersson">
-      <label>Adress (arbetsplats)</label>
-      <input type="text" id="kund-adress" placeholder="Storgatan 12, 831 30 Östersund">
-      <div class="row2">
-        <div><label>Offertnummer</label><input type="text" id="offert-nr" placeholder="2025-001"></div>
-        <div><label>Giltighetstid</label><input type="text" id="offert-giltig" placeholder="30 dagar"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Arbetsbeskrivning</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">Specificera vad som ingår i arbetet</p>
-      <div id="arbetsteg-list"></div>
-      <button class="btn btn-add" onclick="laggTillSteg()">+ Lägg till arbetssteg</button>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Material i kalkylen</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Sök i din materialdatabas eller lägg till manuellt</p>
-      <div class="search-wrap" style="margin-bottom:10px;">
-        <input type="text" id="mat-sok" placeholder="🔍 Sök material..." oninput="sokMaterial(this.value)" autocomplete="off">
-        <div class="search-dropdown" id="mat-dropdown" style="display:none;"></div>
-      </div>
-      <div id="mat-col-header" style="display:flex;gap:8px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;padding:0 0 6px;border-bottom:1px solid var(--border);margin-bottom:4px;">
-        <span style="flex:1">Material</span><span style="width:65px;text-align:center">Antal</span><span style="width:40px;text-align:center">Enhet</span><span style="width:80px;text-align:right">Pris/st</span><span style="width:36px"></span>
-      </div>
-      <div id="kalkyl-mat-list"></div>
-      <button class="btn btn-add" onclick="laggTillKalkylMatManuellt()">+ Lägg till manuellt</button>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Arbetstid</div>
-      <div class="row2">
-        <div><label>Antal timmar</label><input type="number" id="timmar" placeholder="0" min="0" oninput="rakna()"></div>
-        <div><label>Timpris (inkl moms)</label><input type="number" id="timpris" value="650" readonly style="color:var(--muted)"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">ROT-avdrag <span class="badge badge-rot">30%</span></div>
-      <div class="setting-row" style="padding:0 0 12px;border-bottom:1px solid var(--border);">
-        <div>
-          <div class="setting-label">Aktivera ROT-avdrag</div>
-          <div class="setting-sub">30% av arbetskostnad inkl. moms · max 50 000 kr/person</div>
+  <div class="bygg-page active" id="bygg-kalkyl">
+    <div class="bygg-scroll">
+      <div class="bygg-card">
+        <div class="bygg-card-title">Kundinformation</div>
+        <label class="bygg-label">Kundens namn</label>
+        <input class="bygg-input" type="text" id="b-kund-namn" placeholder="Anna Andersson">
+        <label class="bygg-label">Adress</label>
+        <input class="bygg-input" type="text" id="b-kund-adress" placeholder="Storgatan 12, Östersund">
+        <div class="bygg-row2">
+          <div><label class="bygg-label">Offertnummer</label><input class="bygg-input" type="text" id="b-offert-nr" placeholder="2025-001"></div>
+          <div><label class="bygg-label">Giltighetstid</label><input class="bygg-input" type="text" id="b-giltig" placeholder="30 dagar"></div>
         </div>
-        <label class="toggle"><input type="checkbox" id="rot-toggle" onchange="rakna()"><span class="toggle-slider"></span></label>
       </div>
-      <div id="rot-info" style="display:none;padding-top:12px;">
-        <label>Antal personer (fastighetsägare)</label>
-        <input type="number" id="rot-personer" value="1" min="1" max="2" oninput="rakna()">
-        <div style="font-size:12px;color:var(--muted);margin-top:6px;">Max ROT-avdrag: <span id="max-rot-text">50 000 kr</span></div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">Arbetsbeskrivning</div>
+        <div id="b-steg-list"></div>
+        <button class="bygg-btn-dashed" onclick="bLaggTillSteg()">+ Lägg till arbetssteg</button>
       </div>
-    </div>
 
-    <div class="summary-box">
-      <div class="sum-row"><span>Materialkostnad (inkl moms)</span><span class="sum-val" id="s-material">0 kr</span></div>
-      <div class="sum-row"><span>Arbetskostnad (inkl moms)</span><span class="sum-val" id="s-arbete">0 kr</span></div>
-      <div class="sum-row big"><span>Totalt före ROT</span><span class="sum-val" id="s-total">0 kr</span></div>
-      <div class="sum-row rot-row" id="rot-rad" style="display:none;"><span>ROT-avdrag (–)</span><span class="sum-val" id="s-rot">0 kr</span></div>
-      <div class="sum-row final-row"><span>Kunden betalar</span><span class="sum-val" id="s-final">0 kr</span></div>
-    </div>
+      <div class="bygg-card">
+        <div class="bygg-card-title">Material</div>
+        <div style="position:relative;margin-bottom:10px;">
+          <input class="bygg-input" type="text" id="b-mat-sok" placeholder="🔍 Sök i materialdatabas..." oninput="bSokMaterial(this.value)" autocomplete="off">
+          <div class="bygg-dropdown" id="b-mat-dropdown" style="display:none;"></div>
+        </div>
+        <div id="b-mat-col-header" style="display:none;display:flex;gap:8px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;padding:0 0 6px;border-bottom:1px solid var(--border);margin-bottom:4px;">
+          <span style="flex:1">Material</span><span style="width:60px;text-align:center">Antal</span><span style="width:35px;text-align:center">Enhet</span><span style="width:75px;text-align:right">Pris/st</span><span style="width:30px"></span>
+        </div>
+        <div id="b-mat-list"></div>
+        <button class="bygg-btn-dashed" onclick="bLaggTillMatManuellt()">+ Lägg till manuellt</button>
+      </div>
 
-    <div style="display:flex;gap:10px;margin-top:20px;">
-      <button class="btn btn-primary" onclick="skapaOffert()" style="flex:2;">Skapa offert →</button>
-      <button class="btn btn-ghost" onclick="sparaOffert()" style="flex:1;" id="spara-btn">💾 Spara</button>
+      <div class="bygg-card">
+        <div class="bygg-card-title">Arbetstid</div>
+        <div class="bygg-row2">
+          <div><label class="bygg-label">Antal timmar</label><input class="bygg-input" type="number" id="b-timmar" placeholder="0" min="0" oninput="bRakna()"></div>
+          <div><label class="bygg-label">Timpris (inkl moms)</label><input class="bygg-input" type="number" id="b-timpris" value="650" oninput="bRakna()"></div>
+        </div>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">ROT-avdrag <span style="background:#1a3340;color:#4a9ebb;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;">30%</span></div>
+        <div class="bygg-setting-row" style="padding-bottom:12px;">
+          <div>
+            <div style="font-size:14px;">Aktivera ROT-avdrag</div>
+            <div style="font-size:12px;color:var(--muted);">30% av arbetskostnad · max 50 000 kr/person</div>
+          </div>
+          <label class="bygg-toggle"><input type="checkbox" id="b-rot" onchange="bRakna()"><span class="bygg-toggle-slider"></span></label>
+        </div>
+        <div id="b-rot-info" style="display:none;padding-top:10px;">
+          <label class="bygg-label">Antal personer</label>
+          <input class="bygg-input" type="number" id="b-rot-personer" value="1" min="1" max="2" oninput="bRakna()">
+        </div>
+      </div>
+
+      <div class="bygg-summary">
+        <div class="bygg-sum-row"><span>Material (inkl moms)</span><span class="bygg-sum-val" id="b-s-mat">0 kr</span></div>
+        <div class="bygg-sum-row"><span>Arbete (inkl moms)</span><span class="bygg-sum-val" id="b-s-arb">0 kr</span></div>
+        <div class="bygg-sum-row bygg-sum-big"><span>Totalt</span><span class="bygg-sum-val" id="b-s-tot">0 kr</span></div>
+        <div class="bygg-sum-row bygg-sum-rot" id="b-rot-rad" style="display:none;"><span>ROT-avdrag (–)</span><span class="bygg-sum-val" id="b-s-rot">0 kr</span></div>
+        <div class="bygg-sum-row bygg-sum-final"><span>Kunden betalar</span><span class="bygg-sum-val" id="b-s-final">0 kr</span></div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:16px;padding:0 0 80px;">
+        <button class="bygg-btn-primary" onclick="bSkapaOffert()" style="flex:2;">Skapa offert →</button>
+        <button class="bygg-btn-ghost" onclick="bSparaOffert()" id="b-spara-btn" style="flex:1;">💾 Spara</button>
+      </div>
     </div>
   </div>
 
   <!-- OFFERT -->
-  <div class="page" id="page-offert">
-    <div class="page-header"><h1>Offert</h1><p>Granska och skriv ut</p></div>
-    <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
-      <button class="btn btn-ghost" onclick="window.print()">🖨 Skriv ut / PDF</button>
-      <button class="btn btn-ghost" onclick="kopieraText()">📋 Kopiera</button>
-      <button class="btn btn-ghost" onclick="nollstallKalkyl()">+ Ny kalkyl</button>
-    </div>
-    <div class="card offer-card">
-      <div class="offer-preview" id="offert-preview">
-        <div style="text-align:center;color:#999;padding:40px 0;">Gå till Kalkyl och klicka på "Skapa offert"</div>
+  <div class="bygg-page" id="bygg-offert">
+    <div class="bygg-scroll">
+      <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+        <button class="bygg-btn-ghost" onclick="window.print()">🖨 Skriv ut</button>
+        <button class="bygg-btn-ghost" onclick="bKopiera()">📋 Kopiera</button>
+        <button class="bygg-btn-ghost" onclick="bNollstall()">+ Ny kalkyl</button>
       </div>
+      <div class="bygg-card" style="padding:0;overflow:hidden;">
+        <div id="b-offert-preview" style="background:#fff;color:#1a1a18;padding:24px;border-radius:12px;">
+          <div style="text-align:center;color:#999;padding:40px 0;font-family:sans-serif;">Gå till Kalkyl → Skapa offert</div>
+        </div>
+      </div>
+      <div style="height:80px;"></div>
     </div>
   </div>
 
-  <!-- SPARADE OFFERTER -->
-  <div class="page" id="page-sparade">
-    <div class="page-header"><h1>Sparade offerter</h1><p>Öppna, redigera eller ta bort</p></div>
-    <div class="card">
-      <input type="text" id="sparade-filter" placeholder="Sök på kund eller offertnummer..." oninput="filterSparade()" style="margin-bottom:14px;">
-      <div id="sparade-list"><div style="color:var(--muted);font-size:14px;">Laddar...</div></div>
+  <!-- SPARADE -->
+  <div class="bygg-page" id="bygg-sparade">
+    <div class="bygg-scroll">
+      <div class="bygg-card">
+        <input class="bygg-input" type="text" id="b-filter" placeholder="Sök kund eller offertnummer..." oninput="bFilterSparade()" style="margin-bottom:12px;">
+        <div id="b-sparade-list"><div style="color:var(--muted);font-size:14px;">Inga sparade offerter ännu.</div></div>
+      </div>
+      <div style="height:80px;"></div>
     </div>
   </div>
 
-  <!-- MATERIALDATABAS -->
-  <div class="page" id="page-materialdb">
-    <div class="page-header"><h1>Materialdatabas</h1><p>Bygg upp ditt eget register — sparas i molnet</p></div>
-
-    <div class="card">
-      <div class="card-title">Lägg till material</div>
-      <label>Materialnamn</label>
-      <input type="text" id="db-nytt-namn" placeholder="t.ex. Klinker 60x60 antracit">
-      <div class="row2">
-        <div><label>Enhet</label><input type="text" id="db-nytt-enhet" placeholder="m², st, löpm, kg"></div>
-        <div><label>Pris per enhet (kr)</label><input type="number" id="db-nytt-pris" placeholder="0" min="0"></div>
+  <!-- MATERIAL DB -->
+  <div class="bygg-page" id="bygg-material">
+    <div class="bygg-scroll">
+      <div class="bygg-card">
+        <div class="bygg-card-title">Lägg till material</div>
+        <label class="bygg-label">Materialnamn</label>
+        <input class="bygg-input" type="text" id="b-db-namn" placeholder="t.ex. Klinker 60x60 antracit">
+        <div class="bygg-row2">
+          <div><label class="bygg-label">Enhet</label><input class="bygg-input" type="text" id="b-db-enhet" placeholder="m², st, löpm"></div>
+          <div><label class="bygg-label">Pris/enhet (kr)</label><input class="bygg-input" type="number" id="b-db-pris" placeholder="0" min="0"></div>
+        </div>
+        <label class="bygg-label">Kategori (valfritt)</label>
+        <input class="bygg-input" type="text" id="b-db-kat" placeholder="t.ex. Golv, Kakel, Trä">
+        <button class="bygg-btn-primary" onclick="bLaggTillDB()" id="b-db-btn" style="margin-top:12px;">+ Spara i databasen</button>
       </div>
-      <label>Kategori (valfritt)</label>
-      <input type="text" id="db-nytt-kat" placeholder="t.ex. Golv, Kakel, Trä, Isolering">
-      <button class="btn btn-primary" onclick="laggTillDBMaterial()" id="db-spara-btn" style="margin-top:14px;">+ Spara i databasen</button>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Sparat material</div>
-      <input type="text" id="db-filter" placeholder="Filtrera..." oninput="renderDB()" style="margin-bottom:14px;">
-      <div id="db-list"><div style="color:var(--muted);font-size:14px;">Laddar...</div></div>
+      <div class="bygg-card">
+        <div class="bygg-card-title">Sparat material</div>
+        <input class="bygg-input" type="text" id="b-db-filter" placeholder="Filtrera..." oninput="bRenderDB()" style="margin-bottom:12px;">
+        <div id="b-db-list"><div style="color:var(--muted);font-size:14px;">Inga material sparade ännu.</div></div>
+      </div>
+      <div style="height:80px;"></div>
     </div>
   </div>
 
   <!-- INSTÄLLNINGAR -->
-  <div class="page" id="page-installningar">
-    <div class="page-header"><h1>Inställningar</h1><p>Sparas automatiskt i molnet</p></div>
-
-    <div class="card">
-      <div class="card-title">Logotyp i offerten</div>
-      <div class="logo-upload-area" onclick="document.getElementById('logo-input').click()">
-        <img id="logo-preview-img" class="logo-preview-img" style="display:none;">
-        <div id="logo-placeholder">
-          <div style="font-size:28px;margin-bottom:8px;">🖼</div>
-          <div style="font-size:14px;color:var(--muted);">Tryck för att ladda upp logotyp</div>
+  <div class="bygg-page" id="bygg-installs">
+    <div class="bygg-scroll">
+      <div class="bygg-card">
+        <div class="bygg-card-title">Logotyp i offerten</div>
+        <div class="bygg-logo-area" onclick="document.getElementById('b-logo-input').click()">
+          <img id="b-logo-img" style="max-height:70px;max-width:200px;display:none;margin:0 auto;display:none;">
+          <div id="b-logo-placeholder">
+            <div style="font-size:28px;">🖼</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:6px;">Tryck för att ladda upp logotyp</div>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px;">PNG, JPG eller SVG</div>
         </div>
-        <div class="logo-hint">PNG, JPG eller SVG · Visas i offertens övre vänstra hörn</div>
+        <input type="file" id="b-logo-input" accept="image/*" style="display:none;" onchange="bLaddaLogo(this)">
+        <button class="bygg-btn-ghost" onclick="bTaBortLogo()" style="margin-top:8px;width:100%;">Ta bort logotyp</button>
       </div>
-      <input type="file" id="logo-input" accept="image/*" style="display:none;" onchange="laddaLogo(this)">
-      <button class="btn btn-ghost" onclick="taBortLogo()" style="margin-top:10px;width:100%;font-size:13px;">Ta bort logotyp</button>
-    </div>
 
-    <div class="card">
-      <div class="card-title">Ditt företag</div>
-      <label>Företagsnamn</label><input type="text" id="foretag-namn" placeholder="Ditt Bygg AB">
-      <label>Org.nummer</label><input type="text" id="foretag-org" placeholder="556123-4567">
-      <label>Telefon</label><input type="tel" id="foretag-tel" placeholder="070-000 00 00">
-      <label>E-post</label><input type="email" id="foretag-email" placeholder="info@dittforetag.se">
-      <label>Adress</label><input type="text" id="foretag-adress" placeholder="Storgatan 1, 831 30 Östersund">
-      <label>Hemsida</label><input type="text" id="foretag-webb" placeholder="www.dittforetag.se">
-      <button class="btn btn-primary" onclick="sparaInstallningar()" style="margin-top:16px;">💾 Spara inställningar</button>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Prissättning</div>
-      <div class="setting-row">
-        <div><div class="setting-label">Timpris (inkl moms)</div><div class="setting-sub">Visas ej i offerten</div></div>
-        <input type="number" id="inst-timpris" value="650">
+      <div class="bygg-card">
+        <div class="bygg-card-title">Ditt företag</div>
+        <label class="bygg-label">Företagsnamn</label><input class="bygg-input" type="text" id="b-foretag-namn" placeholder="Ditt Bygg AB">
+        <label class="bygg-label">Org.nummer</label><input class="bygg-input" type="text" id="b-foretag-org" placeholder="556123-4567">
+        <label class="bygg-label">Telefon</label><input class="bygg-input" type="tel" id="b-foretag-tel" placeholder="070-000 00 00">
+        <label class="bygg-label">E-post</label><input class="bygg-input" type="email" id="b-foretag-email" placeholder="info@foretag.se">
+        <label class="bygg-label">Adress</label><input class="bygg-input" type="text" id="b-foretag-adress" placeholder="Storgatan 1, Östersund">
+        <label class="bygg-label">Hemsida</label><input class="bygg-input" type="text" id="b-foretag-webb" placeholder="www.foretag.se">
+        <button class="bygg-btn-primary" onclick="bSparaInstall()" style="margin-top:14px;">💾 Spara inställningar</button>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-title">Standardvillkor</div>
-      <label>Villkorstext (visas i offerten)</label>
-      <textarea id="villkor-text" rows="6">Betalningsvillkor: 30 dagar netto.
+      <div class="bygg-card">
+        <div class="bygg-card-title">Prissättning</div>
+        <div class="bygg-setting-row">
+          <div><div style="font-size:14px;">Timpris (inkl moms)</div><div style="font-size:12px;color:var(--muted);">Visas ej i offerten</div></div>
+          <input class="bygg-input" type="number" id="b-inst-timpris" value="650" style="width:90px;text-align:right;">
+        </div>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">Standardvillkor</div>
+        <textarea class="bygg-input" id="b-villkor" rows="6" style="resize:vertical;">Betalningsvillkor: 30 dagar netto.
 Dröjsmålsränta: 8% per år.
 Priser inkl. moms om inget annat anges.
 ROT-avdrag hanteras mot Skatteverket av utföraren.
 Tilläggsarbeten faktureras enligt löpande räkning.
 Tvister avgörs enligt svensk rätt.</textarea>
-      <button class="btn btn-primary" onclick="sparaInstallningar()" style="margin-top:12px;">💾 Spara villkor</button>
-    </div>
+        <button class="bygg-btn-primary" onclick="bSparaInstall()" style="margin-top:10px;">💾 Spara villkor</button>
+      </div>
 
-    <div class="card" style="border-color:#3a1e1e;">
-      <div class="card-title" style="color:#e07070;">Konto</div>
-      <button class="btn btn-danger" onclick="loggaUt()" style="width:100%;">Logga ut</button>
+      <div style="height:80px;"></div>
     </div>
   </div>
+
+  <!-- TOAST -->
+  <div id="b-toast" style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:13px;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,0.4);display:none;white-space:nowrap;pointer-events:none;"></div>
 </div>
-
-<script>
-// ===== SUPABASE =====
-const SUPA_URL = 'https://ujdmhxmmmwezjqlqgyop.supabase.co';
-const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqZG1oeG1tbXdlempxbHFneW9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1MzMxMzQsImV4cCI6MjA4NzEwOTEzNH0._amp-h4zm_8zMHM1jxj0zKU6DnPj5XH8LGk_pro6UXg';
-const sb = supabase.createClient(SUPA_URL, SUPA_KEY);
-
-let currentUser = null;
-let arbetsteg = [];
-let kalkylMat = [];
-let materialDB = [];
-let logoBase64 = null;
-let instCache = {};
-let authMode = 'login';
-
-// ===== HELPERS =====
-function fmt(n) { return Math.round(n).toLocaleString('sv-SE') + ' kr'; }
-function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-function showToast(msg, type='success') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast ' + type;
-  t.style.display = 'block';
-  setTimeout(() => t.style.display = 'none', 3000);
-}
-
-// ===== AUTH =====
-function authTab(mode) {
-  authMode = mode;
-  document.querySelectorAll('.auth-tab').forEach((t,i) => t.classList.toggle('active', (i===0&&mode==='login')||(i===1&&mode==='register')));
-  document.getElementById('auth-btn').textContent = mode === 'login' ? 'Logga in' : 'Skapa konto';
-  document.getElementById('auth-error').style.display = 'none';
-  document.getElementById('auth-info').style.display = 'none';
-}
-
-async function authSubmit() {
-  const email = document.getElementById('auth-email').value.trim();
-  const pw = document.getElementById('auth-password').value;
-  const btn = document.getElementById('auth-btn');
-  const errEl = document.getElementById('auth-error');
-  const infoEl = document.getElementById('auth-info');
-  errEl.style.display = 'none';
-  infoEl.style.display = 'none';
-  btn.innerHTML = '<span class="spinner"></span>';
-  btn.disabled = true;
-
-  try {
-    if (authMode === 'login') {
-      const { error } = await sb.auth.signInWithPassword({ email, password: pw });
-      if (error) throw error;
-      await initSession();
-      return;
-    } else {
-      const { error } = await sb.auth.signUp({ email, password: pw });
-      if (error) throw error;
-      infoEl.textContent = 'Konto skapat! Kontrollera din e-post för att bekräfta, sedan kan du logga in.';
-      infoEl.style.display = 'block';
-      btn.innerHTML = 'Skapa konto';
-      btn.disabled = false;
-      return;
-    }
-  } catch(e) {
-    errEl.textContent = e.message || 'Något gick fel';
-    errEl.style.display = 'block';
-    btn.innerHTML = authMode === 'login' ? 'Logga in' : 'Skapa konto';
-    btn.disabled = false;
-  }
-}
-
-function loggaUt() {
-  // Clear session from localStorage directly — avoids LockManager hang
-  Object.keys(localStorage).forEach(k => {
-    if (k.startsWith('sb-') || k.includes('supabase')) localStorage.removeItem(k);
-  });
-  currentUser = null;
-  document.getElementById('app-screen').style.display = 'none';
-  document.getElementById('auth-screen').style.display = 'flex';
-}
-
-// ===== SESSION =====
-async function initSession() {
-  try {
-    const { data: { session } } = await sb.auth.getSession();
-    if (session?.user) {
-      currentUser = session.user;
-      document.getElementById('auth-screen').style.display = 'none';
-      document.getElementById('app-screen').style.display = 'block';
-      await Promise.all([laddaInstallningar(), laddaDB()]);
-      rakna();
-      const yr = new Date().getFullYear();
-      document.getElementById('offert-nr').value = `${yr}-001`;
-      laggTillSteg();
-    } else {
-      document.getElementById('auth-screen').style.display = 'flex';
-      document.getElementById('app-screen').style.display = 'none';
-    }
-  } catch(e) {
-    console.log('Session error:', e);
-    document.getElementById('auth-screen').style.display = 'flex';
-    document.getElementById('app-screen').style.display = 'none';
-  }
-}
-
-// Run on load
-document.addEventListener('DOMContentLoaded', initSession);
-
-// ===== NAV =====
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  const idx = ['kalkyl','offert','sparade','materialdb','installningar'].indexOf(id);
-  document.querySelectorAll('.nav-tab')[idx]?.classList.add('active');
-  if (id === 'materialdb') renderDB();
-  if (id === 'sparade') laddaSparadeOfferter();
-}
-
-// ===== LOGO =====
-function laddaLogo(input) {
-  const file = input.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    logoBase64 = e.target.result;
-    document.getElementById('logo-preview-img').src = logoBase64;
-    document.getElementById('logo-preview-img').style.display = 'block';
-    document.getElementById('logo-placeholder').style.display = 'none';
-  };
-  reader.readAsDataURL(file);
-}
-function taBortLogo() {
-  logoBase64 = null;
-  document.getElementById('logo-preview-img').style.display = 'none';
-  document.getElementById('logo-placeholder').style.display = 'block';
-}
-
-// ===== INSTÄLLNINGAR =====
-function getInst() {
-  return {
-    foretag_namn: document.getElementById('foretag-namn')?.value || '',
-    foretag_org: document.getElementById('foretag-org')?.value || '',
-    foretag_tel: document.getElementById('foretag-tel')?.value || '',
-    foretag_email: document.getElementById('foretag-email')?.value || '',
-    foretag_adress: document.getElementById('foretag-adress')?.value || '',
-    foretag_webb: document.getElementById('foretag-webb')?.value || '',
-    timpris: parseFloat(document.getElementById('inst-timpris')?.value || 650),
-    villkor: document.getElementById('villkor-text')?.value || '',
-    logo_base64: logoBase64 || null
-  };
-}
-
-async function sparaInstallningar() {
-  const btn = document.querySelector('#page-installningar .btn-primary');
-  if (btn) { btn.innerHTML = '<span class="spinner"></span> Sparar...'; btn.disabled = true; }
-
-  const inst = getInst();
-  inst.user_id = currentUser.id;
-
-  // Kolla om rad redan finns
-  const { data: existing } = await sb.from('installningar').select('id').eq('user_id', currentUser.id).maybeSingle();
-
-  let error;
-  if (existing) {
-    ({ error } = await sb.from('installningar').update(inst).eq('user_id', currentUser.id));
-  } else {
-    ({ error } = await sb.from('installningar').insert(inst));
-  }
-
-  if (btn) { btn.innerHTML = '💾 Spara inställningar'; btn.disabled = false; }
-
-  if (error) {
-    showToast('Fel: ' + error.message, 'error');
-    alert('Fel vid sparande: ' + error.message + ' (Kod: ' + (error.code || '?') + ')');
-    return;
-  }
-  instCache = inst;
-  showToast('✓ Inställningar sparade');
-}
-
-async function laddaInstallningar() {
-  const { data, error } = await sb.from('installningar').select('*').eq('user_id', currentUser.id).single();
-  if (error || !data) return;
-  instCache = data;
-  if (data.foretag_namn) document.getElementById('foretag-namn').value = data.foretag_namn;
-  if (data.foretag_org) document.getElementById('foretag-org').value = data.foretag_org;
-  if (data.foretag_tel) document.getElementById('foretag-tel').value = data.foretag_tel;
-  if (data.foretag_email) document.getElementById('foretag-email').value = data.foretag_email;
-  if (data.foretag_adress) document.getElementById('foretag-adress').value = data.foretag_adress;
-  if (data.foretag_webb) document.getElementById('foretag-webb').value = data.foretag_webb;
-  if (data.timpris) { document.getElementById('inst-timpris').value = data.timpris; document.getElementById('timpris').value = data.timpris; }
-  if (data.villkor) document.getElementById('villkor-text').value = data.villkor;
-  if (data.logo_base64) {
-    logoBase64 = data.logo_base64;
-    document.getElementById('logo-preview-img').src = logoBase64;
-    document.getElementById('logo-preview-img').style.display = 'block';
-    document.getElementById('logo-placeholder').style.display = 'none';
-  }
-}
-
-// ===== ARBETSTEG =====
-function renderArbetsteg() {
-  const list = document.getElementById('arbetsteg-list');
-  list.innerHTML = '';
-  arbetsteg.forEach((steg, i) => {
-    const row = document.createElement('div');
-    row.className = 'arbetsteg-row';
-    row.innerHTML = `<div class="step-num">${i+1}</div>
-      <input type="text" value="${escHtml(steg)}" placeholder="Beskriv arbetssteg..." oninput="arbetsteg[${i}]=this.value">
-      <button class="btn btn-danger" onclick="taBortSteg(${i})">✕</button>`;
-    list.appendChild(row);
-  });
-}
-function laggTillSteg() { arbetsteg.push(''); renderArbetsteg(); const inp = document.querySelectorAll('#arbetsteg-list input'); inp[inp.length-1]?.focus(); }
-function taBortSteg(i) { arbetsteg.splice(i,1); renderArbetsteg(); }
-
-// ===== KALKYL MATERIAL =====
-function renderKalkylMat() {
-  const list = document.getElementById('kalkyl-mat-list');
-  const header = document.getElementById('mat-col-header');
-  list.innerHTML = '';
-  header.style.display = kalkylMat.length > 0 ? 'flex' : 'none';
-  kalkylMat.forEach((m, i) => {
-    const row = document.createElement('div');
-    row.className = 'mat-row';
-    row.innerHTML = `
-      <input class="mat-name" type="text" value="${escHtml(m.namn)}" placeholder="Materialnamn" oninput="kalkylMat[${i}].namn=this.value">
-      <input class="mat-qty" type="number" value="${m.antal}" min="0" oninput="kalkylMat[${i}].antal=parseFloat(this.value)||0;rakna()">
-      <div class="mat-unit">${escHtml(m.enhet)}</div>
-      <div class="mat-price">${m.pris} kr</div>
-      <button class="btn btn-danger" onclick="taBortKalkylMat(${i})">✕</button>`;
-    list.appendChild(row);
-  });
-  rakna();
-}
-function laggTillKalkylMat(mat) { kalkylMat.push({ namn: mat.namn, antal: 1, enhet: mat.enhet, pris: mat.pris }); renderKalkylMat(); }
-function laggTillKalkylMatManuellt() { kalkylMat.push({ namn: '', antal: 1, enhet: 'st', pris: 0 }); renderKalkylMat(); }
-function taBortKalkylMat(i) { kalkylMat.splice(i,1); renderKalkylMat(); rakna(); }
-
-// ===== SEARCH =====
-function sokMaterial(q) {
-  const dd = document.getElementById('mat-dropdown');
-  if (!q) { dd.style.display = 'none'; return; }
-  const hits = materialDB.filter(m => m.namn.toLowerCase().includes(q.toLowerCase()) || (m.kategori||'').toLowerCase().includes(q.toLowerCase()));
-  if (!hits.length) { dd.style.display = 'none'; return; }
-  dd.innerHTML = hits.map(m => `<div class="search-item" onclick="vaeljMaterial('${m.id}')">
-    <div>${escHtml(m.namn)} <span style="font-size:11px;color:var(--muted)">${m.kategori ? '· '+m.kategori : ''}</span></div>
-    <div class="si-meta">${m.pris} kr/${m.enhet}</div>
-  </div>`).join('');
-  dd.style.display = 'block';
-}
-function vaeljMaterial(id) {
-  const m = materialDB.find(x => x.id === id);
-  if (m) laggTillKalkylMat({ namn: m.namn, enhet: m.enhet, pris: m.pris });
-  document.getElementById('mat-sok').value = '';
-  document.getElementById('mat-dropdown').style.display = 'none';
-}
-document.addEventListener('click', e => { if (!e.target.closest('.search-wrap')) document.getElementById('mat-dropdown').style.display = 'none'; });
-
-// ===== MATERIALDATABAS =====
-async function laddaDB() {
-  const { data } = await sb.from('material').select('*').eq('user_id', currentUser.id).order('namn');
-  materialDB = data || [];
-  renderDB();
-}
-
-async function laggTillDBMaterial() {
-  const namn = document.getElementById('db-nytt-namn').value.trim();
-  const enhet = document.getElementById('db-nytt-enhet').value.trim() || 'st';
-  const pris = parseFloat(document.getElementById('db-nytt-pris').value) || 0;
-  const kategori = document.getElementById('db-nytt-kat').value.trim();
-  if (!namn) { showToast('Ange ett materialnamn', 'error'); return; }
-
-  const btn = document.getElementById('db-spara-btn');
-  btn.innerHTML = '<span class="spinner"></span> Sparar...';
-  btn.disabled = true;
-
-  const { data, error } = await sb.from('material').insert({ user_id: currentUser.id, namn, enhet, pris, kategori }).select().single();
-  btn.innerHTML = '+ Spara i databasen'; btn.disabled = false;
-  if (error) { showToast('Fel: ' + error.message, 'error'); return; }
-
-  materialDB.push(data);
-  materialDB.sort((a,b) => a.namn.localeCompare(b.namn));
-  document.getElementById('db-nytt-namn').value = '';
-  document.getElementById('db-nytt-enhet').value = '';
-  document.getElementById('db-nytt-pris').value = '';
-  document.getElementById('db-nytt-kat').value = '';
-  renderDB();
-  showToast('✓ ' + namn + ' sparad i databasen');
-}
-
-function renderDB() {
-  const filter = (document.getElementById('db-filter')?.value || '').toLowerCase();
-  const list = document.getElementById('db-list');
-  const filtered = materialDB.filter(m => m.namn.toLowerCase().includes(filter) || (m.kategori||'').toLowerCase().includes(filter));
-  if (!filtered.length) { list.innerHTML = `<div style="color:var(--muted);font-size:14px;">${materialDB.length === 0 ? 'Inga material sparade ännu.' : 'Inga träffar.'}</div>`; return; }
-  const cats = {};
-  filtered.forEach(m => { const k = m.kategori || 'Övrigt'; if (!cats[k]) cats[k] = []; cats[k].push(m); });
-  list.innerHTML = '';
-  Object.entries(cats).sort().forEach(([kat, items]) => {
-    const ch = document.createElement('div'); ch.className = 'cat-head'; ch.textContent = kat; list.appendChild(ch);
-    items.forEach(m => {
-      const row = document.createElement('div'); row.className = 'db-row';
-      row.innerHTML = `<div style="flex:1"><div style="font-size:14px;">${escHtml(m.namn)}</div><div style="font-size:12px;color:var(--muted);">${m.pris} kr / ${m.enhet}</div></div>
-        <button class="btn btn-ghost btn-sm" onclick="laggTillFranDB('${m.id}')">+ Kalkyl</button>
-        <button class="btn btn-danger btn-sm" onclick="taBortDBMat('${m.id}')">✕</button>`;
-      list.appendChild(row);
-    });
-  });
-}
-
-function laggTillFranDB(id) { const m = materialDB.find(x => x.id === id); if (m) { laggTillKalkylMat({ namn: m.namn, enhet: m.enhet, pris: m.pris }); byggShowPage('kalkyl'); } }
-
-async function taBortDBMat(id) {
-  const m = materialDB.find(x => x.id === id);
-  if (!confirm('Ta bort "' + (m?.namn||'') + '" från databasen?')) return;
-  const { error } = await sb.from('material').delete().eq('id', id);
-  if (error) { showToast('Fel: ' + error.message, 'error'); return; }
-  materialDB = materialDB.filter(x => x.id !== id);
-  renderDB();
-  showToast('✓ Material borttaget');
-}
-
-// ===== BERÄKNING =====
-function rakna() {
-  const timmar = parseFloat(document.getElementById('timmar').value) || 0;
-  const timpris = parseFloat(document.getElementById('timpris').value) || 650;
-  const rotAktiv = document.getElementById('rot-toggle').checked;
-  const rotPersoner = parseInt(document.getElementById('rot-personer')?.value || 1);
-
-  document.getElementById('rot-info').style.display = rotAktiv ? 'block' : 'none';
-  document.getElementById('rot-rad').style.display = rotAktiv ? 'flex' : 'none';
-  document.getElementById('max-rot-text').textContent = (rotPersoner * 50000).toLocaleString('sv-SE') + ' kr';
-
-  const matKostnad = kalkylMat.reduce((sum, m) => sum + (m.antal * m.pris), 0);
-  const arbetskostnad = timmar * timpris;
-  const totalt = matKostnad + arbetskostnad;
-  const maxRot = rotPersoner * 50000;
-  const rotBelopp = rotAktiv ? Math.min(arbetskostnad * 0.30, maxRot) : 0;
-  const finalPris = totalt - rotBelopp;
-
-  document.getElementById('s-material').textContent = fmt(matKostnad);
-  document.getElementById('s-arbete').textContent = fmt(arbetskostnad);
-  document.getElementById('s-total').textContent = fmt(totalt);
-  document.getElementById('s-rot').textContent = fmt(rotBelopp);
-  document.getElementById('s-final').textContent = fmt(finalPris);
-}
-
-// ===== SPARA OFFERT =====
-async function sparaOffert() {
-  const btn = document.getElementById('spara-btn');
-  btn.innerHTML = '<span class="spinner"></span>';
-  btn.disabled = true;
-
-  const offertData = {
-    user_id: currentUser.id,
-    offert_nr: document.getElementById('offert-nr').value,
-    kund_namn: document.getElementById('kund-namn').value,
-    kund_adress: document.getElementById('kund-adress').value,
-    arbetsteg: arbetsteg,
-    kalkyl_material: kalkylMat,
-    timmar: parseFloat(document.getElementById('timmar').value) || 0,
-    rot_aktiv: document.getElementById('rot-toggle').checked,
-    rot_personer: parseInt(document.getElementById('rot-personer').value || 1),
-    giltig: document.getElementById('offert-giltig').value
-  };
-
-  let error;
-  if (window._redigerarId) {
-    ({ error } = await sb.from('offerter').update(offertData).eq('id', window._redigerarId));
-    if (!error) { window._redigerarId = null; btn.innerHTML = '💾 Spara'; showToast('✓ Offert uppdaterad'); }
-  } else {
-    ({ error } = await sb.from('offerter').insert(offertData));
-    if (!error) showToast('✓ Offert sparad');
-  }
-
-  btn.innerHTML = window._redigerarId ? '💾 Uppdatera' : '💾 Spara';
-  btn.disabled = false;
-  if (error) { showToast('Fel: ' + error.message, 'error'); return; }
-}
-
-let sparadeCache = [];
-
-async function laddaSparadeOfferter() {
-  document.getElementById('sparade-list').innerHTML = '<div style="color:var(--muted);font-size:14px;">Laddar...</div>';
-  const { data, error } = await sb.from('offerter').select('*').eq('user_id', currentUser.id).order('skapad_at', { ascending: false });
-  sparadeCache = data || [];
-  if (error || !sparadeCache.length) { document.getElementById('sparade-list').innerHTML = '<div style="color:var(--muted);font-size:14px;">Inga sparade offerter ännu.</div>'; return; }
-  renderSparade(sparadeCache);
-}
-
-function filterSparade() {
-  const q = (document.getElementById('sparade-filter')?.value || '').toLowerCase();
-  const filtered = sparadeCache.filter(o =>
-    (o.kund_namn||'').toLowerCase().includes(q) || (o.offert_nr||'').toLowerCase().includes(q)
-  );
-  renderSparade(filtered);
-}
-
-function renderSparade(offerter) {
-  if (!offerter.length) { document.getElementById('sparade-list').innerHTML = '<div style="color:var(--muted);font-size:14px;">Inga träffar.</div>'; return; }
-  document.getElementById('sparade-list').innerHTML = offerter.map(o => `
-    <div class="offert-list-row">
-      <div style="flex:1;cursor:pointer;" onclick="oppnaOffert('${o.id}')">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div class="offert-list-nr">${escHtml(o.offert_nr||'–')}</div>
-          <div class="offert-list-kund">${escHtml(o.kund_namn||'Okänd kund')}</div>
-        </div>
-        <div class="offert-list-datum" style="margin-top:2px;padding-left:0;">${new Date(o.skapad_at).toLocaleDateString('sv-SE')}</div>
-      </div>
-      <button class="btn btn-ghost btn-sm" onclick="redigeraOffert('${o.id}')" title="Redigera">✏️</button>
-      <button class="btn btn-danger btn-sm" onclick="taBortOffert('${o.id}')" title="Ta bort">✕</button>
-    </div>`).join('');
-}
-
-async function oppnaOffert(id) {
-  const o = sparadeCache.find(x => x.id === id);
-  if (!o) { showToast('Kunde inte öppna offert', 'error'); return; }
-  laddaOffertIKalkyl(o);
-  skapaOffert();
-  byggShowPage('offert');
-}
-
-async function redigeraOffert(id) {
-  const o = sparadeCache.find(x => x.id === id);
-  if (!o) return;
-  laddaOffertIKalkyl(o);
-  // Spara id så vi kan uppdatera istället för att skapa ny
-  window._redigerarId = id;
-  document.getElementById('spara-btn').textContent = '💾 Uppdatera';
-  byggShowPage('kalkyl');
-  showToast('Offert laddad — gör ändringar och tryck Uppdatera');
-}
-
-function laddaOffertIKalkyl(data) {
-  arbetsteg = data.arbetsteg || [];
-  kalkylMat = data.kalkyl_material || [];
-  document.getElementById('kund-namn').value = data.kund_namn || '';
-  document.getElementById('kund-adress').value = data.kund_adress || '';
-  document.getElementById('offert-nr').value = data.offert_nr || '';
-  document.getElementById('offert-giltig').value = data.giltig || '';
-  document.getElementById('timmar').value = data.timmar || '';
-  document.getElementById('rot-toggle').checked = data.rot_aktiv || false;
-  document.getElementById('rot-personer').value = data.rot_personer || 1;
-  renderArbetsteg();
-  renderKalkylMat();
-  rakna();
-}
-
-async function taBortOffert(id) {
-  const o = sparadeCache.find(x => x.id === id);
-  if (!confirm(`Ta bort offert ${o?.offert_nr || ''} för ${o?.kund_namn || 'okänd kund'}?`)) return;
-  const { error } = await sb.from('offerter').delete().eq('id', id);
-  if (error) { showToast('Fel: ' + error.message, 'error'); return; }
-  sparadeCache = sparadeCache.filter(x => x.id !== id);
-  renderSparade(sparadeCache);
-  showToast('✓ Offert borttagen');
-}
-
-// ===== OFFERT GENERERING =====
-function skapaOffert() {
-  const inst = getInst();
-  const kundNamn = document.getElementById('kund-namn').value || 'Kund';
-  const kundAdress = document.getElementById('kund-adress').value || '';
-  const offertNr = document.getElementById('offert-nr').value || new Date().getFullYear() + '-001';
-  const giltig = document.getElementById('offert-giltig').value || '30 dagar från offertdatum';
-  const timmar = parseFloat(document.getElementById('timmar').value) || 0;
-  const timpris = parseFloat(document.getElementById('timpris').value) || 650;
-  const rotAktiv = document.getElementById('rot-toggle').checked;
-  const rotPersoner = parseInt(document.getElementById('rot-personer')?.value || 1);
-
-  const matKostnad = kalkylMat.reduce((sum, m) => sum + (m.antal * m.pris), 0);
-  const arbetskostnad = timmar * timpris;
-  const totalt = matKostnad + arbetskostnad;
-  const maxRot = rotPersoner * 50000;
-  const rotBelopp = rotAktiv ? Math.min(arbetskostnad * 0.30, maxRot) : 0;
-  const finalPris = totalt - rotBelopp;
-  const today = new Date().toLocaleDateString('sv-SE');
-
-  const stegHTML = arbetsteg.filter(s => s.trim()).map(s => `<li>${escHtml(s)}</li>`).join('');
-  const matListHTML = kalkylMat.filter(m => m.namn).map(m => `${escHtml(m.namn)} (${m.antal} ${m.enhet})`).join(', ');
-  const logoHTML = logoBase64
-    ? `<img src="${logoBase64}" style="max-height:60px;max-width:180px;object-fit:contain;display:block;margin-bottom:4px;">`
-    : `<div class="offer-company">${escHtml(inst.foretag_namn || 'Ditt Bygg AB')}</div>`;
-
-  const matRad = matKostnad > 0 ? `<tr><td class="label">Material (inkl. moms)</td><td class="val">${fmt(matKostnad)}</td></tr>` : '';
-  const rotRader = rotAktiv ? `
-    <tr><td class="label">Totalt före ROT-avdrag</td><td class="val">${fmt(totalt)}</td></tr>
-    <tr><td class="label" style="color:#2980b9;">ROT-avdrag (–)</td><td class="val" style="color:#2980b9;">–${fmt(rotBelopp)}</td></tr>` : '';
-  const rotNote = rotAktiv ? `<div class="offer-rot-note"><strong>ROT-avdrag:</strong> Avdraget på ${fmt(rotBelopp)} söks av utföraren hos Skatteverket och dras direkt från det belopp du som kund betalar. Förutsätter att du har utrymme för ROT-avdrag.</div>` : '';
-
-  document.getElementById('offert-preview').innerHTML = `
-    <div class="offer-header">
-      <div>${logoHTML}
-        <div class="offer-company-sub">${escHtml(inst.foretag_adress||'')}</div>
-        ${inst.foretag_tel ? `<div class="offer-company-sub">Tel: ${escHtml(inst.foretag_tel)}</div>` : ''}
-        ${inst.foretag_email ? `<div class="offer-company-sub">${escHtml(inst.foretag_email)}</div>` : ''}
-        ${inst.foretag_org ? `<div class="offer-company-sub">Org.nr: ${escHtml(inst.foretag_org)}</div>` : ''}
-      </div>
-      <div class="offer-nr">OFFERT<strong>${escHtml(offertNr)}</strong><div style="margin-top:6px;font-size:12px;">${today}</div></div>
-    </div>
-    <div class="offer-section"><h3>Kund</h3>
-      <div class="offer-customer"><strong>${escHtml(kundNamn)}</strong></div>
-      <div class="offer-customer" style="color:#555;font-size:14px;">${escHtml(kundAdress)}</div>
-    </div>
-    ${stegHTML ? `<div class="offer-section"><h3>Arbetet omfattar</h3><ul class="offer-steps">${stegHTML}</ul></div>` : ''}
-    ${matListHTML ? `<div class="offer-section"><h3>Material som ingår i priset</h3><div class="offer-materials">${matListHTML}</div></div>` : ''}
-    <div class="offer-section"><h3>Prissättning</h3>
-      <table class="offer-price-table">
-        ${matRad}
-        <tr><td class="label">Fast pris för arbetskostnad (inkl. moms)</td><td class="val">${fmt(arbetskostnad)}</td></tr>
-        ${rotRader}
-        <tr class="offer-total-row"><td class="label">Ni betalar totalt</td><td class="val">${fmt(finalPris)}</td></tr>
-      </table>${rotNote}
-    </div>
-    <div class="offer-section"><h3>Villkor</h3>
-      <div class="offer-conditions">${(inst.villkor||'').replace(/\n/g,'<br>')}</div>
-    </div>
-    <div class="offer-validity">Offerten är giltig: ${escHtml(giltig)}</div>
-    <div class="offer-footer" style="margin-top:16px;">${escHtml(inst.foretag_namn||'')}${inst.foretag_org?' · Org.nr '+escHtml(inst.foretag_org):''}${inst.foretag_webb?' · '+escHtml(inst.foretag_webb):''}</div>`;
-
-  byggShowPage('offert');
-}
-
-function nollstallKalkyl() {
-  arbetsteg = []; kalkylMat = [];
-  ['kund-namn','kund-adress','offert-giltig','timmar'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('rot-toggle').checked = false;
-  renderArbetsteg(); renderKalkylMat(); rakna();
-  const yr = new Date().getFullYear();
-  document.getElementById('offert-nr').value = yr + '-001';
-  laggTillSteg();
-  byggShowPage('kalkyl');
-}
-
-function kopieraText() {
-  navigator.clipboard.writeText(document.getElementById('offert-preview').innerText)
-    .then(() => showToast('✓ Kopierat till urklipp'));
-}
-</script>
-
-  </div>
 </div>
 
 <!-- SETTINGS -->
@@ -1862,6 +1094,414 @@ function clearChat() {
   chatHistory = [];
   document.getElementById('messages').innerHTML = `<div class="welcome-msg"><h2>Hej! Jag är din AI-assistent.</h2>Jag känner till ditt byggföretag, dina hyresbostäder och din Bitcoin-handel.</div>`;
 }
+
+// ══════════════════════════════════════════════
+// BYGGKALKYL — localStorage, no auth
+// ══════════════════════════════════════════════
+
+let bArbetsteg = [];
+let bKalkylMat = [];
+let bMaterialDB = [];
+let bLogoBase64 = null;
+let bSparadeCache = [];
+let _bRedigerarId = null;
+
+function bFmt(n) { return Math.round(n).toLocaleString('sv-SE') + ' kr'; }
+function bEsc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function bToast(msg, type='success') {
+  const t = document.getElementById('b-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.style.borderColor = type === 'error' ? '#5a2020' : type === 'success' ? '#2a4a2a' : 'var(--border)';
+  t.style.color = type === 'error' ? '#e07070' : type === 'success' ? '#70c070' : 'var(--text)';
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 3000);
+}
+
+// ── NAVIGATION ──
+function byggNav(id) {
+  document.querySelectorAll('#panel-bygg .bygg-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#panel-bygg .bygg-tab').forEach(t => t.classList.remove('active'));
+  const page = document.getElementById('bygg-' + id);
+  if (page) page.classList.add('active');
+  const tabs = document.querySelectorAll('#panel-bygg .bygg-tab');
+  const idx = ['kalkyl','offert','sparade','material','installs'].indexOf(id);
+  if (tabs[idx]) tabs[idx].classList.add('active');
+  if (id === 'material') bRenderDB();
+  if (id === 'sparade') bVisaSparade();
+}
+
+// ── INIT ──
+function bInit() {
+  bMaterialDB = JSON.parse(localStorage.getItem('b_material') || '[]');
+  bSparadeCache = JSON.parse(localStorage.getItem('b_offerter') || '[]');
+  const inst = bGetInst();
+  if (inst.timpris) document.getElementById('b-timpris').value = inst.timpris;
+  if (inst.logo) { bLogoBase64 = inst.logo; bVisaLogo(inst.logo); }
+  if (inst.foretag_namn) document.getElementById('b-foretag-namn').value = inst.foretag_namn;
+  if (inst.foretag_org) document.getElementById('b-foretag-org').value = inst.foretag_org;
+  if (inst.foretag_tel) document.getElementById('b-foretag-tel').value = inst.foretag_tel;
+  if (inst.foretag_email) document.getElementById('b-foretag-email').value = inst.foretag_email;
+  if (inst.foretag_adress) document.getElementById('b-foretag-adress').value = inst.foretag_adress;
+  if (inst.foretag_webb) document.getElementById('b-foretag-webb').value = inst.foretag_webb;
+  if (inst.villkor) document.getElementById('b-villkor').value = inst.villkor;
+  if (inst.inst_timpris) document.getElementById('b-inst-timpris').value = inst.inst_timpris;
+  const yr = new Date().getFullYear();
+  const count = bSparadeCache.length + 1;
+  document.getElementById('b-offert-nr').value = yr + '-' + String(count).padStart(3,'0');
+  bLaggTillSteg();
+  bRakna();
+}
+
+// ── INSTÄLLNINGAR ──
+function bGetInst() {
+  return JSON.parse(localStorage.getItem('b_installningar') || '{}');
+}
+
+function bSparaInstall() {
+  const inst = {
+    foretag_namn: document.getElementById('b-foretag-namn').value,
+    foretag_org: document.getElementById('b-foretag-org').value,
+    foretag_tel: document.getElementById('b-foretag-tel').value,
+    foretag_email: document.getElementById('b-foretag-email').value,
+    foretag_adress: document.getElementById('b-foretag-adress').value,
+    foretag_webb: document.getElementById('b-foretag-webb').value,
+    villkor: document.getElementById('b-villkor').value,
+    inst_timpris: document.getElementById('b-inst-timpris').value,
+    timpris: document.getElementById('b-inst-timpris').value,
+    logo: bLogoBase64
+  };
+  localStorage.setItem('b_installningar', JSON.stringify(inst));
+  document.getElementById('b-timpris').value = inst.timpris || 650;
+  bToast('✓ Inställningar sparade');
+}
+
+// ── LOGOTYP ──
+function bLaddaLogo(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    bLogoBase64 = e.target.result;
+    bVisaLogo(bLogoBase64);
+  };
+  reader.readAsDataURL(file);
+}
+
+function bVisaLogo(src) {
+  const img = document.getElementById('b-logo-img');
+  const ph = document.getElementById('b-logo-placeholder');
+  if (img) { img.src = src; img.style.display = 'block'; }
+  if (ph) ph.style.display = 'none';
+}
+
+function bTaBortLogo() {
+  bLogoBase64 = null;
+  const img = document.getElementById('b-logo-img');
+  const ph = document.getElementById('b-logo-placeholder');
+  if (img) { img.src = ''; img.style.display = 'none'; }
+  if (ph) ph.style.display = 'block';
+}
+
+// ── ARBETSTEG ──
+function bRenderSteg() {
+  const list = document.getElementById('b-steg-list');
+  if (!list) return;
+  list.innerHTML = bArbetsteg.map((s, i) => `
+    <div class="bygg-steg-row">
+      <div class="bygg-steg-num">${i+1}</div>
+      <input class="bygg-input" style="flex:1;" type="text" value="${bEsc(s)}" placeholder="Beskriv arbetssteg..." oninput="bArbetsteg[${i}]=this.value">
+      <button class="bygg-btn-danger" onclick="bTaBortSteg(${i})">✕</button>
+    </div>`).join('');
+}
+function bLaggTillSteg() { bArbetsteg.push(''); bRenderSteg(); const inputs = document.querySelectorAll('#b-steg-list input'); if(inputs.length) inputs[inputs.length-1].focus(); }
+function bTaBortSteg(i) { bArbetsteg.splice(i,1); bRenderSteg(); }
+
+// ── KALKYL MATERIAL ──
+function bRenderMat() {
+  const list = document.getElementById('b-mat-list');
+  const hdr = document.getElementById('b-mat-col-header');
+  if (!list) return;
+  if (hdr) hdr.style.display = bKalkylMat.length > 0 ? 'flex' : 'none';
+  list.innerHTML = bKalkylMat.map((m, i) => `
+    <div class="bygg-mat-row">
+      <input class="bygg-input bygg-mat-name" type="text" value="${bEsc(m.namn)}" placeholder="Materialnamn" oninput="bKalkylMat[${i}].namn=this.value">
+      <input class="bygg-input bygg-mat-qty" type="number" value="${m.antal}" min="0" oninput="bKalkylMat[${i}].antal=parseFloat(this.value)||0;bRakna()">
+      <div style="width:35px;font-size:11px;color:var(--muted);text-align:center;">${bEsc(m.enhet)}</div>
+      <div style="width:70px;font-size:11px;color:var(--muted);text-align:right;font-family:'DM Mono',monospace;">${m.pris} kr</div>
+      <button class="bygg-btn-danger" style="padding:5px 8px;" onclick="bTaBortMat(${i})">✕</button>
+    </div>`).join('');
+  bRakna();
+}
+function bLaggTillKalkylMat(m) { bKalkylMat.push({namn:m.namn,antal:1,enhet:m.enhet,pris:m.pris}); bRenderMat(); }
+function bLaggTillMatManuellt() { bKalkylMat.push({namn:'',antal:1,enhet:'st',pris:0}); bRenderMat(); }
+function bTaBortMat(i) { bKalkylMat.splice(i,1); bRenderMat(); bRakna(); }
+
+// ── MATERIAL SÖK ──
+function bSokMaterial(q) {
+  const dd = document.getElementById('b-mat-dropdown');
+  if (!q || !dd) { if(dd) dd.style.display='none'; return; }
+  const hits = bMaterialDB.filter(m => m.namn.toLowerCase().includes(q.toLowerCase()) || (m.kategori||'').toLowerCase().includes(q.toLowerCase()));
+  if (!hits.length) { dd.style.display='none'; return; }
+  dd.innerHTML = hits.map(m => `
+    <div class="bygg-dropdown-item" onclick="bValjMaterial('${m.id}')">
+      <span>${bEsc(m.namn)}${m.kategori?' <span style=\'font-size:10px;color:var(--muted)\'>· '+bEsc(m.kategori)+'</span>':''}</span>
+      <span style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;">${m.pris} kr/${m.enhet}</span>
+    </div>`).join('');
+  dd.style.display = 'block';
+}
+function bValjMaterial(id) {
+  const m = bMaterialDB.find(x => x.id === id);
+  if (m) bLaggTillKalkylMat(m);
+  const sok = document.getElementById('b-mat-sok');
+  const dd = document.getElementById('b-mat-dropdown');
+  if (sok) sok.value = '';
+  if (dd) dd.style.display = 'none';
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('#b-mat-sok') && !e.target.closest('#b-mat-dropdown')) {
+    const dd = document.getElementById('b-mat-dropdown');
+    if (dd) dd.style.display = 'none';
+  }
+});
+
+// ── MATERIALDATABAS ──
+function bSparaDB() {
+  localStorage.setItem('b_material', JSON.stringify(bMaterialDB));
+}
+function bLaggTillDB() {
+  const namn = document.getElementById('b-db-namn').value.trim();
+  const enhet = document.getElementById('b-db-enhet').value.trim() || 'st';
+  const pris = parseFloat(document.getElementById('b-db-pris').value) || 0;
+  const kategori = document.getElementById('b-db-kat').value.trim();
+  if (!namn) { bToast('Ange ett materialnamn', 'error'); return; }
+  const item = {id: Date.now().toString(), namn, enhet, pris, kategori};
+  bMaterialDB.push(item);
+  bMaterialDB.sort((a,b) => a.namn.localeCompare(b.namn));
+  bSparaDB();
+  document.getElementById('b-db-namn').value = '';
+  document.getElementById('b-db-enhet').value = '';
+  document.getElementById('b-db-pris').value = '';
+  document.getElementById('b-db-kat').value = '';
+  bRenderDB();
+  bToast('✓ ' + namn + ' sparad');
+}
+function bRenderDB() {
+  const filter = (document.getElementById('b-db-filter')?.value || '').toLowerCase();
+  const list = document.getElementById('b-db-list');
+  if (!list) return;
+  const filtered = bMaterialDB.filter(m => m.namn.toLowerCase().includes(filter) || (m.kategori||'').toLowerCase().includes(filter));
+  if (!filtered.length) { list.innerHTML = '<div style="color:var(--muted);font-size:13px;">' + (bMaterialDB.length===0 ? 'Inga material sparade ännu.' : 'Inga träffar.') + '</div>'; return; }
+  const cats = {};
+  filtered.forEach(m => { const k = m.kategori || 'Övrigt'; if (!cats[k]) cats[k] = []; cats[k].push(m); });
+  list.innerHTML = '';
+  Object.entries(cats).sort().forEach(([kat, items]) => {
+    const ch = document.createElement('div'); ch.className='bygg-cat-head'; ch.textContent = kat; list.appendChild(ch);
+    items.forEach(m => {
+      const row = document.createElement('div'); row.className = 'bygg-db-row';
+      row.innerHTML = `<div style="flex:1"><div style="font-size:13px;">${bEsc(m.namn)}</div><div style="font-size:11px;color:var(--muted);">${m.pris} kr / ${m.enhet}</div></div>
+        <button class="bygg-btn-ghost" style="padding:5px 10px;font-size:11px;" onclick="bLaggFranDB('${m.id}')">+ Kalkyl</button>
+        <button class="bygg-btn-danger" style="padding:5px 8px;" onclick="bTaBortDB('${m.id}')">✕</button>`;
+      list.appendChild(row);
+    });
+  });
+}
+function bLaggFranDB(id) { const m = bMaterialDB.find(x => x.id===id); if(m){bLaggTillKalkylMat(m); byggNav('kalkyl');} }
+function bTaBortDB(id) {
+  const m = bMaterialDB.find(x => x.id===id);
+  if (!confirm('Ta bort "' + (m?.namn||'') + '"?')) return;
+  bMaterialDB = bMaterialDB.filter(x => x.id !== id);
+  bSparaDB();
+  bRenderDB();
+  bToast('✓ Borttaget');
+}
+
+// ── BERÄKNING ──
+function bRakna() {
+  const timmar = parseFloat(document.getElementById('b-timmar')?.value) || 0;
+  const timpris = parseFloat(document.getElementById('b-timpris')?.value) || 650;
+  const rot = document.getElementById('b-rot')?.checked;
+  const rotPers = parseInt(document.getElementById('b-rot-personer')?.value || 1);
+  const rotInfo = document.getElementById('b-rot-info');
+  const rotRad = document.getElementById('b-rot-rad');
+  if (rotInfo) rotInfo.style.display = rot ? 'block' : 'none';
+  if (rotRad) rotRad.style.display = rot ? 'flex' : 'none';
+  const matKost = bKalkylMat.reduce((s,m) => s + m.antal*m.pris, 0);
+  const arbKost = timmar * timpris;
+  const tot = matKost + arbKost;
+  const maxRot = rotPers * 50000;
+  const rotBelop = rot ? Math.min(arbKost * 0.30, maxRot) : 0;
+  const final = tot - rotBelop;
+  const el = id => document.getElementById(id);
+  if(el('b-s-mat')) el('b-s-mat').textContent = bFmt(matKost);
+  if(el('b-s-arb')) el('b-s-arb').textContent = bFmt(arbKost);
+  if(el('b-s-tot')) el('b-s-tot').textContent = bFmt(tot);
+  if(el('b-s-rot')) el('b-s-rot').textContent = bFmt(rotBelop);
+  if(el('b-s-final')) el('b-s-final').textContent = bFmt(final);
+}
+
+// ── SPARA OFFERT ──
+function bSparaOffert() {
+  const offertData = {
+    id: _bRedigerarId || Date.now().toString(),
+    skapad_at: _bRedigerarId ? (bSparadeCache.find(x=>x.id===_bRedigerarId)?.skapad_at || new Date().toISOString()) : new Date().toISOString(),
+    offert_nr: document.getElementById('b-offert-nr').value,
+    kund_namn: document.getElementById('b-kund-namn').value,
+    kund_adress: document.getElementById('b-kund-adress').value,
+    arbetsteg: [...bArbetsteg],
+    kalkyl_material: [...bKalkylMat],
+    timmar: parseFloat(document.getElementById('b-timmar').value) || 0,
+    rot_aktiv: document.getElementById('b-rot').checked,
+    rot_personer: parseInt(document.getElementById('b-rot-personer')?.value || 1),
+    giltig: document.getElementById('b-giltig').value
+  };
+  if (_bRedigerarId) {
+    bSparadeCache = bSparadeCache.map(x => x.id === _bRedigerarId ? offertData : x);
+    _bRedigerarId = null;
+    document.getElementById('b-spara-btn').textContent = '💾 Spara';
+    bToast('✓ Offert uppdaterad');
+  } else {
+    bSparadeCache.unshift(offertData);
+    bToast('✓ Offert sparad');
+  }
+  localStorage.setItem('b_offerter', JSON.stringify(bSparadeCache));
+}
+
+// ── SPARADE OFFERTER ──
+function bVisaSparade() {
+  bFilterSparade();
+}
+function bFilterSparade() {
+  const q = (document.getElementById('b-filter')?.value || '').toLowerCase();
+  const filtered = bSparadeCache.filter(o => (o.kund_namn||'').toLowerCase().includes(q) || (o.offert_nr||'').toLowerCase().includes(q));
+  bRenderSparade(filtered);
+}
+function bRenderSparade(offerter) {
+  const list = document.getElementById('b-sparade-list');
+  if (!list) return;
+  if (!offerter.length) { list.innerHTML = '<div style="color:var(--muted);font-size:13px;">Inga offerter hittades.</div>'; return; }
+  list.innerHTML = offerter.map(o => `
+    <div class="bygg-offert-list-row">
+      <div style="flex:1;cursor:pointer;" onclick="bOppnaOffert('${o.id}')">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);width:75px;flex-shrink:0;">${bEsc(o.offert_nr||'–')}</span>
+          <span style="font-size:13px;">${bEsc(o.kund_namn||'Okänd')}</span>
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">${new Date(o.skapad_at).toLocaleDateString('sv-SE')}</div>
+      </div>
+      <button class="bygg-btn-ghost" style="padding:5px 9px;font-size:11px;" onclick="bRedigeraOffert('${o.id}')">✏️</button>
+      <button class="bygg-btn-danger" style="padding:5px 8px;" onclick="bTaBortOffert('${o.id}')">✕</button>
+    </div>`).join('');
+}
+function bOppnaOffert(id) {
+  const o = bSparadeCache.find(x => x.id===id);
+  if (!o) return;
+  bLaddaIKalkyl(o);
+  bSkapaOffert();
+  byggNav('offert');
+}
+function bRedigeraOffert(id) {
+  const o = bSparadeCache.find(x => x.id===id);
+  if (!o) return;
+  bLaddaIKalkyl(o);
+  _bRedigerarId = id;
+  document.getElementById('b-spara-btn').textContent = '💾 Uppdatera';
+  byggNav('kalkyl');
+  bToast('Offert laddad — gör ändringar och spara');
+}
+function bLaddaIKalkyl(o) {
+  bArbetsteg = o.arbetsteg || [];
+  bKalkylMat = o.kalkyl_material || [];
+  document.getElementById('b-kund-namn').value = o.kund_namn || '';
+  document.getElementById('b-kund-adress').value = o.kund_adress || '';
+  document.getElementById('b-offert-nr').value = o.offert_nr || '';
+  document.getElementById('b-giltig').value = o.giltig || '';
+  document.getElementById('b-timmar').value = o.timmar || '';
+  document.getElementById('b-rot').checked = o.rot_aktiv || false;
+  if (o.rot_personer) document.getElementById('b-rot-personer').value = o.rot_personer;
+  bRenderSteg();
+  bRenderMat();
+  bRakna();
+}
+function bTaBortOffert(id) {
+  const o = bSparadeCache.find(x => x.id===id);
+  if (!confirm('Ta bort offert för ' + (o?.kund_namn||'okänd kund') + '?')) return;
+  bSparadeCache = bSparadeCache.filter(x => x.id !== id);
+  localStorage.setItem('b_offerter', JSON.stringify(bSparadeCache));
+  bVisaSparade();
+  bToast('✓ Offert borttagen');
+}
+
+// ── OFFERT GENERERING ──
+function bSkapaOffert() {
+  const inst = bGetInst();
+  const kundNamn = document.getElementById('b-kund-namn').value || 'Kund';
+  const kundAdress = document.getElementById('b-kund-adress').value || '';
+  const offertNr = document.getElementById('b-offert-nr').value || new Date().getFullYear() + '-001';
+  const giltig = document.getElementById('b-giltig').value || '30 dagar';
+  const timmar = parseFloat(document.getElementById('b-timmar').value) || 0;
+  const timpris = parseFloat(document.getElementById('b-timpris').value) || 650;
+  const rot = document.getElementById('b-rot').checked;
+  const rotPers = parseInt(document.getElementById('b-rot-personer')?.value || 1);
+  const matKost = bKalkylMat.reduce((s,m) => s + m.antal*m.pris, 0);
+  const arbKost = timmar * timpris;
+  const tot = matKost + arbKost;
+  const rotBelop = rot ? Math.min(arbKost*0.30, rotPers*50000) : 0;
+  const final = tot - rotBelop;
+  const today = new Date().toLocaleDateString('sv-SE');
+  const stegHTML = bArbetsteg.filter(s=>s.trim()).map(s=>`<li style="padding:3px 0;border-bottom:1px solid #f0f0f0;font-size:11px;display:flex;align-items:center;gap:6px;"><span style="color:#d4a853;font-weight:bold;">–</span>${bEsc(s)}</li>`).join('');
+  const matHTML = bKalkylMat.filter(m=>m.namn).map(m=>`${bEsc(m.namn)} (${m.antal} ${m.enhet})`).join(', ');
+  const logoHTML = bLogoBase64 ? `<img src="${bLogoBase64}" style="max-height:55px;max-width:160px;object-fit:contain;display:block;margin-bottom:4px;">` : `<div style="font-family:'DM Serif Display',serif;font-size:14px;color:#1a1a18;">${bEsc(inst.foretag_namn||'Ditt Bygg AB')}</div>`;
+  const matRad = matKost>0 ? `<tr><td style="padding:6px 0;font-size:11px;color:#444;">Material (inkl. moms)</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;">${bFmt(matKost)}</td></tr>` : '';
+  const rotRader = rot ? `<tr><td style="padding:6px 0;font-size:11px;color:#444;">Totalt före ROT</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:13px;">${bFmt(tot)}</td></tr><tr><td style="padding:6px 0;font-size:11px;color:#2980b9;">ROT-avdrag (–)</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:11px;color:#2980b9;">–${bFmt(rotBelop)}</td></tr>` : '';
+  const rotNote = rot ? `<div style="background:#e8f4fb;border-radius:6px;padding:7px 10px;font-size:10px;color:#2980b9;margin-top:6px;"><strong>ROT-avdrag:</strong> Avdraget söks av utföraren och dras direkt från er betalning. Förutsätter att ni har utrymme för ROT-avdrag.</div>` : '';
+  document.getElementById('b-offert-preview').innerHTML = `
+    <div style="font-family:'Outfit',sans-serif;color:#1a1a18;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid #d4a853;">
+        <div>${logoHTML}<div style="font-size:11px;color:#666;margin-top:2px;">${bEsc(inst.foretag_adress||'')}</div>${inst.foretag_tel?`<div style="font-size:11px;color:#666;">Tel: ${bEsc(inst.foretag_tel)}</div>`:''} ${inst.foretag_email?`<div style="font-size:11px;color:#666;">${bEsc(inst.foretag_email)}</div>`:''} ${inst.foretag_org?`<div style="font-size:11px;color:#666;">Org.nr: ${bEsc(inst.foretag_org)}</div>`:''}</div>
+        <div style="text-align:right;font-size:11px;color:#666;">OFFERT<strong style="display:block;font-size:15px;color:#1a1a18;font-family:'DM Mono',monospace;">${bEsc(offertNr)}</strong><div style="margin-top:4px;">${today}</div></div>
+      </div>
+      <div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Kund</div><strong style="font-size:13px;">${bEsc(kundNamn)}</strong><div style="color:#555;font-size:13px;">${bEsc(kundAdress)}</div></div>
+      ${stegHTML ? `<div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Arbetet omfattar</div><ul style="list-style:none;">${stegHTML}</ul></div>` : ''}
+      ${matHTML ? `<div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Material som ingår</div><div style="font-size:12px;color:#444;">${matHTML}</div></div>` : ''}
+      <div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Prissättning</div>
+        <table style="width:100%;border-collapse:collapse;">${matRad}<tr><td style="padding:6px 0;font-size:11px;color:#444;">Arbetskostnad (inkl. moms)</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;">${bFmt(arbKost)}</td></tr>${rotRader}<tr style="border-top:2px solid #d4a853;"><td style="padding:8px 0 5px;font-size:13px;font-weight:700;">Ni betalar totalt</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:15px;font-weight:700;padding:10px 0 6px;">${bFmt(final)}</td></tr></table>${rotNote}</div>
+      ${inst.villkor ? `<div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Villkor</div><div style="background:#fafafa;border-radius:6px;padding:7px 10px;font-size:10px;color:#666;line-height:1.5;">${bEsc(inst.villkor).replace(/\n/g,'<br>')}</div></div>` : ''}
+      <div style="font-weight:600;font-size:11px;color:#1a1a18;margin-bottom:8px;">Offerten är giltig: ${bEsc(giltig)}</div>
+      <div style="border-top:1px solid #eee;padding-top:8px;font-size:10px;color:#888;">${bEsc(inst.foretag_namn||'')}${inst.foretag_org?' · Org.nr '+bEsc(inst.foretag_org):''}${inst.foretag_webb?' · '+bEsc(inst.foretag_webb):''}</div>
+    </div>`;
+  byggNav('offert');
+}
+
+function bNollstall() {
+  bArbetsteg = []; bKalkylMat = []; _bRedigerarId = null;
+  ['b-kund-namn','b-kund-adress','b-giltig','b-timmar'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+  const rot = document.getElementById('b-rot'); if(rot) rot.checked = false;
+  bRenderSteg(); bRenderMat(); bRakna();
+  const yr = new Date().getFullYear();
+  const count = bSparadeCache.length + 1;
+  document.getElementById('b-offert-nr').value = yr + '-' + String(count).padStart(3,'0');
+  const btn = document.getElementById('b-spara-btn'); if(btn) btn.textContent = '💾 Spara';
+  bLaggTillSteg();
+  byggNav('kalkyl');
+}
+
+function bKopiera() {
+  const el = document.getElementById('b-offert-preview');
+  if (el) navigator.clipboard.writeText(el.innerText).then(() => bToast('✓ Kopierat'));
+}
+
+// Init when panel-bygg becomes active
+const _bOrigSwitch = window.switchTab;
+window.switchTab = function(tab) {
+  _bOrigSwitch(tab);
+  if (tab === 'bygg') {
+    // small delay to ensure panel is visible
+    setTimeout(bInit, 50);
+    window.switchTab = _bOrigSwitch; // only init once
+  }
+};
 </script>
 
 </body>
