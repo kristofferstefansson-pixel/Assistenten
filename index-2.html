@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0a0a08">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AI Assistent">
+<title>AI Assistent</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWExYTEwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBhMGEwOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmN2Q3NzQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmNWM4NDIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYzg5NjBhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4zIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4wNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI4IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJibHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIAogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIE91dGVyIHJpbmcgZ2xvdyAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3JpbmcpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4yIi8+CiAgCiAgPCEtLSBTdWJ0bGUgZ3JpZCBsaW5lcyAtLT4KICA8bGluZSB4MT0iODAiIHkxPSIyNTYiIHgyPSI0MzIiIHkyPSIyNTYiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA4Ii8+CiAgPGxpbmUgeDE9IjI1NiIgeTE9IjgwIiB4Mj0iMjU2IiB5Mj0iNDMyIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4wOCIvPgoKICA8IS0tIElubmVyIGNpcmNsZSBiYWNrZ3JvdW5kIC0tPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTc1IiBmaWxsPSIjMTMxMzEwIi8+CiAgPGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIxNzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4xNSIvPgoKICA8IS0tIEJpdGNvaW4gQiBzeW1ib2wgLSBib2xkLCBzaGFycCwgbW9kZXJuIC0tPgogIDwhLS0gTGVmdCB2ZXJ0aWNhbCBiYXIgLS0+CiAgPHJlY3QgeD0iMTc4IiB5PSIxNDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSIyMjIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICAKICA8IS0tIFRvcCBidW1wIC0tPgogIDxyZWN0IHg9IjE3OCIgeT0iMTQ1IiB3aWR0aD0iOTgiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIyNDAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIzMzUiIHdpZHRoPSI5OCIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZ29sZCkiLz4KICAKICA8IS0tIFRvcCBhcmMgLS0+CiAgPHBhdGggZD0iTSAyNzYgMTQ1IFEgMzQwIDE0NSAzNDAgMTk5IFEgMzQwIDI0MCAyNzYgMjQwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBCb3R0b20gYXJjIChzbGlnaHRseSB3aWRlcikgLS0+CiAgPHBhdGggZD0iTSAyODggMjQwIFEgMzU4IDI0MCAzNTggMjk1IFEgMzU4IDM2NyAyODggMzY3IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBUb3Agc2VyaWYgbGluZXMgKGNsYXNzaWMgQml0Y29pbiBzdHlsZSkgLS0+CiAgPHJlY3QgeD0iMjAyIiB5PSIxMjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjEyNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNCIgZmlsbD0idXJsKCNnb2xkKSIvPgogIDwhLS0gQm90dG9tIHNlcmlmIGxpbmVzIC0tPgogIDxyZWN0IHg9IjIwMiIgeT0iMzU5IiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI0IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMjQ4IiB5PSIzNTkiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KCiAgPCEtLSBDb3JuZXIgZG90cyAvIGRlY29yYXRpdmUgLS0+CiAgPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTI4IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgogIDxjaXJjbGUgY3g9IjM4NCIgY3k9IjEyOCIgcj0iNCIgZmlsbD0iI2Y1Yzg0MiIgZmlsbC1vcGFjaXR5PSIwLjMiLz4KICA8Y2lyY2xlIGN4PSIxMjgiIGN5PSIzODQiIHI9IjQiIGZpbGw9IiNmNWM4NDIiIGZpbGwtb3BhY2l0eT0iMC4zIi8+CiAgPGNpcmNsZSBjeD0iMzg0IiBjeT0iMzg0IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWExYTEwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBhMGEwOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmN2Q3NzQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmNWM4NDIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYzg5NjBhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4zIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4wNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI4IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJibHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIAogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIE91dGVyIHJpbmcgZ2xvdyAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3JpbmcpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4yIi8+CiAgCiAgPCEtLSBTdWJ0bGUgZ3JpZCBsaW5lcyAtLT4KICA8bGluZSB4MT0iODAiIHkxPSIyNTYiIHgyPSI0MzIiIHkyPSIyNTYiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA4Ii8+CiAgPGxpbmUgeDE9IjI1NiIgeTE9IjgwIiB4Mj0iMjU2IiB5Mj0iNDMyIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4wOCIvPgoKICA8IS0tIElubmVyIGNpcmNsZSBiYWNrZ3JvdW5kIC0tPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTc1IiBmaWxsPSIjMTMxMzEwIi8+CiAgPGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIxNzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4xNSIvPgoKICA8IS0tIEJpdGNvaW4gQiBzeW1ib2wgLSBib2xkLCBzaGFycCwgbW9kZXJuIC0tPgogIDwhLS0gTGVmdCB2ZXJ0aWNhbCBiYXIgLS0+CiAgPHJlY3QgeD0iMTc4IiB5PSIxNDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSIyMjIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICAKICA8IS0tIFRvcCBidW1wIC0tPgogIDxyZWN0IHg9IjE3OCIgeT0iMTQ1IiB3aWR0aD0iOTgiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIyNDAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIzMzUiIHdpZHRoPSI5OCIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZ29sZCkiLz4KICAKICA8IS0tIFRvcCBhcmMgLS0+CiAgPHBhdGggZD0iTSAyNzYgMTQ1IFEgMzQwIDE0NSAzNDAgMTk5IFEgMzQwIDI0MCAyNzYgMjQwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBCb3R0b20gYXJjIChzbGlnaHRseSB3aWRlcikgLS0+CiAgPHBhdGggZD0iTSAyODggMjQwIFEgMzU4IDI0MCAzNTggMjk1IFEgMzU4IDM2NyAyODggMzY3IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBUb3Agc2VyaWYgbGluZXMgKGNsYXNzaWMgQml0Y29pbiBzdHlsZSkgLS0+CiAgPHJlY3QgeD0iMjAyIiB5PSIxMjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjEyNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNCIgZmlsbD0idXJsKCNnb2xkKSIvPgogIDwhLS0gQm90dG9tIHNlcmlmIGxpbmVzIC0tPgogIDxyZWN0IHg9IjIwMiIgeT0iMzU5IiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI0IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMjQ4IiB5PSIzNTkiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KCiAgPCEtLSBDb3JuZXIgZG90cyAvIGRlY29yYXRpdmUgLS0+CiAgPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTI4IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgogIDxjaXJjbGUgY3g9IjM4NCIgY3k9IjEyOCIgcj0iNCIgZmlsbD0iI2Y1Yzg0MiIgZmlsbC1vcGFjaXR5PSIwLjMiLz4KICA8Y2lyY2xlIGN4PSIxMjgiIGN5PSIzODQiIHI9IjQiIGZpbGw9IiNmNWM4NDIiIGZpbGwtb3BhY2l0eT0iMC4zIi8+CiAgPGNpcmNsZSBjeD0iMzg0IiBjeT0iMzg0IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4=">
+<meta name="msapplication-TileImage" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMWExYTEwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBhMGEwOCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmN2Q3NzQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmNWM4NDIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYzg5NjBhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4zIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2Y1Yzg0MjtzdG9wLW9wYWNpdHk6MC4wNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI4IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJibHVyIi8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIAogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCNiZykiLz4KICAKICA8IS0tIE91dGVyIHJpbmcgZ2xvdyAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3JpbmcpIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4yIi8+CiAgCiAgPCEtLSBTdWJ0bGUgZ3JpZCBsaW5lcyAtLT4KICA8bGluZSB4MT0iODAiIHkxPSIyNTYiIHgyPSI0MzIiIHkyPSIyNTYiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA4Ii8+CiAgPGxpbmUgeDE9IjI1NiIgeTE9IjgwIiB4Mj0iMjU2IiB5Mj0iNDMyIiBzdHJva2U9IiNmNWM4NDIiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4wOCIvPgoKICA8IS0tIElubmVyIGNpcmNsZSBiYWNrZ3JvdW5kIC0tPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTc1IiBmaWxsPSIjMTMxMzEwIi8+CiAgPGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIxNzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y1Yzg0MiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4xNSIvPgoKICA8IS0tIEJpdGNvaW4gQiBzeW1ib2wgLSBib2xkLCBzaGFycCwgbW9kZXJuIC0tPgogIDwhLS0gTGVmdCB2ZXJ0aWNhbCBiYXIgLS0+CiAgPHJlY3QgeD0iMTc4IiB5PSIxNDUiIHdpZHRoPSIzMiIgaGVpZ2h0PSIyMjIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICAKICA8IS0tIFRvcCBidW1wIC0tPgogIDxyZWN0IHg9IjE3OCIgeT0iMTQ1IiB3aWR0aD0iOTgiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIyNDAiIHdpZHRoPSIxMTAiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMTc4IiB5PSIzMzUiIHdpZHRoPSI5OCIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZ29sZCkiLz4KICAKICA8IS0tIFRvcCBhcmMgLS0+CiAgPHBhdGggZD0iTSAyNzYgMTQ1IFEgMzQwIDE0NSAzNDAgMTk5IFEgMzQwIDI0MCAyNzYgMjQwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBCb3R0b20gYXJjIChzbGlnaHRseSB3aWRlcikgLS0+CiAgPHBhdGggZD0iTSAyODggMjQwIFEgMzU4IDI0MCAzNTggMjk1IFEgMzU4IDM2NyAyODggMzY3IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZ29sZCkiIHN0cm9rZS13aWR0aD0iMzIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsdGVyPSJ1cmwoI2dsb3cpIi8+CiAgCiAgPCEtLSBUb3Agc2VyaWYgbGluZXMgKGNsYXNzaWMgQml0Y29pbiBzdHlsZSkgLS0+CiAgPHJlY3QgeD0iMjAyIiB5PSIxMjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjEyNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiByeD0iNCIgZmlsbD0idXJsKCNnb2xkKSIvPgogIDwhLS0gQm90dG9tIHNlcmlmIGxpbmVzIC0tPgogIDxyZWN0IHg9IjIwMiIgeT0iMzU5IiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIHJ4PSI0IiBmaWxsPSJ1cmwoI2dvbGQpIi8+CiAgPHJlY3QgeD0iMjQ4IiB5PSIzNTkiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgcng9IjQiIGZpbGw9InVybCgjZ29sZCkiLz4KCiAgPCEtLSBDb3JuZXIgZG90cyAvIGRlY29yYXRpdmUgLS0+CiAgPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTI4IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgogIDxjaXJjbGUgY3g9IjM4NCIgY3k9IjEyOCIgcj0iNCIgZmlsbD0iI2Y1Yzg0MiIgZmlsbC1vcGFjaXR5PSIwLjMiLz4KICA8Y2lyY2xlIGN4PSIxMjgiIGN5PSIzODQiIHI9IjQiIGZpbGw9IiNmNWM4NDIiIGZpbGwtb3BhY2l0eT0iMC4zIi8+CiAgPGNpcmNsZSBjeD0iMzg0IiBjeT0iMzg0IiByPSI0IiBmaWxsPSIjZjVjODQyIiBmaWxsLW9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4=">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiQUkgQXNzaXN0ZW50Iiwic2hvcnRfbmFtZSI6IkFJIiwic3RhcnRfdXJsIjoiLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwYTBhMDgiLCJ0aGVtZV9jb2xvciI6IiNmNWM4NDIiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQTFNVElnTlRFeUlqNEtJQ0E4WkdWbWN6NEtJQ0FnSUR4c2FXNWxZWEpIY21Ga2FXVnVkQ0JwWkQwaVltY2lJSGd4UFNJd0pTSWdlVEU5SWpBbElpQjRNajBpTVRBd0pTSWdlVEk5SWpFd01DVWlQZ29nSUNBZ0lDQThjM1J2Y0NCdlptWnpaWFE5SWpBbElpQnpkSGxzWlQwaWMzUnZjQzFqYjJ4dmNqb2pNV0V4WVRFd0lpOCtDaUFnSUNBZ0lEeHpkRzl3SUc5bVpuTmxkRDBpTVRBd0pTSWdjM1I1YkdVOUluTjBiM0F0WTI5c2IzSTZJekJoTUdFd09DSXZQZ29nSUNBZ1BDOXNhVzVsWVhKSGNtRmthV1Z1ZEQ0S0lDQWdJRHhzYVc1bFlYSkhjbUZrYVdWdWRDQnBaRDBpWjI5c1pDSWdlREU5SWpBbElpQjVNVDBpTUNVaUlIZ3lQU0l4TURBbElpQjVNajBpTVRBd0pTSStDaUFnSUNBZ0lEeHpkRzl3SUc5bVpuTmxkRDBpTUNVaUlITjBlV3hsUFNKemRHOXdMV052Ykc5eU9pTm1OMlEzTnpRaUx6NEtJQ0FnSUNBZ1BITjBiM0FnYjJabWMyVjBQU0kxTUNVaUlITjBlV3hsUFNKemRHOXdMV052Ykc5eU9pTm1OV000TkRJaUx6NEtJQ0FnSUNBZ1BITjBiM0FnYjJabWMyVjBQU0l4TURBbElpQnpkSGxzWlQwaWMzUnZjQzFqYjJ4dmNqb2pZemc1TmpCaElpOCtDaUFnSUNBOEwyeHBibVZoY2tkeVlXUnBaVzUwUGdvZ0lDQWdQR3hwYm1WaGNrZHlZV1JwWlc1MElHbGtQU0p5YVc1bklpQjRNVDBpTUNVaUlIa3hQU0l3SlNJZ2VESTlJakV3TUNVaUlIa3lQU0l4TURBbElqNEtJQ0FnSUNBZ1BITjBiM0FnYjJabWMyVjBQU0l3SlNJZ2MzUjViR1U5SW5OMGIzQXRZMjlzYjNJNkkyWTFZemcwTWp0emRHOXdMVzl3WVdOcGRIazZNQzR6SWk4K0NpQWdJQ0FnSUR4emRHOXdJRzltWm5ObGREMGlNVEF3SlNJZ2MzUjViR1U5SW5OMGIzQXRZMjlzYjNJNkkyWTFZemcwTWp0emRHOXdMVzl3WVdOcGRIazZNQzR3TlNJdlBnb2dJQ0FnUEM5c2FXNWxZWEpIY21Ga2FXVnVkRDRLSUNBZ0lEeG1hV3gwWlhJZ2FXUTlJbWRzYjNjaVBnb2dJQ0FnSUNBOFptVkhZWFZ6YzJsaGJrSnNkWElnYzNSa1JHVjJhV0YwYVc5dVBTSTRJaUJ5WlhOMWJIUTlJbUpzZFhJaUx6NEtJQ0FnSUNBZ1BHWmxUV1Z5WjJVK1BHWmxUV1Z5WjJWT2IyUmxJR2x1UFNKaWJIVnlJaTgrUEdabFRXVnlaMlZPYjJSbElHbHVQU0pUYjNWeVkyVkhjbUZ3YUdsaklpOCtQQzltWlUxbGNtZGxQZ29nSUNBZ1BDOW1hV3gwWlhJK0NpQWdQQzlrWldaelBnb2dJQW9nSUR3aExTMGdRbUZqYTJkeWIzVnVaQ0F0TFQ0S0lDQThjbVZqZENCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnY25nOUlqRXhNQ0lnWm1sc2JEMGlkWEpzS0NOaVp5a2lMejRLSUNBS0lDQThJUzB0SUU5MWRHVnlJSEpwYm1jZ1oyeHZkeUF0TFQ0S0lDQThZMmx5WTJ4bElHTjRQU0l5TlRZaUlHTjVQU0l5TlRZaUlISTlJakl4TUNJZ1ptbHNiRDBpYm05dVpTSWdjM1J5YjJ0bFBTSjFjbXdvSTNKcGJtY3BJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqRXVOU0l2UGdvZ0lEeGphWEpqYkdVZ1kzZzlJakkxTmlJZ1kzazlJakkxTmlJZ2NqMGlNVGsxSWlCbWFXeHNQU0p1YjI1bElpQnpkSEp2YTJVOUlpTm1OV000TkRJaUlITjBjbTlyWlMxM2FXUjBhRDBpTUM0MUlpQnpkSEp2YTJVdGIzQmhZMmwwZVQwaU1DNHlJaTgrQ2lBZ0NpQWdQQ0V0TFNCVGRXSjBiR1VnWjNKcFpDQnNhVzVsY3lBdExUNEtJQ0E4YkdsdVpTQjRNVDBpT0RBaUlIa3hQU0l5TlRZaUlIZ3lQU0kwTXpJaUlIa3lQU0l5TlRZaUlITjBjbTlyWlQwaUkyWTFZemcwTWlJZ2MzUnliMnRsTFhkcFpIUm9QU0l3TGpVaUlITjBjbTlyWlMxdmNHRmphWFI1UFNJd0xqQTRJaTgrQ2lBZ1BHeHBibVVnZURFOUlqSTFOaUlnZVRFOUlqZ3dJaUI0TWowaU1qVTJJaUI1TWowaU5ETXlJaUJ6ZEhKdmEyVTlJaU5tTldNNE5ESWlJSE4wY205clpTMTNhV1IwYUQwaU1DNDFJaUJ6ZEhKdmEyVXRiM0JoWTJsMGVUMGlNQzR3T0NJdlBnb0tJQ0E4SVMwdElFbHVibVZ5SUdOcGNtTnNaU0JpWVdOclozSnZkVzVrSUMwdFBnb2dJRHhqYVhKamJHVWdZM2c5SWpJMU5pSWdZM2s5SWpJMU5pSWdjajBpTVRjMUlpQm1hV3hzUFNJak1UTXhNekV3SWk4K0NpQWdQR05wY21Oc1pTQmplRDBpTWpVMklpQmplVDBpTWpVMklpQnlQU0l4TnpRaUlHWnBiR3c5SW01dmJtVWlJSE4wY205clpUMGlJMlkxWXpnME1pSWdjM1J5YjJ0bExYZHBaSFJvUFNJeElpQnpkSEp2YTJVdGIzQmhZMmwwZVQwaU1DNHhOU0l2UGdvS0lDQThJUzB0SUVKcGRHTnZhVzRnUWlCemVXMWliMndnTFNCaWIyeGtMQ0J6YUdGeWNDd2diVzlrWlhKdUlDMHRQZ29nSUR3aExTMGdUR1ZtZENCMlpYSjBhV05oYkNCaVlYSWdMUzArQ2lBZ1BISmxZM1FnZUQwaU1UYzRJaUI1UFNJeE5EVWlJSGRwWkhSb1BTSXpNaUlnYUdWcFoyaDBQU0l5TWpJaUlISjRQU0kySWlCbWFXeHNQU0oxY213b0kyZHZiR1FwSWlCbWFXeDBaWEk5SW5WeWJDZ2paMnh2ZHlraUx6NEtJQ0FLSUNBOElTMHRJRlJ2Y0NCaWRXMXdJQzB0UGdvZ0lEeHlaV04wSUhnOUlqRTNPQ0lnZVQwaU1UUTFJaUIzYVdSMGFEMGlPVGdpSUdobGFXZG9kRDBpTXpJaUlISjRQU0kySWlCbWFXeHNQU0oxY213b0kyZHZiR1FwSWk4K0NpQWdQSEpsWTNRZ2VEMGlNVGM0SWlCNVBTSXlOREFpSUhkcFpIUm9QU0l4TVRBaUlHaGxhV2RvZEQwaU16SWlJSEo0UFNJMklpQm1hV3hzUFNKMWNtd29JMmR2YkdRcElpOCtDaUFnUEhKbFkzUWdlRDBpTVRjNElpQjVQU0l6TXpVaUlIZHBaSFJvUFNJNU9DSWdhR1ZwWjJoMFBTSXpNaUlnY25nOUlqWWlJR1pwYkd3OUluVnliQ2dqWjI5c1pDa2lMejRLSUNBS0lDQThJUzB0SUZSdmNDQmhjbU1nTFMwK0NpQWdQSEJoZEdnZ1pEMGlUU0F5TnpZZ01UUTFJRkVnTXpRd0lERTBOU0F6TkRBZ01UazVJRkVnTXpRd0lESTBNQ0F5TnpZZ01qUXdJaUJtYVd4c1BTSnViMjVsSWlCemRISnZhMlU5SW5WeWJDZ2paMjlzWkNraUlITjBjbTlyWlMxM2FXUjBhRDBpTXpJaUlITjBjbTlyWlMxc2FXNWxZMkZ3UFNKeWIzVnVaQ0lnWm1sc2RHVnlQU0oxY213b0kyZHNiM2NwSWk4K0NpQWdDaUFnUENFdExTQkNiM1IwYjIwZ1lYSmpJQ2h6YkdsbmFIUnNlU0IzYVdSbGNpa2dMUzArQ2lBZ1BIQmhkR2dnWkQwaVRTQXlPRGdnTWpRd0lGRWdNelU0SURJME1DQXpOVGdnTWprMUlGRWdNelU0SURNMk55QXlPRGdnTXpZM0lpQm1hV3hzUFNKdWIyNWxJaUJ6ZEhKdmEyVTlJblZ5YkNnaloyOXNaQ2tpSUhOMGNtOXJaUzEzYVdSMGFEMGlNeklpSUhOMGNtOXJaUzFzYVc1bFkyRndQU0p5YjNWdVpDSWdabWxzZEdWeVBTSjFjbXdvSTJkc2IzY3BJaTgrQ2lBZ0NpQWdQQ0V0TFNCVWIzQWdjMlZ5YVdZZ2JHbHVaWE1nS0dOc1lYTnphV01nUW1sMFkyOXBiaUJ6ZEhsc1pTa2dMUzArQ2lBZ1BISmxZM1FnZUQwaU1qQXlJaUI1UFNJeE1qVWlJSGRwWkhSb1BTSXlNQ0lnYUdWcFoyaDBQU0l5T0NJZ2NuZzlJalFpSUdacGJHdzlJblZ5YkNnaloyOXNaQ2tpTHo0S0lDQThjbVZqZENCNFBTSXlORGdpSUhrOUlqRXlOU0lnZDJsa2RHZzlJakl3SWlCb1pXbG5hSFE5SWpJNElpQnllRDBpTkNJZ1ptbHNiRDBpZFhKc0tDTm5iMnhrS1NJdlBnb2dJRHdoTFMwZ1FtOTBkRzl0SUhObGNtbG1JR3hwYm1WeklDMHRQZ29nSUR4eVpXTjBJSGc5SWpJd01pSWdlVDBpTXpVNUlpQjNhV1IwYUQwaU1qQWlJR2hsYVdkb2REMGlNamdpSUhKNFBTSTBJaUJtYVd4c1BTSjFjbXdvSTJkdmJHUXBJaTgrQ2lBZ1BISmxZM1FnZUQwaU1qUTRJaUI1UFNJek5Ua2lJSGRwWkhSb1BTSXlNQ0lnYUdWcFoyaDBQU0l5T0NJZ2NuZzlJalFpSUdacGJHdzlJblZ5YkNnaloyOXNaQ2tpTHo0S0NpQWdQQ0V0TFNCRGIzSnVaWElnWkc5MGN5QXZJR1JsWTI5eVlYUnBkbVVnTFMwK0NpQWdQR05wY21Oc1pTQmplRDBpTVRJNElpQmplVDBpTVRJNElpQnlQU0kwSWlCbWFXeHNQU0lqWmpWak9EUXlJaUJtYVd4c0xXOXdZV05wZEhrOUlqQXVNeUl2UGdvZ0lEeGphWEpqYkdVZ1kzZzlJak00TkNJZ1kzazlJakV5T0NJZ2NqMGlOQ0lnWm1sc2JEMGlJMlkxWXpnME1pSWdabWxzYkMxdmNHRmphWFI1UFNJd0xqTWlMejRLSUNBOFkybHlZMnhsSUdONFBTSXhNamdpSUdONVBTSXpPRFFpSUhJOUlqUWlJR1pwYkd3OUlpTm1OV000TkRJaUlHWnBiR3d0YjNCaFkybDBlVDBpTUM0eklpOCtDaUFnUEdOcGNtTnNaU0JqZUQwaU16ZzBJaUJqZVQwaU16ZzBJaUJ5UFNJMElpQm1hV3hzUFNJalpqVmpPRFF5SWlCbWFXeHNMVzl3WVdOcGRIazlJakF1TXlJdlBnbzhMM04yWno0PSIsInNpemVzIjoiNTEyeDUxMiIsInR5cGUiOiJpbWFnZS9zdmcreG1sIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9XX0=">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a08; --surface: #131310; --surface2: #1c1c18; --border: #2a2a24;
+    --accent: #f5c842; --accent2: #e8a020; --red: #e85050; --green: #4caf50;
+    --text: #e8e8d8; --muted: #7a7a68; --radius: 2px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Mono', monospace; min-height: 100vh; display: flex; flex-direction: column; overscroll-behavior: none; }
+
+  header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--accent); }
+  .logo span { color: var(--text); font-weight: 400; }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+  .install-btn { background: var(--accent); color: #000; border: none; padding: 6px 12px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.7rem; cursor: pointer; border-radius: var(--radius); display: none; }
+  .install-btn.visible { display: block; }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+
+  .tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--surface); overflow-x: auto; }
+  .tab { padding: 13px 18px; font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; transition: all 0.2s; background: none; border-top: none; border-left: none; border-right: none; white-space: nowrap; flex-shrink: 0; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .panel { display: none; flex: 1; flex-direction: column; overflow: hidden; height: calc(100vh - 148px); }
+  .panel.active { display: flex; flex-direction: column; }
+
+  /* CHAT */
+  .chat-layout { display: flex; flex: 1; overflow: hidden; }
+  .sidebar { width: 195px; border-right: 1px solid var(--border); background: var(--surface); padding: 14px 11px; display: flex; flex-direction: column; gap: 5px; flex-shrink: 0; overflow-y: auto; }
+  .sidebar-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin: 10px 0 4px; font-family: 'Syne', sans-serif; }
+  .sidebar-label:first-child { margin-top: 0; }
+  .quick-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 0.67rem; cursor: pointer; text-align: left; border-radius: var(--radius); transition: all 0.15s; line-height: 1.4; }
+  .quick-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(245,200,66,.05); }
+  .chat-area { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .messages { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 13px; scroll-behavior: smooth; }
+  .messages::-webkit-scrollbar { width: 3px; }
+  .messages::-webkit-scrollbar-thumb { background: var(--border); }
+  .msg { display: flex; gap: 11px; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+  .msg.user { flex-direction: row-reverse; }
+  .msg-avatar { width: 28px; height: 28px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; flex-shrink: 0; font-family: 'Syne', sans-serif; }
+  .msg.ai .msg-avatar { background: var(--accent); color: #000; }
+  .msg.user .msg-avatar { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); }
+  .msg-bubble { max-width: 75%; padding: 10px 13px; border-radius: var(--radius); font-size: 0.79rem; line-height: 1.7; border: 1px solid var(--border); }
+  .msg.ai .msg-bubble { background: #161612; border-left: 2px solid var(--accent); }
+  .msg.user .msg-bubble { background: #1e1e16; text-align: right; }
+  .input-area { padding: 13px 16px; border-top: 1px solid var(--border); background: var(--surface); display: flex; gap: 8px; align-items: flex-end; }
+  textarea { width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 0.79rem; padding: 9px 11px; border-radius: var(--radius); resize: none; min-height: 40px; max-height: 110px; outline: none; transition: border-color 0.15s; line-height: 1.5; }
+  textarea:focus { border-color: var(--accent); }
+  textarea::placeholder { color: var(--muted); }
+  .send-btn { background: var(--accent); color: #000; border: none; padding: 9px 15px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.77rem; cursor: pointer; border-radius: var(--radius); transition: all 0.15s; height: 40px; white-space: nowrap; }
+  .send-btn:hover { background: var(--accent2); }
+  .send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .thinking { display: flex; gap: 5px; padding: 4px 0; align-items: center; }
+  .thinking span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: bounce 1.2s infinite; }
+  .thinking span:nth-child(2){animation-delay:.2s} .thinking span:nth-child(3){animation-delay:.4s}
+  @keyframes bounce{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+  .welcome-msg { color: var(--muted); font-size: 0.75rem; line-height: 1.7; text-align: center; padding: 28px 14px; }
+  .welcome-msg h2 { font-family: 'Syne', sans-serif; font-size: 0.98rem; color: var(--accent); margin-bottom: 7px; font-weight: 800; }
+
+  /* BTC PANEL */
+  .btc-scroll { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 15px; }
+  .section-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 9px; opacity: 0.9; }
+
+  .ticker { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+  .ticker-item label { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 3px; font-family: 'Syne', sans-serif; }
+  .ticker-item .val { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--text); }
+  .ticker-item .val.up { color: var(--green); }
+  .ticker-item .val.down { color: var(--red); }
+  .ticker-item .val.accent { color: var(--accent); }
+  .refresh-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+  .refresh-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 4px 9px; font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem; cursor: pointer; border-radius: var(--radius); transition: all 0.15s; }
+  .refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .params-grid { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 18px; display: flex; flex-direction: column; gap: 11px; }
+  .param-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .param-group { display: flex; flex-direction: column; gap: 4px; }
+  .param-group label { font-size: 0.6rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-family: 'Syne', sans-serif; }
+  .param-group input, .param-group select { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; padding: 7px 9px; border-radius: var(--radius); outline: none; width: 100%; }
+  .param-group input:focus, .param-group select:focus { border-color: var(--accent); }
+  .param-group select option { background: var(--surface2); }
+  .toggles { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 2px; }
+  .toggle-row { display: flex; align-items: center; gap: 7px; }
+  .toggle-row label { font-size: 0.63rem; color: var(--muted); cursor: pointer; }
+  input[type=checkbox] { accent-color: var(--accent); width: 13px; height: 13px; cursor: pointer; }
+
+  .notif-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px 18px; }
+  .notif-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+  .notif-time { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 0.79rem; padding: 7px 9px; border-radius: var(--radius); outline: none; }
+  .notif-time:focus { border-color: var(--accent); }
+  .notif-enable-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 7px 13px; font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.7rem; cursor: pointer; border-radius: var(--radius); transition: all 0.15s; white-space: nowrap; }
+  .notif-enable-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .notif-enable-btn.enabled { background: var(--accent); color: #000; border-color: var(--accent); }
+  .notif-status { font-size: 0.66rem; color: var(--muted); flex: 1; }
+
+  .analyze-btn { background: var(--accent); color: #000; border: none; padding: 13px 20px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.84rem; cursor: pointer; border-radius: var(--radius); transition: all 0.15s; width: 100%; letter-spacing: 0.04em; }
+  .analyze-btn:hover { background: var(--accent2); }
+  .analyze-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btc-result { background: #161612; border: 1px solid var(--border); border-left: 2px solid var(--accent); border-radius: var(--radius); padding: 16px 18px; font-size: 0.79rem; line-height: 1.8; white-space: pre-wrap; min-height: 80px; color: var(--text); }
+  .result-placeholder { color: var(--muted); font-style: italic; }
+
+  /* SETTINGS */
+  .settings-scroll { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 15px; }
+  .settings-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }
+  .settings-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 13px; }
+  .setting-row { display: flex; flex-direction: column; gap: 4px; margin-bottom: 11px; }
+  .setting-row:last-child { margin-bottom: 0; }
+  .setting-row label { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-family: 'Syne', sans-serif; }
+  .setting-row input, .setting-row textarea { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; padding: 7px 9px; border-radius: var(--radius); outline: none; width: 100%; }
+  .setting-row input:focus, .setting-row textarea:focus { border-color: var(--accent); }
+  .setting-row textarea { min-height: 65px; resize: vertical; }
+  .save-settings-btn { background: var(--accent); color: #000; border: none; padding: 10px 20px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.77rem; cursor: pointer; border-radius: var(--radius); width: 100%; }
+
+  /* API bar */
+  .api-bar { padding: 7px 16px; border-top: 1px solid var(--border); background: var(--bg); display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .api-bar label { font-size: 0.6rem; color: var(--muted); white-space: nowrap; }
+  .api-key-input { flex: 1; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 0.69rem; padding: 6px 8px; border-radius: var(--radius); outline: none; min-width: 0; }
+  .api-key-input:focus { border-color: var(--accent); }
+  .save-key-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 5px 9px; font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem; cursor: pointer; border-radius: var(--radius); transition: all 0.15s; white-space: nowrap; }
+  .save-key-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  @media (max-width: 600px) {
+    .sidebar { display: none; }
+    .param-row { grid-template-columns: 1fr; }
+    .ticker { grid-template-columns: 1fr 1fr; }
+    .ticker-item .val { font-size: 0.9rem; }
+  }
+
+  /* ═══ BYGGKALKYL STYLES ═══ */
+  /* All panel behavior handled by .panel/.panel.active */
+  .bygg-nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 12px; flex-shrink: 0; display: flex; align-items: center; width: 100%; }
+  .bygg-nav-tabs { display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .bygg-nav-tabs::-webkit-scrollbar { display: none; }
+  .bygg-tab { background: transparent; border: none; border-bottom: 2px solid transparent; color: var(--muted); font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; padding: 13px 10px; cursor: pointer; white-space: nowrap; transition: all 0.2s; letter-spacing: 0.02em; }
+  .bygg-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .bygg-page { display: none; flex: 1; overflow: hidden; flex-direction: column; }
+  .bygg-page.active { display: flex; }
+  .bygg-scroll { flex: 1; overflow-y: auto; padding: 16px; padding-bottom: 100px; }
+  .bygg-scroll::-webkit-scrollbar { width: 3px; }
+  .bygg-scroll::-webkit-scrollbar-thumb { background: var(--border); }
+  .bygg-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+  .bygg-card-title { font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; letter-spacing: 0.03em; }
+  .bygg-card-title::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--accent); border-radius: 2px; flex-shrink: 0; }
+  .bygg-label { display: block; font-size: 0.62rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; margin-top: 12px; font-family: 'Inter', sans-serif; }
+  .bygg-label:first-child { margin-top: 0; }
+  .bygg-input { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.84rem; padding: 9px 12px; transition: border-color 0.2s; outline: none; -webkit-appearance: none; box-sizing: border-box; }
+  .bygg-input:focus { border-color: var(--accent); }
+  .bygg-input[type=number] { -moz-appearance: textfield; }
+  .bygg-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bygg-btn-primary { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 16px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 700; cursor: pointer; border: none; background: var(--accent); color: #000; transition: all 0.2s; width: 100%; }
+  .bygg-btn-primary:hover { background: var(--accent2); }
+  .bygg-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 14px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 600; cursor: pointer; background: transparent; border: 1px solid var(--border); color: var(--text); transition: all 0.2s; }
+  .bygg-btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .bygg-btn-danger { display: inline-flex; align-items: center; justify-content: center; padding: 7px 10px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.74rem; cursor: pointer; background: transparent; border: 1px solid #3a1e1e; color: #e07070; transition: all 0.2s; }
+  .bygg-btn-danger:hover { background: #2a1010; }
+  .bygg-btn-dashed { display: flex; align-items: center; justify-content: center; width: 100%; padding: 9px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 600; cursor: pointer; background: transparent; border: 1.5px dashed var(--border); color: var(--muted); transition: all 0.2s; margin-top: 8px; }
+  .bygg-btn-dashed:hover { border-color: var(--accent); color: var(--accent); }
+  .bygg-steg-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .bygg-steg-row:last-child { border-bottom: none; }
+  .bygg-steg-num { width: 22px; height: 22px; background: var(--surface2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--muted); flex-shrink: 0; font-family: 'DM Mono', monospace; }
+  .bygg-mat-row { display: flex; align-items: center; gap: 6px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .bygg-mat-row:last-child { border-bottom: none; }
+  .bygg-db-row { display: flex; align-items: center; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .bygg-db-row:last-child { border-bottom: none; }
+  .bygg-summary { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-top: 14px; }
+  .bygg-sum-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-size: 0.78rem; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .bygg-sum-row:last-child { border-bottom: none; }
+  .bygg-sum-big { color: var(--text); font-weight: 600; font-size: 0.85rem; padding-top: 9px; }
+  .bygg-sum-rot { color: #4a9ebb; }
+  .bygg-sum-final { color: var(--accent); font-weight: 700; font-size: 1rem; padding-top: 10px; }
+  .bygg-sum-val { font-family: 'DM Mono', monospace; font-size: 0.78rem; }
+  .bygg-sum-big .bygg-sum-val { font-size: 0.85rem; }
+  .bygg-sum-final .bygg-sum-val { font-size: 1rem; }
+  .bygg-toggle { position: relative; width: 42px; height: 23px; flex-shrink: 0; }
+  .bygg-toggle input { opacity: 0; width: 0; height: 0; }
+  .bygg-toggle-slider { position: absolute; inset: 0; background: var(--border); border-radius: 23px; cursor: pointer; transition: 0.2s; }
+  .bygg-toggle-slider::before { content: ''; position: absolute; width: 17px; height: 17px; left: 3px; top: 3px; background: white; border-radius: 50%; transition: 0.2s; }
+  .bygg-toggle input:checked + .bygg-toggle-slider { background: var(--accent); }
+  .bygg-toggle input:checked + .bygg-toggle-slider::before { transform: translateX(19px); }
+  .bygg-setting-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); gap: 12px; }
+  .bygg-setting-row:last-child { border-bottom: none; }
+  .bygg-logo-area { border: 2px dashed var(--border); border-radius: 10px; padding: 18px; text-align: center; cursor: pointer; transition: border-color 0.2s; }
+  .bygg-logo-area:hover { border-color: var(--accent); }
+  .bygg-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: var(--surface); border: 1px solid var(--accent); border-radius: 8px; z-index: 200; max-height: 200px; overflow-y: auto; margin-top: 2px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .bygg-dropdown-item { padding: 9px 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; border-bottom: 1px solid var(--border); }
+  .bygg-dropdown-item:last-child { border-bottom: none; }
+  .bygg-dropdown-item:hover { background: var(--surface2); }
+  .bygg-offert-list-row { display: flex; align-items: center; gap: 8px; padding: 11px 0; border-bottom: 1px solid var(--border); }
+  .bygg-offert-list-row:last-child { border-bottom: none; }
+  .bygg-cat-head { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); padding: 10px 0 5px; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { background: white !important; margin: 0; padding: 0; }
+    body > * { display: none !important; }
+    #panel-bygg { display: block !important; background: white !important; }
+    .bygg-nav { display: none !important; }
+    .bygg-page { display: block !important; background: white !important; }
+    .bygg-scroll { overflow: visible !important; padding: 0 !important; background: white !important; }
+    .bygg-card { display: none !important; }
+    #bygg-offert { display: block !important; }
+    #bygg-offert .bygg-scroll { padding: 0 !important; }
+    #bygg-offert > .bygg-scroll > div:first-child { display: none !important; }
+    #b-offert-preview { background: white !important; border-radius: 0 !important; box-shadow: none !important; }
+    .bygg-card { display: none !important; }
+    #bygg-offert .bygg-card { display: block !important; background: white !important; border: none !important; padding: 0 !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">AI<span>Assistent</span></div>
+  <div class="header-right">
+    <button class="install-btn" id="installBtn" onclick="installApp()">⬇ Installera</button>
+    <div class="status-dot"></div>
+  </div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('chat')">💬 Chat</button>
+  <button class="tab" onclick="switchTab('btc')">₿ BTC-Analys</button>
+  <button class="tab" onclick="switchTab('bygg')">🏗️ Byggkalkyl</button>
+  <button class="tab" onclick="switchTab('settings')">⚙ Inställningar</button>
+</div>
+
+<!-- CHAT -->
+<div class="panel active" id="panel-chat">
+  <div class="chat-layout">
+    <div class="sidebar">
+      <div class="sidebar-label">Snabbval</div>
+      <button class="quick-btn" onclick="quickSend('Ge mig en daglig affärsöversikt för mina tre verksamheter.')">📊 Daglig översikt</button>
+      <button class="quick-btn" onclick="quickSend('Vad bör jag tänka på när jag hanterar hyresgäster och avtal?')">🏠 Uthyrning</button>
+      <button class="quick-btn" onclick="quickSend('Ge mig tips för att effektivisera mitt byggföretag.')">🏗️ Byggföretag</button>
+      <button class="quick-btn" onclick="quickSend('Hur ska jag tänka kring daglig Bitcoin-handel och riskhantering?')">₿ Bitcoin-tips</button>
+      <div class="sidebar-label">Verktyg</div>
+      <button class="quick-btn" onclick="clearChat()">🗑️ Rensa chat</button>
+    </div>
+    <div class="chat-area">
+      <div class="messages" id="messages">
+        <div class="welcome-msg">
+          <h2>Hej! Jag är din AI-assistent.</h2>
+          Jag känner till ditt byggföretag, dina hyresbostäder och din Bitcoin-handel. Ställ en fråga eller välj ett snabbval.
+        </div>
+      </div>
+      <div id="img-preview-bar" style="display:none;padding:8px 16px 0;background:var(--surface);border-top:1px solid var(--border);">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <img id="img-preview-thumb" style="height:48px;border-radius:2px;border:1px solid var(--border);">
+          <span style="font-size:0.7rem;color:var(--muted)" id="img-preview-name"></span>
+          <button onclick="clearImage()" style="background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:1rem;margin-left:auto;">✕</button>
+        </div>
+      </div>
+      <div class="input-area">
+        <button onclick="document.getElementById('imgUpload').click()" title="Bifoga bild/graf" style="background:var(--surface2);border:1px solid var(--border);color:var(--muted);width:40px;height:40px;border-radius:var(--radius);cursor:pointer;font-size:1.1rem;flex-shrink:0;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">📎</button>
+        <input type="file" id="imgUpload" accept="image/*" style="display:none" onchange="handleImageUpload(this)">
+        <textarea id="userInput" placeholder="Skriv din fråga här... eller bifoga en graf med 📎" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">Skicka →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BTC ANALYS -->
+<div class="panel" id="panel-btc">
+  <div class="btc-scroll">
+
+    <div>
+      <div class="refresh-row">
+        <div class="section-title" style="margin:0">Live Bitcoin-data</div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span id="lastUpdate" style="font-size:.63rem;color:var(--muted)">Hämtar...</span>
+          <button class="refresh-btn" onclick="fetchBTCData()">↻</button>
+        </div>
+      </div>
+      <div class="ticker">
+        <div class="ticker-item"><label>Pris (USD)</label><div class="val accent" id="t-price">—</div></div>
+        <div class="ticker-item"><label>24h förändring</label><div class="val" id="t-change">—</div></div>
+        <div class="ticker-item"><label>24h Volym</label><div class="val" id="t-vol">—</div></div>
+        <div class="ticker-item"><label>Marketcap</label><div class="val" id="t-mcap">—</div></div>
+        <div class="ticker-item"><label>24h Hög</label><div class="val up" id="t-high">—</div></div>
+        <div class="ticker-item"><label>24h Låg</label><div class="val down" id="t-low">—</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="refresh-row" style="margin-bottom:7px">
+        <div class="section-title" style="margin:0">Tekniska indikatorer</div>
+        <button class="refresh-btn" onclick="fetchIndicators()" id="indBtn">↻ Hämta</button>
+      </div>
+      <div class="ticker" id="indicators-grid">
+        <div class="ticker-item"><label>EMA 20</label><div class="val" id="i-ema20">—</div></div>
+        <div class="ticker-item"><label>EMA 50</label><div class="val" id="i-ema50">—</div></div>
+        <div class="ticker-item"><label>EMA 200</label><div class="val" id="i-ema200">—</div></div>
+        <div class="ticker-item"><label>MACD</label><div class="val" id="i-macd">—</div></div>
+        <div class="ticker-item"><label>MACD Signal</label><div class="val" id="i-signal">—</div></div>
+        <div class="ticker-item"><label>BB Övre</label><div class="val" id="i-bb-upper">—</div></div>
+        <div class="ticker-item"><label>BB Mitten</label><div class="val" id="i-bb-mid">—</div></div>
+        <div class="ticker-item"><label>BB Nedre</label><div class="val" id="i-bb-lower">—</div></div>
+      </div>
+      <div id="ind-status" style="font-size:0.65rem;color:var(--muted);margin-top:6px;">Kräver Taapi-nyckel (taapi.io — gratis konto)</div>
+    </div>
+
+    <div>
+      <div class="section-title">Analysparametrar</div>
+      <div class="params-grid">
+        <div class="param-row">
+          <div class="param-group"><label>Mitt köppris (USD)</label><input type="number" id="p-buyprice" placeholder="t.ex. 90000"></div>
+          <div class="param-group"><label>Min position (BTC)</label><input type="number" id="p-amount" placeholder="t.ex. 0.5" step="0.001"></div>
+        </div>
+        <div class="param-row">
+          <div class="param-group"><label>Stop-loss (USD)</label><input type="number" id="p-stoploss" placeholder="t.ex. 85000"></div>
+          <div class="param-group"><label>Take-profit (USD)</label><input type="number" id="p-takeprofit" placeholder="t.ex. 100000"></div>
+        </div>
+        <div class="param-row">
+          <div class="param-group"><label>RSI (14d) — valfritt</label><input type="number" id="p-rsi" placeholder="t.ex. 62" min="0" max="100"></div>
+          <div class="param-group"><label>Handelshorisont</label>
+            <select id="p-horizon">
+              <option value="daglig">Daglig (daytrading)</option>
+              <option value="swing">Swing (1–7 dagar)</option>
+              <option value="vecka">Vecka</option>
+            </select>
+          </div>
+        </div>
+        <div class="toggles">
+          <div class="toggle-row"><input type="checkbox" id="p-news" checked><label for="p-news">Nyhetssentiment</label></div>
+          <div class="toggle-row"><input type="checkbox" id="p-pnl" checked><label for="p-pnl">Beräkna P&L</label></div>
+          <div class="toggle-row"><input type="checkbox" id="p-risk" checked><label for="p-risk">Riskbedömning</label></div>
+        </div>
+        <div class="param-group">
+          <label>Extra kontext / noteringar</label>
+          <textarea id="p-notes" placeholder="T.ex. FED-möte imorgon, jag tror på uppgång baserat på..." style="min-height:55px;width:100%"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Daglig pushnotis</div>
+      <div class="notif-box">
+        <div style="font-size:.73rem;color:var(--muted);line-height:1.7">Aktivera för att få en AI-analys pushad till din enhet varje morgon. <b style="color:var(--text)">Appen måste vara installerad på din telefon</b> (se Inställningar → Om appen).</div>
+        <div class="notif-row">
+          <label style="font-size:.66rem;color:var(--muted)">Tid:</label>
+          <input type="time" class="notif-time" id="notifTime" value="07:00">
+          <button class="notif-enable-btn" id="notifBtn" onclick="toggleNotifications()">Aktivera notiser</button>
+          <span class="notif-status" id="notifStatus">Ej aktiverade</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;">
+      <input type="checkbox" id="p-websearch" checked style="accent-color:var(--accent);width:14px;height:14px;">
+      <label for="p-websearch" style="font-size:0.73rem;color:var(--text);cursor:pointer;flex:1">🔍 Sök nyheter automatiskt (hämtar aktuella BTC-nyheter via Groq)</label>
+    </div>
+    <button class="analyze-btn" id="analyzeBtn" onclick="runAnalysis()">▶ Kör daglig BTC-analys</button>
+
+    <div>
+      <div class="section-title">AI-Analys</div>
+      <div class="btc-result" id="btcResult"><span class="result-placeholder">Tryck på "Kör daglig BTC-analys" för att starta...</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BYGGKALKYL -->
+<div class="panel" id="panel-bygg">
+  <!-- BYGGKALKYL NAV -->
+  <div class="bygg-nav">
+    <div class="bygg-nav-tabs">
+      <button class="bygg-tab active" onclick="byggNav('kalkyl')">Kalkyl</button>
+      <button class="bygg-tab" onclick="byggNav('offert')">Offert</button>
+      <button class="bygg-tab" onclick="byggNav('sparade')">Sparade</button>
+      <button class="bygg-tab" onclick="byggNav('material')">Material</button>
+      <button class="bygg-tab" onclick="byggNav('installs')">Inställn.</button>
+    </div>
+  </div>
+
+  <!-- KALKYL -->
+  <div class="bygg-page active" id="bygg-kalkyl">
+    <div class="bygg-scroll">
+      <div class="bygg-card">
+        <div class="bygg-card-title">Kundinformation</div>
+        <label class="bygg-label">Kundens namn</label>
+        <input class="bygg-input" type="text" id="b-kund-namn" placeholder="Anna Andersson">
+        <label class="bygg-label">Adress</label>
+        <input class="bygg-input" type="text" id="b-kund-adress" placeholder="Storgatan 12, Östersund">
+        <div class="bygg-row2">
+          <div><label class="bygg-label">Offertnummer</label><input class="bygg-input" type="text" id="b-offert-nr" placeholder="2025-001"></div>
+          <div><label class="bygg-label">Giltighetstid</label><input class="bygg-input" type="text" id="b-giltig" placeholder="30 dagar"></div>
+        </div>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">Arbetsbeskrivning</div>
+        <div id="b-steg-list"></div>
+        <button class="bygg-btn-dashed" onclick="bLaggTillSteg()">+ Lägg till arbetssteg</button>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">Material</div>
+        <div style="position:relative;margin-bottom:10px;">
+          <input class="bygg-input" type="text" id="b-mat-sok" placeholder="🔍 Sök i materialdatabas..." oninput="bSokMaterial(this.value)" autocomplete="off">
+          <div class="bygg-dropdown" id="b-mat-dropdown" style="display:none;"></div>
+        </div>
+        <div id="b-mat-col-header" style="display:none;display:flex;gap:8px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;padding:0 0 6px;border-bottom:1px solid var(--border);margin-bottom:4px;">
+          <span style="flex:1">Material</span><span style="width:60px;text-align:center">Antal</span><span style="width:35px;text-align:center">Enhet</span><span style="width:75px;text-align:right">Pris/st</span><span style="width:30px"></span>
+        </div>
+        <div id="b-mat-list"></div>
+        <button class="bygg-btn-dashed" onclick="bLaggTillMatManuellt()">+ Lägg till manuellt</button>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">Arbetstid</div>
+        <div class="bygg-row2">
+          <div><label class="bygg-label">Antal timmar</label><input class="bygg-input" type="number" id="b-timmar" placeholder="0" min="0" oninput="bRakna()"></div>
+          <div><label class="bygg-label">Timpris (inkl moms)</label><input class="bygg-input" type="number" id="b-timpris" value="650" oninput="bRakna()"></div>
+        </div>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">ROT-avdrag <span style="background:#1a3340;color:#4a9ebb;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;">30%</span></div>
+        <div class="bygg-setting-row" style="padding-bottom:12px;">
+          <div>
+            <div style="font-size:14px;">Aktivera ROT-avdrag</div>
+            <div style="font-size:12px;color:var(--muted);">30% av arbetskostnad · max 50 000 kr/person</div>
+          </div>
+          <label class="bygg-toggle"><input type="checkbox" id="b-rot" onchange="bRakna()"><span class="bygg-toggle-slider"></span></label>
+        </div>
+        <div id="b-rot-info" style="display:none;padding-top:10px;">
+          <label class="bygg-label">Antal personer</label>
+          <input class="bygg-input" type="number" id="b-rot-personer" value="1" min="1" max="2" oninput="bRakna()">
+        </div>
+      </div>
+
+      <div class="bygg-summary">
+        <div class="bygg-sum-row"><span>Material (inkl moms)</span><span class="bygg-sum-val" id="b-s-mat">0 kr</span></div>
+        <div class="bygg-sum-row"><span>Arbete (inkl moms)</span><span class="bygg-sum-val" id="b-s-arb">0 kr</span></div>
+        <div class="bygg-sum-row bygg-sum-big"><span>Totalt</span><span class="bygg-sum-val" id="b-s-tot">0 kr</span></div>
+        <div class="bygg-sum-row bygg-sum-rot" id="b-rot-rad" style="display:none;"><span>ROT-avdrag (–)</span><span class="bygg-sum-val" id="b-s-rot">0 kr</span></div>
+        <div class="bygg-sum-row bygg-sum-final"><span>Kunden betalar</span><span class="bygg-sum-val" id="b-s-final">0 kr</span></div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:16px;padding:0 0 80px;">
+        <button class="bygg-btn-primary" onclick="bSkapaOffert()" style="flex:2;">Skapa offert →</button>
+        <button class="bygg-btn-ghost" onclick="bSparaOffert()" id="b-spara-btn" style="flex:1;">💾 Spara</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFERT -->
+  <div class="bygg-page" id="bygg-offert">
+    <div class="bygg-scroll">
+      <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+        <button class="bygg-btn-ghost" onclick="window.print()">🖨 Skriv ut</button>
+        <button class="bygg-btn-ghost" onclick="bKopiera()">📋 Kopiera</button>
+        <button class="bygg-btn-ghost" onclick="bNollstall()">+ Ny kalkyl</button>
+      </div>
+      <div class="bygg-card" style="padding:0;overflow:hidden;">
+        <div id="b-offert-preview" style="background:#fff;color:#1a1a18;padding:24px;border-radius:12px;">
+          <div style="text-align:center;color:#999;padding:40px 0;font-family:sans-serif;">Gå till Kalkyl → Skapa offert</div>
+        </div>
+      </div>
+      <div style="height:80px;"></div>
+    </div>
+  </div>
+
+  <!-- SPARADE -->
+  <div class="bygg-page" id="bygg-sparade">
+    <div class="bygg-scroll">
+      <div class="bygg-card">
+        <input class="bygg-input" type="text" id="b-filter" placeholder="Sök kund eller offertnummer..." oninput="bFilterSparade()" style="margin-bottom:12px;">
+        <div id="b-sparade-list"><div style="color:var(--muted);font-size:14px;">Inga sparade offerter ännu.</div></div>
+      </div>
+      <div style="height:80px;"></div>
+    </div>
+  </div>
+
+  <!-- MATERIAL DB -->
+  <div class="bygg-page" id="bygg-material">
+    <div class="bygg-scroll">
+      <div class="bygg-card">
+        <div class="bygg-card-title">Lägg till material</div>
+        <label class="bygg-label">Materialnamn</label>
+        <input class="bygg-input" type="text" id="b-db-namn" placeholder="t.ex. Klinker 60x60 antracit">
+        <div class="bygg-row2">
+          <div><label class="bygg-label">Enhet</label><input class="bygg-input" type="text" id="b-db-enhet" placeholder="m², st, löpm"></div>
+          <div><label class="bygg-label">Pris/enhet (kr)</label><input class="bygg-input" type="number" id="b-db-pris" placeholder="0" min="0"></div>
+        </div>
+        <label class="bygg-label">Kategori (valfritt)</label>
+        <input class="bygg-input" type="text" id="b-db-kat" placeholder="t.ex. Golv, Kakel, Trä">
+        <button class="bygg-btn-primary" onclick="bLaggTillDB()" id="b-db-btn" style="margin-top:12px;">+ Spara i databasen</button>
+      </div>
+      <div class="bygg-card">
+        <div class="bygg-card-title">Sparat material</div>
+        <input class="bygg-input" type="text" id="b-db-filter" placeholder="Filtrera..." oninput="bRenderDB()" style="margin-bottom:12px;">
+        <div id="b-db-list"><div style="color:var(--muted);font-size:14px;">Inga material sparade ännu.</div></div>
+      </div>
+      <div style="height:80px;"></div>
+    </div>
+  </div>
+
+  <!-- INSTÄLLNINGAR -->
+  <div class="bygg-page" id="bygg-installs">
+    <div class="bygg-scroll">
+      <div class="bygg-card">
+        <div class="bygg-card-title">Logotyp i offerten</div>
+        <div class="bygg-logo-area" onclick="document.getElementById('b-logo-input').click()">
+          <img id="b-logo-img" style="max-height:70px;max-width:200px;display:none;margin:0 auto;display:none;">
+          <div id="b-logo-placeholder">
+            <div style="font-size:28px;">🖼</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:6px;">Tryck för att ladda upp logotyp</div>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px;">PNG, JPG eller SVG</div>
+        </div>
+        <input type="file" id="b-logo-input" accept="image/*" style="display:none;" onchange="bLaddaLogo(this)">
+        <button class="bygg-btn-ghost" onclick="bTaBortLogo()" style="margin-top:8px;width:100%;">Ta bort logotyp</button>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">Ditt företag</div>
+        <label class="bygg-label">Företagsnamn</label><input class="bygg-input" type="text" id="b-foretag-namn" placeholder="Ditt Bygg AB">
+        <label class="bygg-label">Org.nummer</label><input class="bygg-input" type="text" id="b-foretag-org" placeholder="556123-4567">
+        <label class="bygg-label">Telefon</label><input class="bygg-input" type="tel" id="b-foretag-tel" placeholder="070-000 00 00">
+        <label class="bygg-label">E-post</label><input class="bygg-input" type="email" id="b-foretag-email" placeholder="info@foretag.se">
+        <label class="bygg-label">Adress</label><input class="bygg-input" type="text" id="b-foretag-adress" placeholder="Storgatan 1, Östersund">
+        <label class="bygg-label">Hemsida</label><input class="bygg-input" type="text" id="b-foretag-webb" placeholder="www.foretag.se">
+        <button class="bygg-btn-primary" onclick="bSparaInstall()" style="margin-top:14px;">💾 Spara inställningar</button>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">Prissättning</div>
+        <div class="bygg-setting-row">
+          <div><div style="font-size:14px;">Timpris (inkl moms)</div><div style="font-size:12px;color:var(--muted);">Visas ej i offerten</div></div>
+          <input class="bygg-input" type="number" id="b-inst-timpris" value="650" style="width:90px;text-align:right;">
+        </div>
+      </div>
+
+      <div class="bygg-card">
+        <div class="bygg-card-title">Standardvillkor</div>
+        <textarea class="bygg-input" id="b-villkor" rows="6" style="resize:vertical;">Betalningsvillkor: 30 dagar netto.
+Dröjsmålsränta: 8% per år.
+Priser inkl. moms om inget annat anges.
+ROT-avdrag hanteras mot Skatteverket av utföraren.
+Tilläggsarbeten faktureras enligt löpande räkning.
+Tvister avgörs enligt svensk rätt.</textarea>
+        <button class="bygg-btn-primary" onclick="bSparaInstall()" style="margin-top:10px;">💾 Spara villkor</button>
+      </div>
+
+      <div style="height:80px;"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="b-toast" style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:13px;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,0.4);display:none;white-space:nowrap;pointer-events:none;"></div>
+</div>
+</div>
+
+<!-- SETTINGS -->
+<div class="panel" id="panel-settings">
+  <div class="settings-scroll">
+    <div class="settings-card">
+      <h3>Din profil</h3>
+      <div class="setting-row"><label>Namn</label><input type="text" id="s-name" placeholder="T.ex. Erik"></div>
+      <div class="setting-row"><label>Plats</label><input type="text" id="s-location" value="Frösön, Östersund"></div>
+      <div class="setting-row"><label>Extra info (påverkar AI-svaren)</label><textarea id="s-extra" placeholder="T.ex. 10 anställda i byggföretaget, hyr ut 5 lägenheter..."></textarea></div>
+      <button class="save-settings-btn" onclick="saveSettings()">💾 Spara inställningar</button>
+    </div>
+    <div class="settings-card">
+      <h3>Om appen & Installation</h3>
+      <div style="font-size:.75rem;color:var(--muted);line-height:1.9">
+        <b style="color:var(--accent)">iPhone (Safari):</b> Tryck dela-ikonen → "Lägg till på hemskärmen"<br>
+        <b style="color:var(--accent)">Android (Chrome):</b> Tryck ⋮-menyn → "Lägg till på startskärmen"<br><br>
+        <b style="color:var(--text)">Live BTC-data:</b> Hämtas från CoinGecko (gratis)<br>
+        <b style="color:var(--text)">API-nyckel:</b> Skaffa gratis på console.groq.com<br><br>
+        <b style="color:var(--text)">OBS om pushnotiser:</b> Webbläsarbaserade notiser fungerar bara när appen är öppen eller installerad som PWA. För garanterade dagliga notiser rekommenderas att spara appen på hemskärmen.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="api-bar">
+  <label>GROQ:</label>
+  <input type="password" class="api-key-input" id="apiKey" placeholder="gsk_...">
+  <button class="save-key-btn" onclick="saveKey()">Spara</button>
+  <span id="keyStatus" style="font-size:.63rem;color:var(--muted)"></span>
+  <label style="margin-left:6px;flex-shrink:0">TAAPI:</label>
+  <input type="password" class="api-key-input" id="taapiKey" placeholder="eyJ...">
+  <button class="save-key-btn" onclick="saveTaapiKey()">Spara</button>
+  <span id="taapiStatus" style="font-size:.63rem;color:var(--muted)"></span>
+</div>
+
+<script>
+let apiKey = localStorage.getItem('ai_api_key') || '';
+let taapiKey = localStorage.getItem('taapi_key') || '';
+let indicatorData = {};
+let chatHistory = [];
+let btcData = null;
+let notifEnabled = false;
+let notifTimer = null;
+let deferredPrompt = null;
+
+const CHAT_SYSTEM = () => {
+  const s = getSettings();
+  return `Du är en personlig AI-assistent för ${s.name || 'en företagare'} som bor på ${s.location || 'Frösön, Östersund'}.
+Bakgrund:
+- Driver ett byggföretag i Östersundstrakten
+- Hyr ut lägenheter
+- Handlar Bitcoin dagligen (aktiv daytrader)
+- Kör Ford F150 2008
+${s.extra ? '- ' + s.extra : ''}
+Svara alltid på svenska. Var konkret och direkt.`;
+};
+
+window.addEventListener('load', () => {
+  if (apiKey) { document.getElementById('apiKey').value = apiKey; document.getElementById('keyStatus').textContent = '✓ Sparad'; }
+  if (taapiKey) { document.getElementById('taapiKey').value = taapiKey; document.getElementById('taapiStatus').textContent = '✓ Sparad'; }
+  loadSettings();
+  fetchBTCData();
+  checkNotifStatus();
+  setInterval(fetchBTCData, 60000);
+});
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault(); deferredPrompt = e;
+  document.getElementById('installBtn').classList.add('visible');
+});
+
+async function installApp() {
+  if (!deferredPrompt) { alert('Installationsguide:\niPhone Safari: Dela-knapp → "Lägg till på hemskärmen"\nAndroid Chrome: ⋮-meny → "Lägg till på startskärmen"'); return; }
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  document.getElementById('installBtn').classList.remove('visible');
+  deferredPrompt = null;
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const map = { chat: 0, btc: 1, bygg: 2, settings: 3 };
+  document.querySelectorAll('.tab')[map[tab]].classList.add('active');
+  const panelId = { chat: 'panel-chat', btc: 'panel-btc', bygg: 'panel-bygg', settings: 'panel-settings' };
+  document.getElementById(panelId[tab]).classList.add('active');
+}
+
+function saveKey() {
+  apiKey = document.getElementById('apiKey').value.trim();
+  localStorage.setItem('ai_api_key', apiKey);
+  document.getElementById('keyStatus').textContent = apiKey ? '✓ Sparad!' : 'Borttagen';
+}
+
+function saveTaapiKey() {
+  taapiKey = document.getElementById('taapiKey').value.trim();
+  localStorage.setItem('taapi_key', taapiKey);
+  document.getElementById('taapiStatus').textContent = taapiKey ? '✓ Sparad!' : 'Borttagen';
+}
+
+function getSettings() { return JSON.parse(localStorage.getItem('user_settings') || '{}'); }
+function loadSettings() {
+  const s = getSettings();
+  if (s.name) document.getElementById('s-name').value = s.name;
+  if (s.location) document.getElementById('s-location').value = s.location;
+  if (s.extra) document.getElementById('s-extra').value = s.extra;
+}
+function saveSettings() {
+  localStorage.setItem('user_settings', JSON.stringify({
+    name: document.getElementById('s-name').value,
+    location: document.getElementById('s-location').value,
+    extra: document.getElementById('s-extra').value
+  }));
+  alert('✓ Inställningar sparade!');
+}
+
+async function fetchIndicators() {
+  if (!taapiKey) {
+    document.getElementById('ind-status').textContent = 'Ange Taapi-nyckel i fältet nedan för att hämta indikatorer.';
+    return;
+  }
+  const btn = document.getElementById('indBtn');
+  btn.textContent = '⏳';
+  document.getElementById('ind-status').textContent = 'Hämtar indikatorer...';
+
+  const symbol = 'BTC/USDT';
+  const exchange = 'binance';
+  const interval = '1d';
+  const base = 'https://api.taapi.io';
+
+  try {
+    // Bulk request to minimize API calls (free plan: 1 req/15s)
+    const bulk = await fetch(`${base}/bulk`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: taapiKey,
+        construct: {
+          exchange, symbol, interval,
+          indicators: [
+            { id: 'ema20', indicator: 'ema', period: 20 },
+            { id: 'ema50', indicator: 'ema', period: 50 },
+            { id: 'ema200', indicator: 'ema', period: 200 },
+            { id: 'macd', indicator: 'macd' },
+            { id: 'bbands', indicator: 'bbands' }
+          ]
+        }
+      })
+    });
+    const data = await bulk.json();
+
+    if (data.error) throw new Error(data.error);
+
+    const results = {};
+    (data.data || []).forEach(r => { results[r.id] = r.result; });
+    indicatorData = results;
+
+    const fmt = v => v ? '$' + Math.round(v).toLocaleString('sv-SE') : '—';
+    const fmtSmall = v => v ? v.toFixed(1) : '—';
+
+    const ema20 = results.ema20?.value;
+    const ema50 = results.ema50?.value;
+    const ema200 = results.ema200?.value;
+    const price = btcData?.market_data?.current_price?.usd || 0;
+
+    const emaColor = (ema) => {
+      if (!ema || !price) return '';
+      return price > ema ? 'up' : 'down';
+    };
+
+    document.getElementById('i-ema20').textContent = fmt(ema20);
+    document.getElementById('i-ema20').className = 'val ' + emaColor(ema20);
+    document.getElementById('i-ema50').textContent = fmt(ema50);
+    document.getElementById('i-ema50').className = 'val ' + emaColor(ema50);
+    document.getElementById('i-ema200').textContent = fmt(ema200);
+    document.getElementById('i-ema200').className = 'val ' + emaColor(ema200);
+
+    const macd = results.macd?.valueMACD;
+    const signal = results.macd?.valueMACDSignal;
+    document.getElementById('i-macd').textContent = fmtSmall(macd);
+    document.getElementById('i-macd').className = 'val ' + (macd > 0 ? 'up' : 'down');
+    document.getElementById('i-signal').textContent = fmtSmall(signal);
+    document.getElementById('i-signal').className = 'val ' + (signal > 0 ? 'up' : 'down');
+
+    document.getElementById('i-bb-upper').textContent = fmt(results.bbands?.valueUpperBand);
+    document.getElementById('i-bb-mid').textContent = fmt(results.bbands?.valueMiddleBand);
+    document.getElementById('i-bb-lower').textContent = fmt(results.bbands?.valueLowerBand);
+
+    document.getElementById('ind-status').textContent = 'Uppdaterad ' + new Date().toLocaleTimeString('sv-SE', {hour:'2-digit',minute:'2-digit'});
+  } catch(e) {
+    document.getElementById('ind-status').textContent = 'Fel: ' + (e.message || 'Kontrollera din Taapi-nyckel');
+  }
+  btn.textContent = '↻ Hämta';
+}
+
+async function fetchBTCData() {
+  try {
+    const res = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&community_data=false&developer_data=false');
+    const d = await res.json();
+    btcData = d;
+    const m = d.market_data;
+    const price = m.current_price.usd;
+    const change = m.price_change_percentage_24h;
+    document.getElementById('t-price').textContent = '$' + price.toLocaleString('sv-SE');
+    const cel = document.getElementById('t-change');
+    cel.textContent = (change >= 0 ? '+' : '') + change.toFixed(2) + '%';
+    cel.className = 'val ' + (change >= 0 ? 'up' : 'down');
+    document.getElementById('t-vol').textContent = '$' + (m.total_volume.usd / 1e9).toFixed(1) + 'B';
+    document.getElementById('t-mcap').textContent = '$' + (m.market_cap.usd / 1e12).toFixed(2) + 'T';
+    document.getElementById('t-high').textContent = '$' + m.high_24h.usd.toLocaleString('sv-SE');
+    document.getElementById('t-low').textContent = '$' + m.low_24h.usd.toLocaleString('sv-SE');
+    const now = new Date();
+    document.getElementById('lastUpdate').textContent = 'Uppdaterad ' + now.toLocaleTimeString('sv-SE', {hour:'2-digit',minute:'2-digit'});
+  } catch(e) {
+    document.getElementById('lastUpdate').textContent = 'Kunde ej hämta data';
+  }
+}
+
+function buildAnalysisPrompt() {
+  const m = btcData?.market_data;
+  const price = m ? m.current_price.usd : 'okänt';
+  const change = m ? m.price_change_percentage_24h?.toFixed(2) + '%' : 'okänt';
+  const high = m ? '$' + m.high_24h.usd.toLocaleString() : 'okänt';
+  const low = m ? '$' + m.low_24h.usd.toLocaleString() : 'okänt';
+  const vol = m ? '$' + (m.total_volume.usd / 1e9).toFixed(1) + 'B' : 'okänt';
+  const buyprice = document.getElementById('p-buyprice').value;
+  const amount = document.getElementById('p-amount').value;
+  const stoploss = document.getElementById('p-stoploss').value;
+  const takeprofit = document.getElementById('p-takeprofit').value;
+  const rsi = document.getElementById('p-rsi').value;
+  const horizon = document.getElementById('p-horizon').value;
+  const notes = document.getElementById('p-notes').value;
+  const inclNews = document.getElementById('p-news').checked;
+  const inclPnl = document.getElementById('p-pnl').checked;
+  const inclRisk = document.getElementById('p-risk').checked;
+
+  let prompt = `Gör en daglig BTC-analys för en aktiv daytrader i Sverige. Datum: ${new Date().toLocaleDateString('sv-SE')}.
+
+LIVE MARKNADSDATA:
+- Aktuellt pris: $${typeof price === 'number' ? price.toLocaleString() : price}
+- 24h förändring: ${change}
+- 24h Hög: ${high} | Låg: ${low}
+- 24h Volym: ${vol}`;
+  if (rsi) prompt += `\n- RSI (14): ${rsi}`;
+  prompt += `\n- Handelshorisont: ${horizon}`;
+  if (buyprice || amount) {
+    prompt += `\n\nMIN POSITION:`;
+    if (buyprice) prompt += `\n- Köppris: $${Number(buyprice).toLocaleString()}`;
+    if (amount) prompt += `\n- Storlek: ${amount} BTC`;
+    if (stoploss) prompt += `\n- Stop-loss: $${Number(stoploss).toLocaleString()}`;
+    if (takeprofit) prompt += `\n- Take-profit: $${Number(takeprofit).toLocaleString()}`;
+  }
+  if (notes) prompt += `\n\nEXTRA KONTEXT:\n${notes}`;
+  prompt += `\n\nAnalysera och inkludera:\n1. 📊 Marknadsläge & trend\n2. 🎯 Rekommendation (köp/håll/sälj) med motivering`;
+  if (inclPnl && buyprice && amount) prompt += `\n3. 💰 P&L-kalkyl`;
+  if (inclRisk) prompt += `\n4. ⚠️ Risker att bevaka idag`;
+  if (inclNews) prompt += `\n5. 📰 Marknadsfaktorer & sentiment`;
+  // Add indicator data if available
+  if (Object.keys(indicatorData).length > 0) {
+    prompt += `\n\nTEKNISKA INDIKATORER (automatiskt hämtade):`;
+    if (indicatorData.ema20?.value) prompt += `\n- EMA 20: $${Math.round(indicatorData.ema20.value).toLocaleString()}`;
+    if (indicatorData.ema50?.value) prompt += `\n- EMA 50: $${Math.round(indicatorData.ema50.value).toLocaleString()}`;
+    if (indicatorData.ema200?.value) prompt += `\n- EMA 200: $${Math.round(indicatorData.ema200.value).toLocaleString()}`;
+    if (indicatorData.macd?.valueMACD) prompt += `\n- MACD: ${indicatorData.macd.valueMACD.toFixed(2)}`;
+    if (indicatorData.macd?.valueMACDSignal) prompt += `\n- MACD Signal: ${indicatorData.macd.valueMACDSignal.toFixed(2)}`;
+    if (indicatorData.macd?.valueMACDHist) prompt += `\n- MACD Histogram: ${indicatorData.macd.valueMACDHist.toFixed(2)}`;
+    if (indicatorData.bbands?.valueUpperBand) prompt += `\n- Bollinger Övre: $${Math.round(indicatorData.bbands.valueUpperBand).toLocaleString()}`;
+    if (indicatorData.bbands?.valueMiddleBand) prompt += `\n- Bollinger Mitten: $${Math.round(indicatorData.bbands.valueMiddleBand).toLocaleString()}`;
+    if (indicatorData.bbands?.valueLowerBand) prompt += `\n- Bollinger Nedre: $${Math.round(indicatorData.bbands.valueLowerBand).toLocaleString()}`;
+  }
+
+  prompt += `\n\nVar konkret, kortfattad och direkt. Svara på svenska.`;
+  return prompt;
+}
+
+async function callClaude(messages, maxTokens = 1200, system = null) {
+  const body = { model: 'llama-3.3-70b-versatile', max_tokens: maxTokens, messages };
+  if (system) body.messages = [{ role: 'system', content: system }, ...messages];
+  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
+    body: JSON.stringify(body)
+  });
+  const d = await res.json();
+  // Normalize to same shape as before
+  if (d.choices?.[0]) return { content: [{ text: d.choices[0].message.content }] };
+  return { error: { message: d.error?.message || 'Okänt fel' } };
+}
+
+async function runAnalysis() {
+  if (!apiKey) { alert('Ange din Groq API-nyckel längst ner. Skaffa gratis på console.groq.com'); return; }
+  const btn = document.getElementById('analyzeBtn');
+  const result = document.getElementById('btcResult');
+  const useWebSearch = document.getElementById('p-websearch').checked;
+  btn.disabled = true;
+  result.innerHTML = '<span class="result-placeholder">AI analyserar marknaden...</span>';
+
+  let newsContext = '';
+
+  // Step 1: Fetch news if enabled
+  if (useWebSearch) {
+    btn.textContent = '🔍 Söker nyheter...';
+    try {
+      const newsRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
+        body: JSON.stringify({
+          model: 'compound-beta',
+          max_tokens: 600,
+          messages: [{
+            role: 'user',
+            content: `Sök efter de senaste Bitcoin-nyheterna och marknadshändelserna idag (${new Date().toLocaleDateString('sv-SE')}). Sammanfatta de viktigaste punkterna på svenska i max 5 meningar.`
+          }]
+        })
+      }).then(r => r.json());
+
+      if (newsRes.choices?.[0]?.message?.content) {
+        newsContext = '\n\nAKTUELLA NYHETER (automatiskt hämtade):\n' + newsRes.choices[0].message.content;
+        // Show news sources if available
+        const sources = newsRes.choices?.[0]?.message?.tool_results;
+        if (sources) console.log('News sources:', sources);
+      }
+    } catch(e) {
+      newsContext = '\n\n(Nyhetssökning misslyckades — fortsätter utan nyheter)';
+    }
+  }
+
+  // Step 2: Run analysis with news context
+  btn.textContent = '⏳ Analyserar...';
+  try {
+    const prompt = buildAnalysisPrompt() + newsContext;
+    const data = await callClaude([{ role: 'user', content: prompt }]);
+    if (data.content?.[0]) {
+      result.textContent = data.content[0].text;
+      localStorage.setItem('last_analysis', data.content[0].text);
+    } else { result.textContent = 'Fel: ' + (data.error?.message || 'Okänt'); }
+  } catch(e) { result.textContent = 'Något gick fel. Kontrollera API-nyckel och internetanslutning.'; }
+
+  btn.disabled = false; btn.textContent = '▶ Kör daglig BTC-analys';
+}
+
+function checkNotifStatus() {
+  const saved = localStorage.getItem('notif_time');
+  if (saved) document.getElementById('notifTime').value = saved;
+  notifEnabled = localStorage.getItem('notif_enabled') === 'true';
+  updateNotifUI();
+  if (notifEnabled) scheduleNotif();
+}
+
+async function toggleNotifications() {
+  if (notifEnabled) {
+    notifEnabled = false; localStorage.setItem('notif_enabled', 'false');
+    if (notifTimer) clearTimeout(notifTimer);
+    updateNotifUI(); return;
+  }
+  if (!('Notification' in window)) { alert('Din webbläsare stöder inte pushnotiser. Installera appen på telefonen.'); return; }
+  const perm = await Notification.requestPermission();
+  if (perm !== 'granted') { document.getElementById('notifStatus').textContent = '✗ Notiser nekade — tillåt i webbläsarinställningarna'; return; }
+  notifEnabled = true;
+  localStorage.setItem('notif_enabled', 'true');
+  localStorage.setItem('notif_time', document.getElementById('notifTime').value);
+  scheduleNotif(); updateNotifUI();
+}
+
+function updateNotifUI() {
+  const btn = document.getElementById('notifBtn');
+  const status = document.getElementById('notifStatus');
+  if (notifEnabled) {
+    btn.textContent = '✓ Avaktivera'; btn.classList.add('enabled');
+    status.textContent = `Aktiv — analys kl ${document.getElementById('notifTime').value} varje dag`;
+    status.style.color = 'var(--green)';
+  } else {
+    btn.textContent = 'Aktivera notiser'; btn.classList.remove('enabled');
+    status.textContent = 'Ej aktiverade'; status.style.color = 'var(--muted)';
+  }
+}
+
+function scheduleNotif() {
+  if (notifTimer) clearTimeout(notifTimer);
+  const [h, m] = document.getElementById('notifTime').value.split(':').map(Number);
+  const target = new Date(); target.setHours(h, m, 0, 0);
+  if (target <= new Date()) target.setDate(target.getDate() + 1);
+  notifTimer = setTimeout(async () => { await triggerDailyNotif(); scheduleNotif(); }, target - new Date());
+}
+
+async function triggerDailyNotif() {
+  await fetchBTCData();
+  let body = 'Öppna appen för din dagliga BTC-analys!';
+  if (apiKey) {
+    try {
+      const p = buildAnalysisPrompt() + '\n\nGe en MYCKET kort sammanfattning (max 2 meningar) för en pushnotis.';
+      const data = await callClaude([{ role: 'user', content: p }], 200);
+      if (data.content?.[0]) body = data.content[0].text;
+    } catch(e) {}
+  }
+  const price = btcData?.market_data?.current_price?.usd;
+  new Notification('₿ Daglig BTC-analys', {
+    body: (price ? '$' + price.toLocaleString('sv-SE') + ' — ' : '') + body,
+    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">₿</text></svg>',
+    tag: 'btc-daily'
+  });
+}
+
+// CHAT
+function handleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
+
+// ── IMAGE HANDLING ──
+let currentImageB64 = null;
+let currentImageType = null;
+
+function handleImageUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const dataUrl = e.target.result;
+    currentImageB64 = dataUrl.split(',')[1];
+    currentImageType = file.type;
+    document.getElementById('img-preview-thumb').src = dataUrl;
+    document.getElementById('img-preview-name').textContent = file.name;
+    document.getElementById('img-preview-bar').style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+  input.value = '';
+}
+
+function clearImage() {
+  currentImageB64 = null;
+  currentImageType = null;
+  document.getElementById('img-preview-bar').style.display = 'none';
+  document.getElementById('img-preview-thumb').src = '';
+}
+function autoResize(el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 110) + 'px'; }
+
+function addMsg(role, content) {
+  const msgs = document.getElementById('messages');
+  const w = msgs.querySelector('.welcome-msg'); if(w) w.remove();
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.innerHTML = `<div class="msg-avatar">${role==='ai'?'AI':'DU'}</div><div class="msg-bubble">${content.replace(/\n/g,'<br>')}</div>`;
+  msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addThinking() {
+  const msgs = document.getElementById('messages');
+  const div = document.createElement('div'); div.className = 'msg ai'; div.id = 'thinking';
+  div.innerHTML = `<div class="msg-avatar">AI</div><div class="msg-bubble"><div class="thinking"><span></span><span></span><span></span></div></div>`;
+  msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
+}
+function removeThinking() { const t = document.getElementById('thinking'); if(t) t.remove(); }
+
+async function sendMessage() {
+  const input = document.getElementById('userInput');
+  const text = input.value.trim();
+  if (!text && !currentImageB64) return;
+  if (!apiKey) { alert('Ange din Groq API-nyckel längst ner.'); return; }
+  input.value = ''; input.style.height = 'auto';
+
+  // Build user message content
+  let userContent;
+  let displayText = text || '📎 [Bild bifogad]';
+
+  if (currentImageB64) {
+    // Vision message
+    userContent = [
+      { type: 'image_url', image_url: { url: `data:${currentImageType};base64,${currentImageB64}` } }
+    ];
+    if (text) userContent.push({ type: 'text', text });
+    else userContent.push({ type: 'text', text: 'Analysera denna bild/graf. Beskriv vad du ser och ge din bedömning.' });
+    clearImage();
+  } else {
+    userContent = text;
+  }
+
+  addMsg('user', displayText);
+  chatHistory.push({ role: 'user', content: userContent });
+  document.getElementById('sendBtn').disabled = true; addThinking();
+
+  try {
+    // Use vision model if image, otherwise standard
+    const model = Array.isArray(userContent) ? 'meta-llama/llama-4-scout-17b-16e-instruct' : 'llama-3.3-70b-versatile';
+    const data = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
+      body: JSON.stringify({ model, max_tokens: 1024, messages: [{ role: 'system', content: CHAT_SYSTEM() }, ...chatHistory] })
+    }).then(r => r.json());
+    removeThinking();
+    const reply = data.choices?.[0]?.message?.content;
+    if (reply) { chatHistory.push({ role: 'assistant', content: reply }); addMsg('ai', reply); }
+    else addMsg('ai', 'Fel: ' + (data.error?.message || 'Okänt'));
+  } catch(e) { removeThinking(); addMsg('ai', 'Något gick fel.'); }
+  document.getElementById('sendBtn').disabled = false;
+  document.getElementById('userInput').focus();
+}
+
+function tryLoadBygg() {
+  const iframe = document.getElementById('bygg-iframe');
+  const placeholder = document.getElementById('bygg-placeholder');
+  iframe.style.display = 'block';
+  placeholder.style.display = 'none';
+  iframe.onerror = () => { iframe.style.display = 'none'; placeholder.style.display = 'flex'; };
+}
+
+
+// ═══ BYGGKALKYL NAVIGATION ═══
+function byggShowPage(id) {
+  ['kalkyl','offert','sparade','materialdb','installningar'].forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) el.classList.remove('active');
+  });
+  const byggPanel = document.getElementById('panel-bygg');
+  if (byggPanel) byggPanel.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  const pageEl = document.getElementById('page-' + id);
+  if (pageEl) pageEl.classList.add('active');
+  const idx = ['kalkyl','offert','sparade','materialdb','installningar'].indexOf(id);
+  if (byggPanel) {
+    const tabs = byggPanel.querySelectorAll('.nav-tab');
+    if (tabs[idx]) tabs[idx].classList.add('active');
+  }
+  if (id === 'materialdb') { if (typeof renderDB === 'function') renderDB(); }
+  if (id === 'sparade') { if (typeof laddaSparadeOfferter === 'function') laddaSparadeOfferter(); }
+}
+
+function quickSend(t) { document.getElementById('userInput').value = t; sendMessage(); }
+function clearChat() {
+  chatHistory = [];
+  document.getElementById('messages').innerHTML = `<div class="welcome-msg"><h2>Hej! Jag är din AI-assistent.</h2>Jag känner till ditt byggföretag, dina hyresbostäder och din Bitcoin-handel.</div>`;
+}
+
+// ══════════════════════════════════════════════
+// BYGGKALKYL — localStorage, no auth
+// ══════════════════════════════════════════════
+
+let bArbetsteg = [];
+let bKalkylMat = [];
+let bMaterialDB = [];
+let bLogoBase64 = null;
+let bSparadeCache = [];
+let _bRedigerarId = null;
+
+function bFmt(n) { return Math.round(n).toLocaleString('sv-SE') + ' kr'; }
+function bEsc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function bToast(msg, type='success') {
+  const t = document.getElementById('b-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.style.borderColor = type === 'error' ? '#5a2020' : type === 'success' ? '#2a4a2a' : 'var(--border)';
+  t.style.color = type === 'error' ? '#e07070' : type === 'success' ? '#70c070' : 'var(--text)';
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 3000);
+}
+
+// ── NAVIGATION ──
+function byggNav(id) {
+  document.querySelectorAll('#panel-bygg .bygg-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#panel-bygg .bygg-tab').forEach(t => t.classList.remove('active'));
+  const page = document.getElementById('bygg-' + id);
+  if (page) page.classList.add('active');
+  const tabs = document.querySelectorAll('#panel-bygg .bygg-tab');
+  const idx = ['kalkyl','offert','sparade','material','installs'].indexOf(id);
+  if (tabs[idx]) tabs[idx].classList.add('active');
+  if (id === 'material') bRenderDB();
+  if (id === 'sparade') bVisaSparade();
+}
+
+// ── INIT ──
+function bInit() {
+  bMaterialDB = JSON.parse(localStorage.getItem('b_material') || '[]');
+  bSparadeCache = JSON.parse(localStorage.getItem('b_offerter') || '[]');
+  const inst = bGetInst();
+  if (inst.timpris) document.getElementById('b-timpris').value = inst.timpris;
+  if (inst.logo) { bLogoBase64 = inst.logo; bVisaLogo(inst.logo); }
+  if (inst.foretag_namn) document.getElementById('b-foretag-namn').value = inst.foretag_namn;
+  if (inst.foretag_org) document.getElementById('b-foretag-org').value = inst.foretag_org;
+  if (inst.foretag_tel) document.getElementById('b-foretag-tel').value = inst.foretag_tel;
+  if (inst.foretag_email) document.getElementById('b-foretag-email').value = inst.foretag_email;
+  if (inst.foretag_adress) document.getElementById('b-foretag-adress').value = inst.foretag_adress;
+  if (inst.foretag_webb) document.getElementById('b-foretag-webb').value = inst.foretag_webb;
+  if (inst.villkor) document.getElementById('b-villkor').value = inst.villkor;
+  if (inst.inst_timpris) document.getElementById('b-inst-timpris').value = inst.inst_timpris;
+  const yr = new Date().getFullYear();
+  const count = bSparadeCache.length + 1;
+  document.getElementById('b-offert-nr').value = yr + '-' + String(count).padStart(3,'0');
+  bLaggTillSteg();
+  bRakna();
+}
+
+// ── INSTÄLLNINGAR ──
+function bGetInst() {
+  return JSON.parse(localStorage.getItem('b_installningar') || '{}');
+}
+
+function bSparaInstall() {
+  const inst = {
+    foretag_namn: document.getElementById('b-foretag-namn').value,
+    foretag_org: document.getElementById('b-foretag-org').value,
+    foretag_tel: document.getElementById('b-foretag-tel').value,
+    foretag_email: document.getElementById('b-foretag-email').value,
+    foretag_adress: document.getElementById('b-foretag-adress').value,
+    foretag_webb: document.getElementById('b-foretag-webb').value,
+    villkor: document.getElementById('b-villkor').value,
+    inst_timpris: document.getElementById('b-inst-timpris').value,
+    timpris: document.getElementById('b-inst-timpris').value,
+    logo: bLogoBase64
+  };
+  localStorage.setItem('b_installningar', JSON.stringify(inst));
+  document.getElementById('b-timpris').value = inst.timpris || 650;
+  bToast('✓ Inställningar sparade');
+}
+
+// ── LOGOTYP ──
+function bLaddaLogo(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    bLogoBase64 = e.target.result;
+    bVisaLogo(bLogoBase64);
+  };
+  reader.readAsDataURL(file);
+}
+
+function bVisaLogo(src) {
+  const img = document.getElementById('b-logo-img');
+  const ph = document.getElementById('b-logo-placeholder');
+  if (img) { img.src = src; img.style.display = 'block'; }
+  if (ph) ph.style.display = 'none';
+}
+
+function bTaBortLogo() {
+  bLogoBase64 = null;
+  const img = document.getElementById('b-logo-img');
+  const ph = document.getElementById('b-logo-placeholder');
+  if (img) { img.src = ''; img.style.display = 'none'; }
+  if (ph) ph.style.display = 'block';
+}
+
+// ── ARBETSTEG ──
+function bRenderSteg() {
+  const list = document.getElementById('b-steg-list');
+  if (!list) return;
+  list.innerHTML = bArbetsteg.map((s, i) => `
+    <div class="bygg-steg-row">
+      <div class="bygg-steg-num">${i+1}</div>
+      <input class="bygg-input" style="flex:1;" type="text" value="${bEsc(s)}" placeholder="Beskriv arbetssteg..." oninput="bArbetsteg[${i}]=this.value">
+      <button class="bygg-btn-danger" onclick="bTaBortSteg(${i})">✕</button>
+    </div>`).join('');
+}
+function bLaggTillSteg() { bArbetsteg.push(''); bRenderSteg(); const inputs = document.querySelectorAll('#b-steg-list input'); if(inputs.length) inputs[inputs.length-1].focus(); }
+function bTaBortSteg(i) { bArbetsteg.splice(i,1); bRenderSteg(); }
+
+// ── KALKYL MATERIAL ──
+function bRenderMat() {
+  const list = document.getElementById('b-mat-list');
+  const hdr = document.getElementById('b-mat-col-header');
+  if (!list) return;
+  if (hdr) hdr.style.display = bKalkylMat.length > 0 ? 'flex' : 'none';
+  list.innerHTML = bKalkylMat.map((m, i) => `
+    <div class="bygg-mat-row">
+      <input class="bygg-input bygg-mat-name" type="text" value="${bEsc(m.namn)}" placeholder="Materialnamn" oninput="bKalkylMat[${i}].namn=this.value">
+      <input class="bygg-input bygg-mat-qty" type="number" value="${m.antal}" min="0" oninput="bKalkylMat[${i}].antal=parseFloat(this.value)||0;bRakna()">
+      <div style="width:35px;font-size:11px;color:var(--muted);text-align:center;">${bEsc(m.enhet)}</div>
+      <div style="width:70px;font-size:11px;color:var(--muted);text-align:right;font-family:'DM Mono',monospace;">${m.pris} kr</div>
+      <button class="bygg-btn-danger" style="padding:5px 8px;" onclick="bTaBortMat(${i})">✕</button>
+    </div>`).join('');
+  bRakna();
+}
+function bLaggTillKalkylMat(m) { bKalkylMat.push({namn:m.namn,antal:1,enhet:m.enhet,pris:m.pris}); bRenderMat(); }
+function bLaggTillMatManuellt() { bKalkylMat.push({namn:'',antal:1,enhet:'st',pris:0}); bRenderMat(); }
+function bTaBortMat(i) { bKalkylMat.splice(i,1); bRenderMat(); bRakna(); }
+
+// ── MATERIAL SÖK ──
+function bSokMaterial(q) {
+  const dd = document.getElementById('b-mat-dropdown');
+  if (!q || !dd) { if(dd) dd.style.display='none'; return; }
+  const hits = bMaterialDB.filter(m => m.namn.toLowerCase().includes(q.toLowerCase()) || (m.kategori||'').toLowerCase().includes(q.toLowerCase()));
+  if (!hits.length) { dd.style.display='none'; return; }
+  dd.innerHTML = hits.map(m => `
+    <div class="bygg-dropdown-item" onclick="bValjMaterial('${m.id}')">
+      <span>${bEsc(m.namn)}${m.kategori?' <span style=\'font-size:10px;color:var(--muted)\'>· '+bEsc(m.kategori)+'</span>':''}</span>
+      <span style="font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;">${m.pris} kr/${m.enhet}</span>
+    </div>`).join('');
+  dd.style.display = 'block';
+}
+function bValjMaterial(id) {
+  const m = bMaterialDB.find(x => x.id === id);
+  if (m) bLaggTillKalkylMat(m);
+  const sok = document.getElementById('b-mat-sok');
+  const dd = document.getElementById('b-mat-dropdown');
+  if (sok) sok.value = '';
+  if (dd) dd.style.display = 'none';
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('#b-mat-sok') && !e.target.closest('#b-mat-dropdown')) {
+    const dd = document.getElementById('b-mat-dropdown');
+    if (dd) dd.style.display = 'none';
+  }
+});
+
+// ── MATERIALDATABAS ──
+function bSparaDB() {
+  localStorage.setItem('b_material', JSON.stringify(bMaterialDB));
+}
+function bLaggTillDB() {
+  const namn = document.getElementById('b-db-namn').value.trim();
+  const enhet = document.getElementById('b-db-enhet').value.trim() || 'st';
+  const pris = parseFloat(document.getElementById('b-db-pris').value) || 0;
+  const kategori = document.getElementById('b-db-kat').value.trim();
+  if (!namn) { bToast('Ange ett materialnamn', 'error'); return; }
+  const item = {id: Date.now().toString(), namn, enhet, pris, kategori};
+  bMaterialDB.push(item);
+  bMaterialDB.sort((a,b) => a.namn.localeCompare(b.namn));
+  bSparaDB();
+  document.getElementById('b-db-namn').value = '';
+  document.getElementById('b-db-enhet').value = '';
+  document.getElementById('b-db-pris').value = '';
+  document.getElementById('b-db-kat').value = '';
+  bRenderDB();
+  bToast('✓ ' + namn + ' sparad');
+}
+function bRenderDB() {
+  const filter = (document.getElementById('b-db-filter')?.value || '').toLowerCase();
+  const list = document.getElementById('b-db-list');
+  if (!list) return;
+  const filtered = bMaterialDB.filter(m => m.namn.toLowerCase().includes(filter) || (m.kategori||'').toLowerCase().includes(filter));
+  if (!filtered.length) { list.innerHTML = '<div style="color:var(--muted);font-size:13px;">' + (bMaterialDB.length===0 ? 'Inga material sparade ännu.' : 'Inga träffar.') + '</div>'; return; }
+  const cats = {};
+  filtered.forEach(m => { const k = m.kategori || 'Övrigt'; if (!cats[k]) cats[k] = []; cats[k].push(m); });
+  list.innerHTML = '';
+  Object.entries(cats).sort().forEach(([kat, items]) => {
+    const ch = document.createElement('div'); ch.className='bygg-cat-head'; ch.textContent = kat; list.appendChild(ch);
+    items.forEach(m => {
+      const row = document.createElement('div'); row.className = 'bygg-db-row';
+      row.innerHTML = `<div style="flex:1"><div style="font-size:13px;">${bEsc(m.namn)}</div><div style="font-size:11px;color:var(--muted);">${m.pris} kr / ${m.enhet}</div></div>
+        <button class="bygg-btn-ghost" style="padding:5px 10px;font-size:11px;" onclick="bLaggFranDB('${m.id}')">+ Kalkyl</button>
+        <button class="bygg-btn-danger" style="padding:5px 8px;" onclick="bTaBortDB('${m.id}')">✕</button>`;
+      list.appendChild(row);
+    });
+  });
+}
+function bLaggFranDB(id) { const m = bMaterialDB.find(x => x.id===id); if(m){bLaggTillKalkylMat(m); byggNav('kalkyl');} }
+function bTaBortDB(id) {
+  const m = bMaterialDB.find(x => x.id===id);
+  if (!confirm('Ta bort "' + (m?.namn||'') + '"?')) return;
+  bMaterialDB = bMaterialDB.filter(x => x.id !== id);
+  bSparaDB();
+  bRenderDB();
+  bToast('✓ Borttaget');
+}
+
+// ── BERÄKNING ──
+function bRakna() {
+  const timmar = parseFloat(document.getElementById('b-timmar')?.value) || 0;
+  const timpris = parseFloat(document.getElementById('b-timpris')?.value) || 650;
+  const rot = document.getElementById('b-rot')?.checked;
+  const rotPers = parseInt(document.getElementById('b-rot-personer')?.value || 1);
+  const rotInfo = document.getElementById('b-rot-info');
+  const rotRad = document.getElementById('b-rot-rad');
+  if (rotInfo) rotInfo.style.display = rot ? 'block' : 'none';
+  if (rotRad) rotRad.style.display = rot ? 'flex' : 'none';
+  const matKost = bKalkylMat.reduce((s,m) => s + m.antal*m.pris, 0);
+  const arbKost = timmar * timpris;
+  const tot = matKost + arbKost;
+  const maxRot = rotPers * 50000;
+  const rotBelop = rot ? Math.min(arbKost * 0.30, maxRot) : 0;
+  const final = tot - rotBelop;
+  const el = id => document.getElementById(id);
+  if(el('b-s-mat')) el('b-s-mat').textContent = bFmt(matKost);
+  if(el('b-s-arb')) el('b-s-arb').textContent = bFmt(arbKost);
+  if(el('b-s-tot')) el('b-s-tot').textContent = bFmt(tot);
+  if(el('b-s-rot')) el('b-s-rot').textContent = bFmt(rotBelop);
+  if(el('b-s-final')) el('b-s-final').textContent = bFmt(final);
+}
+
+// ── SPARA OFFERT ──
+function bSparaOffert() {
+  const offertData = {
+    id: _bRedigerarId || Date.now().toString(),
+    skapad_at: _bRedigerarId ? (bSparadeCache.find(x=>x.id===_bRedigerarId)?.skapad_at || new Date().toISOString()) : new Date().toISOString(),
+    offert_nr: document.getElementById('b-offert-nr').value,
+    kund_namn: document.getElementById('b-kund-namn').value,
+    kund_adress: document.getElementById('b-kund-adress').value,
+    arbetsteg: [...bArbetsteg],
+    kalkyl_material: [...bKalkylMat],
+    timmar: parseFloat(document.getElementById('b-timmar').value) || 0,
+    rot_aktiv: document.getElementById('b-rot').checked,
+    rot_personer: parseInt(document.getElementById('b-rot-personer')?.value || 1),
+    giltig: document.getElementById('b-giltig').value
+  };
+  if (_bRedigerarId) {
+    bSparadeCache = bSparadeCache.map(x => x.id === _bRedigerarId ? offertData : x);
+    _bRedigerarId = null;
+    document.getElementById('b-spara-btn').textContent = '💾 Spara';
+    bToast('✓ Offert uppdaterad');
+  } else {
+    bSparadeCache.unshift(offertData);
+    bToast('✓ Offert sparad');
+  }
+  localStorage.setItem('b_offerter', JSON.stringify(bSparadeCache));
+}
+
+// ── SPARADE OFFERTER ──
+function bVisaSparade() {
+  bFilterSparade();
+}
+function bFilterSparade() {
+  const q = (document.getElementById('b-filter')?.value || '').toLowerCase();
+  const filtered = bSparadeCache.filter(o => (o.kund_namn||'').toLowerCase().includes(q) || (o.offert_nr||'').toLowerCase().includes(q));
+  bRenderSparade(filtered);
+}
+function bRenderSparade(offerter) {
+  const list = document.getElementById('b-sparade-list');
+  if (!list) return;
+  if (!offerter.length) { list.innerHTML = '<div style="color:var(--muted);font-size:13px;">Inga offerter hittades.</div>'; return; }
+  list.innerHTML = offerter.map(o => `
+    <div class="bygg-offert-list-row">
+      <div style="flex:1;cursor:pointer;" onclick="bOppnaOffert('${o.id}')">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);width:75px;flex-shrink:0;">${bEsc(o.offert_nr||'–')}</span>
+          <span style="font-size:13px;">${bEsc(o.kund_namn||'Okänd')}</span>
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">${new Date(o.skapad_at).toLocaleDateString('sv-SE')}</div>
+      </div>
+      <button class="bygg-btn-ghost" style="padding:5px 9px;font-size:11px;" onclick="bRedigeraOffert('${o.id}')">✏️</button>
+      <button class="bygg-btn-danger" style="padding:5px 8px;" onclick="bTaBortOffert('${o.id}')">✕</button>
+    </div>`).join('');
+}
+function bOppnaOffert(id) {
+  const o = bSparadeCache.find(x => x.id===id);
+  if (!o) return;
+  bLaddaIKalkyl(o);
+  bSkapaOffert();
+  byggNav('offert');
+}
+function bRedigeraOffert(id) {
+  const o = bSparadeCache.find(x => x.id===id);
+  if (!o) return;
+  bLaddaIKalkyl(o);
+  _bRedigerarId = id;
+  document.getElementById('b-spara-btn').textContent = '💾 Uppdatera';
+  byggNav('kalkyl');
+  bToast('Offert laddad — gör ändringar och spara');
+}
+function bLaddaIKalkyl(o) {
+  bArbetsteg = o.arbetsteg || [];
+  bKalkylMat = o.kalkyl_material || [];
+  document.getElementById('b-kund-namn').value = o.kund_namn || '';
+  document.getElementById('b-kund-adress').value = o.kund_adress || '';
+  document.getElementById('b-offert-nr').value = o.offert_nr || '';
+  document.getElementById('b-giltig').value = o.giltig || '';
+  document.getElementById('b-timmar').value = o.timmar || '';
+  document.getElementById('b-rot').checked = o.rot_aktiv || false;
+  if (o.rot_personer) document.getElementById('b-rot-personer').value = o.rot_personer;
+  bRenderSteg();
+  bRenderMat();
+  bRakna();
+}
+function bTaBortOffert(id) {
+  const o = bSparadeCache.find(x => x.id===id);
+  if (!confirm('Ta bort offert för ' + (o?.kund_namn||'okänd kund') + '?')) return;
+  bSparadeCache = bSparadeCache.filter(x => x.id !== id);
+  localStorage.setItem('b_offerter', JSON.stringify(bSparadeCache));
+  bVisaSparade();
+  bToast('✓ Offert borttagen');
+}
+
+// ── OFFERT GENERERING ──
+function bSkapaOffert() {
+  const inst = bGetInst();
+  const kundNamn = document.getElementById('b-kund-namn').value || 'Kund';
+  const kundAdress = document.getElementById('b-kund-adress').value || '';
+  const offertNr = document.getElementById('b-offert-nr').value || new Date().getFullYear() + '-001';
+  const giltig = document.getElementById('b-giltig').value || '30 dagar';
+  const timmar = parseFloat(document.getElementById('b-timmar').value) || 0;
+  const timpris = parseFloat(document.getElementById('b-timpris').value) || 650;
+  const rot = document.getElementById('b-rot').checked;
+  const rotPers = parseInt(document.getElementById('b-rot-personer')?.value || 1);
+  const matKost = bKalkylMat.reduce((s,m) => s + m.antal*m.pris, 0);
+  const arbKost = timmar * timpris;
+  const tot = matKost + arbKost;
+  const rotBelop = rot ? Math.min(arbKost*0.30, rotPers*50000) : 0;
+  const final = tot - rotBelop;
+  const today = new Date().toLocaleDateString('sv-SE');
+  const stegHTML = bArbetsteg.filter(s=>s.trim()).map(s=>`<li style="padding:3px 0;border-bottom:1px solid #f0f0f0;font-size:11px;display:flex;align-items:center;gap:6px;"><span style="color:#d4a853;font-weight:bold;">–</span>${bEsc(s)}</li>`).join('');
+  const matHTML = bKalkylMat.filter(m=>m.namn).map(m=>`${bEsc(m.namn)} (${m.antal} ${m.enhet})`).join(', ');
+  const logoHTML = bLogoBase64 ? `<img src="${bLogoBase64}" style="max-height:55px;max-width:160px;object-fit:contain;display:block;margin-bottom:4px;">` : `<div style="font-family:'DM Serif Display',serif;font-size:14px;color:#1a1a18;">${bEsc(inst.foretag_namn||'Ditt Bygg AB')}</div>`;
+  const matRad = matKost>0 ? `<tr><td style="padding:6px 0;font-size:11px;color:#444;">Material (inkl. moms)</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;">${bFmt(matKost)}</td></tr>` : '';
+  const rotRader = rot ? `<tr><td style="padding:6px 0;font-size:11px;color:#444;">Totalt före ROT</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:13px;">${bFmt(tot)}</td></tr><tr><td style="padding:6px 0;font-size:11px;color:#2980b9;">ROT-avdrag (–)</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:11px;color:#2980b9;">–${bFmt(rotBelop)}</td></tr>` : '';
+  const rotNote = rot ? `<div style="background:#e8f4fb;border-radius:6px;padding:7px 10px;font-size:10px;color:#2980b9;margin-top:6px;"><strong>ROT-avdrag:</strong> Avdraget söks av utföraren och dras direkt från er betalning. Förutsätter att ni har utrymme för ROT-avdrag.</div>` : '';
+  document.getElementById('b-offert-preview').innerHTML = `
+    <div style="font-family:'Outfit',sans-serif;color:#1a1a18;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid #d4a853;">
+        <div>${logoHTML}<div style="font-size:11px;color:#666;margin-top:2px;">${bEsc(inst.foretag_adress||'')}</div>${inst.foretag_tel?`<div style="font-size:11px;color:#666;">Tel: ${bEsc(inst.foretag_tel)}</div>`:''} ${inst.foretag_email?`<div style="font-size:11px;color:#666;">${bEsc(inst.foretag_email)}</div>`:''} ${inst.foretag_org?`<div style="font-size:11px;color:#666;">Org.nr: ${bEsc(inst.foretag_org)}</div>`:''}</div>
+        <div style="text-align:right;font-size:11px;color:#666;">OFFERT<strong style="display:block;font-size:15px;color:#1a1a18;font-family:'DM Mono',monospace;">${bEsc(offertNr)}</strong><div style="margin-top:4px;">${today}</div></div>
+      </div>
+      <div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Kund</div><strong style="font-size:13px;">${bEsc(kundNamn)}</strong><div style="color:#555;font-size:13px;">${bEsc(kundAdress)}</div></div>
+      ${stegHTML ? `<div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Arbetet omfattar</div><ul style="list-style:none;">${stegHTML}</ul></div>` : ''}
+      ${matHTML ? `<div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Material som ingår</div><div style="font-size:12px;color:#444;">${matHTML}</div></div>` : ''}
+      <div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Prissättning</div>
+        <table style="width:100%;border-collapse:collapse;">${matRad}<tr><td style="padding:6px 0;font-size:11px;color:#444;">Arbetskostnad (inkl. moms)</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;">${bFmt(arbKost)}</td></tr>${rotRader}<tr style="border-top:2px solid #d4a853;"><td style="padding:8px 0 5px;font-size:13px;font-weight:700;">Ni betalar totalt</td><td style="text-align:right;font-family:'DM Mono',monospace;font-size:15px;font-weight:700;padding:10px 0 6px;">${bFmt(final)}</td></tr></table>${rotNote}</div>
+      ${inst.villkor ? `<div style="margin-bottom:10px;"><div style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#999;margin-bottom:4px;">Villkor</div><div style="background:#fafafa;border-radius:6px;padding:7px 10px;font-size:10px;color:#666;line-height:1.5;">${bEsc(inst.villkor).replace(/\n/g,'<br>')}</div></div>` : ''}
+      <div style="font-weight:600;font-size:11px;color:#1a1a18;margin-bottom:8px;">Offerten är giltig: ${bEsc(giltig)}</div>
+      <div style="border-top:1px solid #eee;padding-top:8px;font-size:10px;color:#888;">${bEsc(inst.foretag_namn||'')}${inst.foretag_org?' · Org.nr '+bEsc(inst.foretag_org):''}${inst.foretag_webb?' · '+bEsc(inst.foretag_webb):''}</div>
+    </div>`;
+  byggNav('offert');
+}
+
+function bNollstall() {
+  bArbetsteg = []; bKalkylMat = []; _bRedigerarId = null;
+  ['b-kund-namn','b-kund-adress','b-giltig','b-timmar'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+  const rot = document.getElementById('b-rot'); if(rot) rot.checked = false;
+  bRenderSteg(); bRenderMat(); bRakna();
+  const yr = new Date().getFullYear();
+  const count = bSparadeCache.length + 1;
+  document.getElementById('b-offert-nr').value = yr + '-' + String(count).padStart(3,'0');
+  const btn = document.getElementById('b-spara-btn'); if(btn) btn.textContent = '💾 Spara';
+  bLaggTillSteg();
+  byggNav('kalkyl');
+}
+
+function bKopiera() {
+  const el = document.getElementById('b-offert-preview');
+  if (el) navigator.clipboard.writeText(el.innerText).then(() => bToast('✓ Kopierat'));
+}
+
+// Init when panel-bygg becomes active
+const _bOrigSwitch = window.switchTab;
+window.switchTab = function(tab) {
+  _bOrigSwitch(tab);
+  if (tab === 'bygg') {
+    // small delay to ensure panel is visible
+    setTimeout(bInit, 50);
+    window.switchTab = _bOrigSwitch; // only init once
+  }
+};
+</script>
+
+</body>
+</html>
