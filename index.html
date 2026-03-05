@@ -204,24 +204,51 @@
   .bygg-offert-list-row:last-child { border-bottom: none; }
   .bygg-cat-head { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); padding: 10px 0 5px; }
   @media print {
-    /* Dölj ALLT */
-    * { box-sizing: border-box; }
-    html { background: white !important; }
-    body { background: white !important; margin: 0; padding: 0; }
-    body > * { display: none !important; }
-
-    /* Visa bara offert-förhandsgranskningen */
-    #b-offert-preview {
-      display: block !important;
-      position: fixed !important;
-      top: 0 !important; left: 0 !important;
-      width: 100% !important;
+    html, body {
       background: white !important;
-      color: black !important;
-      padding: 20px !important;
-      border-radius: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+    /* Dölj allt utom offert-preview */
+    header, nav, .tabs, .sidebar,
+    #panel-chat, #panel-btc, #panel-settings,
+    .bygg-nav, .bygg-summary,
+    #bygg-kalkyl, #bygg-sparade, #bygg-material, #bygg-installs,
+    #bygg-offert > .bygg-scroll > div:first-child,
+    #b-spara-btn, .bygg-btn-ghost, .bygg-btn-primary,
+    #b-toast, .input-area {
+      display: none !important;
+    }
+    #panel-bygg {
+      display: block !important;
+      background: white !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+    #bygg-offert {
+      display: block !important;
+      background: white !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+    .bygg-scroll {
+      overflow: visible !important;
+      height: auto !important;
+      padding: 0 !important;
+      background: white !important;
+    }
+    .bygg-card {
+      background: white !important;
+      border: none !important;
+      padding: 0 !important;
       box-shadow: none !important;
-      font-size: 12px !important;
+    }
+    #b-offert-preview {
+      background: white !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
     }
   }
 </style>
